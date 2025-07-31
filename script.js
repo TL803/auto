@@ -363,3 +363,167 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.querySelector('.thick-blue-slider');
+        const percentValue = document.getElementById('percentValue');
+        const amountValue = document.getElementById('amountValue');
+
+        // Общая стоимость автомобиля
+        const propertyPrice = 5_000_000;
+
+        // Форматирование чисел
+        function formatNumber(num) {
+            return num.toLocaleString('ru-RU');
+        }
+
+        // Проверяем, существует ли ползунок
+        if (!slider) {
+            console.warn("Ползунок .thick-blue-slider не найден");
+            return;
+        }
+
+        // Обновление значений при движении
+        function updateSlider() {
+            const value = slider.value;
+            const min = slider.min || 0;
+            const max = slider.max || 100;
+
+            // Процент от диапазона
+            const percent = ((value - min) / (max - min)) * 100;
+
+            // Устанавливаем CSS-переменную
+            slider.style.setProperty('--fill-percent', `${percent}%`);
+
+            // Обновляем отображение
+            percentValue.textContent = `${Math.round(percent)}%`;
+            const amount = propertyPrice * (percent / 100);
+            amountValue.textContent = formatNumber(Math.round(amount));
+        }
+
+        // Добавляем обработчик
+        slider.addEventListener('input', updateSlider);
+
+        // Инициализация при загрузке
+        updateSlider();
+    });
+
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.querySelector('.thick-blue-slider');
+        const termValue = document.getElementById('termValue');
+        const paymentValue = document.getElementById('paymentValue');
+        const cards = document.querySelectorAll('.card');
+        const container = document.getElementById('cardsContainer');
+
+        // Массив данных для сопоставления
+        const terms = [
+            { term: "7 лет", payment: "50 000", id: 0 },
+            { term: "6 лет", payment: "60 000", id: 1 },
+            { term: "5 лет", payment: "70 000", id: 2 },
+            { term: "4 года", payment: "80 000", id: 3 },
+            { term: "3 года", payment: "90 000", id: 4 }
+        ];
+
+        // Функция обновления ползунка
+        function updateSliderFromCard(activeCard) {
+            const index = Array.from(cards).indexOf(activeCard);
+            if (slider) {
+                slider.value = index;
+                const percent = (index / (cards.length - 1)) * 100;
+                slider.style.setProperty('--fill-percent', `${percent}%`);
+            }
+        }
+
+        // Функция обновления карточек
+        function updateCards(index) {
+            const data = terms[index];
+            termValue.textContent = data.term;
+            paymentValue.textContent = data.payment + " ₽";
+
+            cards.forEach((card, i) => {
+                const isActive = i === index;
+                card.classList.toggle('bg-[#4886FF]', isActive);
+                card.classList.toggle('text-white', isActive);
+                card.classList.toggle('bg-white', !isActive);
+                card.classList.toggle('text-gray-500', !isActive);
+
+                const spans = card.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.classList.toggle('text-white', isActive);
+                    span.classList.toggle('text-gray-500', !isActive);
+                });
+
+                const divider = card.querySelector('.h-0.5');
+                if (divider) {
+                    divider.classList.toggle('bg-blue-200', isActive);
+                    divider.classList.toggle('bg-[#D9D9D9]', !isActive);
+                }
+            });
+
+            // Прокрутка к активной карточке
+            const activeCard = cards[index];
+            if (activeCard && container) {
+                container.scrollTo({
+                    left: activeCard.offsetLeft - (container.offsetWidth - activeCard.offsetWidth) / 2,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Обработчик ползунка
+        if (slider) {
+            slider.addEventListener('input', function () {
+                const index = parseInt(this.value);
+                updateCards(index);
+            });
+
+            // Инициализация
+            updateCards(parseInt(slider.value));
+        }
+
+        // Обработчик клика по карточкам
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function () {
+                updateCards(index);
+                if (slider) slider.value = index;
+                updateSliderFromCard(this);
+            });
+        });
+
+        // Скролл карточек
+        window.scrollCards = function (direction) {
+            const scrollAmount = 232;
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        };
+
+        // Логика Trade-in
+        const checkbox = document.getElementById('checkbox');
+        const tradeinForm = document.getElementById('tradein-form');
+
+        if (checkbox && tradeinForm) {
+            checkbox.addEventListener('change', function () {
+                tradeinForm.classList.toggle('hidden', !this.checked);
+            });
+        }
+
+        // Обновление CSS-переменной для ползунка
+        if (slider) {
+            const initialValue = slider.value;
+            const percent = (initialValue / (slider.max - slider.min)) * 100;
+            slider.style.setProperty('--fill-percent', `${percent}%`);
+        }
+    });
+
+
+    

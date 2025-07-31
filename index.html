@@ -406,8 +406,27 @@
         </section>
 
         <section class=" p-6 rounded-[14px]">
-            <h2 class="text-[36px] md:text-[44px] font-medium mb-6">Подбор авто<br>по параметрам</h2>
+            <h2 class="text-[36px] md:text-[44px] font-medium  mb-6">Подбор авто<br>по параметрам</h2>
 
+
+            <div class="relative h-8 flex items-center mb-6">
+                <input type="range" class="thick-blue-slider md:hidden flex" min="500000" max="2500000" value="1500000"
+                    step="100000">
+            </div>
+
+            <!-- Отображение диапазона цен -->
+            <div class="flex justify-between items-center text-sm font-medium mt-4 mb-6 md:hidden flex">
+                <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-md shadow-sm">
+                    <span class="md:text-[18px] text-[14px]" id="minPriceValue">От 500 000 ₽</span>
+                </div>
+                <div class="text-gray-600 md:text-[18px] text-[12px]">Цена</div>
+                <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-md shadow-sm">
+                    <span class="md:text-[18px] text-[14px]" id="maxPriceValue">До 2 500 000 ₽</span>
+                </div>
+            </div>
+
+
+            <!-- Выбор привода -->
             <form class="space-y-4 " action="#" method="get">
                 <!-- Первая строка: три select -->
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3 ">
@@ -441,11 +460,11 @@
 
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3 ">
                     <input type="number"
-                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none focus:ring focus:border-blue-300"
                         name="price_from" id="price_from" placeholder="От 500 000 ₽" />
 
                     <input type="number"
-                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none focus:ring focus:border-blue-300"
                         name="price_to" id="price_to" placeholder="До 2 500 000 ₽" />
 
                     <select
@@ -651,7 +670,7 @@
         class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
         <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md ">
             <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 top-0 right-0" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -681,7 +700,7 @@
         </div>
     </div>
 
-    <script src="./script.js" >
+    <script src="./script.js">
     </script>
 </body>
 
