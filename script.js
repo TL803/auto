@@ -526,4 +526,137 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    
+document.addEventListener("DOMContentLoaded", function () {
+    const carBrands = [
+        "BAIC",
+        "Lada",
+        "Belgee",
+        "Changan",
+        "Chery",
+        "Dongfeng",
+        "EXEED",
+        "Faw",
+        "Forthing",
+        "Gac",
+        "Geely",
+        "Haval",
+        "Hyundai",
+        "Jaecoo",
+        "Jac",
+        "Jetour",
+        "Jetta",
+        "KAIYI",
+        "Livan",
+        "Moskvich",
+        "MG",
+        "Nissan",
+        "Omoda",
+        "Renault",
+        "Skoda",
+        "Soueast",
+        "SWM",
+        "Tank",
+        "UAZ",
+        "Volkswagen",
+        "XCite"
+    ];
+
+    const container = document.getElementById('brands-container');
+    if (!container) {
+        console.error('Элемент с id="brands-container" не найден');
+        return;
+    }
+
+    container.innerHTML = '';
+
+    carBrands.forEach(brand => {
+        const brandElement = document.createElement('div');
+        brandElement.className = 'flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200';
+        brandElement.setAttribute('onclick', "this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');");
+        brandElement.innerHTML = `
+            <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+            <p class="text-gray-800 font-medium">${brand}</p>
+        `;
+        container.appendChild(brandElement);
+    });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // === Данные для карточек (все одинаковые) ===
+    const carData = {
+        model: "Hyundai Sonata",
+        type: "Внедорожник 5 дв.",
+        oldPrice: "20 959 900 ₽",
+        discount: "-51%",
+        price: "960 000 ₽",
+        image: "./assets/Rectangle 7.png",
+        link: "./product.html"
+    };
+
+    // === Генерация карточек для всех контейнеров с классом .js-cards-container ===
+    const containers = document.querySelectorAll('.js-cards-container');
+
+    containers.forEach(container => {
+        // Очистим контейнер (на случай, если что-то уже есть)
+        container.innerHTML = '';
+
+        // Создаём 6 одинаковых карточек
+        for (let i = 0; i < 6; i++) {
+            const cardLink = document.createElement("a");
+            cardLink.href = carData.link;
+            cardLink.style.boxShadow = "0 20px 50px rgba(0, 0, 0, 0.1)";
+            cardLink.style.borderRadius = "0.5rem";
+
+            cardLink.innerHTML = `
+                <div class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8px] md:gap-[16px] box-border">
+                    <img src="${carData.image}" alt="Car Image" class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                    <div>
+                        <p class="text-[16px] md:text-[28px] font-medium text-gray-800">${carData.model}</p>
+                        <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">${carData.type}</span>
+                    </div>
+                    <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                        <p class="line-through font-medium text-[10px] md:text-[16px]">${carData.oldPrice}</p>
+                        <div class="bg-[#DAE7FF] text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                            ${carData.discount}
+                        </div>
+                    </div>
+                    <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4">${carData.price}</p>
+                    <button class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                        Подобрать
+                    </button>
+                </div>
+            `;
+
+            container.appendChild(cardLink);
+        }
+    });
+
+    // === Генерация брендов (как в оригинале) ===
+    const carBrands = [
+        "BAIC", "Lada", "Belgee", "Changan", "Chery", "Dongfeng", "EXEED", "Faw", "Forthing", "Gac",
+        "Geely", "Haval", "Hyundai", "Jaecoo", "Jac", "Jetour", "Jetta", "KAIYI", "Livan", "Moskvich",
+        "MG", "Nissan", "Omoda", "Renault", "Skoda", "Soueast", "SWM", "Tank", "UAZ", "Volkswagen", "XCite"
+    ];
+
+    const brandsContainer = document.getElementById('brands-container');
+    if (brandsContainer) {
+        brandsContainer.innerHTML = '';
+        carBrands.forEach(brand => {
+            const brandElement = document.createElement('div');
+            brandElement.className = 'flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200';
+            brandElement.setAttribute('onclick', "this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');");
+            brandElement.innerHTML = `
+                <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                <p class="text-gray-800 font-medium">${brand}</p>
+            `;
+            brandsContainer.appendChild(brandElement);
+        });
+    }
+
+    // === Остальной функционал (оставьте ваш оригинальный JS ниже) ===
+    // Все ваши модалки, попапы, слайдеры и т.д. — можно вставить сюда
+    // Они не конфликтуют с новым кодом
+});
