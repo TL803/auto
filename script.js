@@ -1,4 +1,4 @@
-// Универсальная функция: безопасно добавляет обработчик, если элемент существует
+// Универсальная утилита: безопасно выполняет действие, если элемент найден
 function on(selector, callback) {
     const el = document.querySelector(selector);
     if (el) callback(el);
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Показываем сразу, если прошло 10 секунд с последнего показа
+        // Показываем, если прошло 10 секунд с последнего показа
         checkAndShowPopup();
 
         // Проверяем каждые 10 секунд
@@ -263,7 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Закрытие меню при клике вне его
     window.addEventListener('click', (e) => {
         if (mobileMenu && mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && e.target !== burgerButton) {
             mobileMenu.classList.remove('active');
@@ -271,15 +270,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// =============== 8. EXIT MODAL: Через 1 секунду после ухода с /products ===============
+// =============== 8. EXIT MODAL: Через 10 секунд ПОСЛЕ ухода с /products ===============
 document.addEventListener("DOMContentLoaded", function () {
-    // Показываем только на странице /products
-    if (!window.location.pathname.includes('products')) return;
+    const EXIT_INTENT_KEY = "exitIntentTime";
+    const MODAL_SHOWN_KEY = "exitModalShown";
+    const EXIT_DELAY = 10000; // 10 секунд
 
-    let exitModalShown = false;
+    // === Этап 1: На странице /products — фиксируем момент ухода мыши вверх ===
+    if (window.location.pathname.includes('products')) {
+        let exitIntentRecorded = false;
 
+        function handleExitIntent(e) {
+            if (exitIntentRecorded || e.clientY > 10) return;
+
+            sessionStorage.setItem(EXIT_INTENT_KEY, Date.now().toString());
+            exitIntentRecorded = true;
+
+            // Удаляем обработчик после первого срабатывания
+            document.removeEventListener("mouseout", handleExitIntent);
+        }
+
+        document.addEventListener("mouseout", handleExitIntent);
+    }
+
+    // === Этап 2: На ЛЮБОЙ другой странице — проверяем, прошло ли 10 секунд с момента ухода ===
+    if (!window.location.pathname.includes('products')) {
+        const exitIntentTimeStr = sessionStorage.getItem(EXIT_INTENT_KEY);
+        const modalShown = sessionStorage.getItem(MODAL_SHOWN_KEY);
+
+        if (modalShown || !exitIntentTimeStr) return;
+
+        const exitIntentTime = parseInt(exitIntentTimeStr, 10);
+        const now = Date.now();
+        const elapsed = now - exitIntentTime;
+
+        if (elapsed >= EXIT_DELAY) {
+            createExitModal();
+            sessionStorage.setItem(MODAL_SHOWN_KEY, 'true');
+            sessionStorage.removeItem(EXIT_INTENT_KEY);
+        }
+    }
+
+    // === Функция создания модалки (ваш HTML) ===
     function createExitModal() {
-        if (exitModalShown || document.getElementById("exit-modal-overlay")) return;
+        if (document.getElementById("exit-modal-overlay")) return;
 
         const overlay = document.createElement("div");
         overlay.id = "exit-modal-overlay";
@@ -289,22 +323,22 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.className = "bg-[#4886FF] text-white rounded-[14px] shadow-xl max-w-lg w-full relative overflow-hidden";
         modal.innerHTML = `
             <button id="exit-modal-close" class="absolute top-3 right-3 text-white text-2xl font-bold hover:text-gray-200 transition z-10">&times;</button>
-            <div class="p-6 pt-8 text-center">
+            <div class="p-6 pt-8">
                 <h2 class="text-2xl font-bold mb-1">Успейте купить Hyundai Solaris</h2>
                 <p class="text-blue-100 text-sm mb-6">2.5 л. 6АКПП (180 л.с.) FWD</p>
                 <img src="./assets/Rectangle 36.png" alt="Hyundai Solaris" class="w-full h-auto rounded mb-6" />
                 <h3 class="text-xl font-semibold mb-6">В кредит на специальных условиях!</h3>
                 <form id="exit-modal-form" class="space-y-4">
                     <input type="text" name="fullname" placeholder="ФИО"
-                        class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]"
+                        class="w-full px-4 py-3 rounded text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
                         required />
                     <input type="tel" name="phone" placeholder="Ваш телефон"
-                        class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]"
+                        class="w-full px-4 py-3 rounded text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
                         required />
                     <div class="flex items-start space-x-2">
-                        <input type="checkbox" id="agreement" name="agreement" class="mt-1.5 h-4 w-4 focus:ring-blue-500" required />
+                        <input type="checkbox" id="agreement" name="agreement" class="mt-1.5 h-4 w-4 text-[#4886FF] focus:ring-blue-500" required />
                         <label for="agreement" class="text-xs leading-tight">
-                            Я соглашаюсь с условиями и даю своё согласие на обработку моих персональных данных, и разрешаю сделать запрос в бюро кредитных историй
+                            Я соглашаюсь с условиями и даю свое согласие на обработку использования моих персональных данных, и разрешаю сделать запрос в бюро кредитных историй
                         </label>
                     </div>
                     <button type="submit"
@@ -321,14 +355,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // Закрытие крестиком
         document.getElementById("exit-modal-close").addEventListener("click", () => {
             overlay.remove();
-            exitModalShown = true;
         });
 
         // Закрытие кликом по фону
         overlay.addEventListener("click", (e) => {
             if (e.target === overlay) {
                 overlay.remove();
-                exitModalShown = true;
             }
         });
 
@@ -337,26 +369,8 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             alert("Спасибо! Мы свяжемся с вами с выгодным предложением.");
             overlay.remove();
-            exitModalShown = true;
         });
     }
-
-    // Обработчик "ухода" — срабатывает только при выходе за пределы окна
-    function handleExitIntent(e) {
-        if (exitModalShown || e.clientY > 10) return;
-
-        // Задержка 1 секунда
-        setTimeout(() => {
-            if (!exitModalShown) {
-                createExitModal();
-            }
-        }, 1000);
-
-        // Удаляем обработчик после первого срабатывания
-        document.removeEventListener("mouseout", handleExitIntent);
-    }
-
-    document.addEventListener("mouseout", handleExitIntent);
 });
 
 // =============== 9. Обработчики для select (has-value) ===============
