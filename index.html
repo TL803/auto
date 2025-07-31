@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Автосалон</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                    },
+                    screens: {
+                        md: '1601px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="font-sans">
+
+    <header class="p-4 hidden md:flex">
+        <div class="container flex justify-end md:justify-between items-center">
+            <nav class="hidden md:flex justify-between items-center w-full">
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <a href="/" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
+                    <a href="/carLoan.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
+                    <a href="/TradeIn.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Trade-in</a>
+                    <a href="/stock.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Акции</a>
+                    <a href="/contacts.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition ">Контакты</a>
+                </div>
+                <div class="flex flex-colitems-center gap-[40px] text-center">
+                    <a href="#" class="text-[18px] flex items-center font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                    <button id="openModal"
+                        class="bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                        Обратная связь
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mobileMenu" class="hidden md:hidden absolute top-0 right-0 w-full h-screen bg-[#4886FF] text-white p-4">
+        <button id="closeMobileMenu" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="mt-10">
+            <ul class="space-y-4">
+                <li><a href="/" class="text-white hover:text-gray-300">Главная</a></li>
+                <li><a href="/carLoan.html" class="text-white hover:text-gray-300">Автокредит</a></li>
+                <li><a href="/TradeIn.html" class="text-white hover:text-gray-300">Trade-in</a></li>
+                <li><a href="/stock.html" class="text-white hover:text-gray-300">Акции</a></li>
+                <li><a href="/contacts.html" class="text-white hover:text-gray-300">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section
+        class="relative md:hidden bg-cover bg-center w-full h-[700px] flex items-center justify-center text-white rounded-[14px] mb-8"
+        style="background-image: url('./assets/Rectangle 2 (1).png');">
+        <button id="burgerButton" class="md:hidden absolute right-6 top-6 z-10 focus:outline-none">
+            <img src="./assets/Бургер меню (1).svg" alt="Меню">
+        </button>
+
+        <div class="absolute top-[180px] left-10 flex flex-col items-start max-w-xs">
+            <h2 class="text-white inline-block px-3  py-1 font-bold mb-4 text-2xl rounded-[12px] bg-red-500">
+                Горячие скидки на автомобили!
+            </h2>
+
+            <h2 class="text-white inline-block px-4 py-2 font-bold text-3xl mb-6 rounded-[12px] bg-red-500">
+                До 40%
+            </h2>
+
+        </div>
+        <button
+            class="bg-[#4886FF] absolute bottom-[100px] hover:bg-[#3a6ecc] text-3xl w-[80%] text-white font-bold px-6 py-3 rounded-[8px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            Выбрать автомобиль
+        </button>
+    </section>
+
+    <main class="container full-photo md:w-full mx-auto mt-8">
+
+        <section
+            class="relative bg-cover bg-center w-full h-[850px]  md:h-[850px] md:flex hidden items-center justify-center text-white rounded-[14px] mb-8"
+            style="background-image: url('./assets/Rectangle 2 (1).png');">
+
+            <div class="p-6 md:p-8 absolute left-6 md:left-[60px] top-6 md:top-[70px] max-w-xs md:max-w-md">
+                <h1
+                    class="text-3xl md:text-4xl  font-bold mb-3 md:mb-4 bg-red-500 px-6 md:px-[24px] py-3 md:py-[12px] rounded-[12px]">
+                    Горячие скидки на автомобили!
+                </h1>
+                <p
+                    class="inline-block text-xl md:text-2xl px-6 md:px-[24px] py-3 md:py-[12px] font-bold mb-6 rounded-[12px] bg-red-500">
+                    До 40%
+                </p>
+            </div>
+
+            <button
+                class="bg-[#4886FF] rounded-[16px] text-white text-lg md:text-[36px] font-bold px-8 md:px-20  py-[20px] transition absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px]">
+                Подобрать авто
+            </button>
+        </section>
+
+        <section class="mb-8">
+            <div class="flex flex-row flex-wrap gap-6">
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">BAIC</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Lada</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Belgee</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Changan</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Chery</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Dongfeng</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">EXEED</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">BAIC</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Lada</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Belgee</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Changan</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Chery</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Dongfeng</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">EXEED</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">BAIC</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Lada</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Belgee</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Changan</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Chery</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Dongfeng</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">EXEED</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">BAIC</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Lada</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Belgee</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Changan</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Chery</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">Dongfeng</p>
+                </div>
+                <div class="flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200"
+                    onclick="this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');">
+                    <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
+                    <p class="text-gray-800 font-medium">EXEED</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-4xl font-medium text-gray-800 mb-8">KIA</h2>
+            <div class="flex flex-row flex-wrap justify-start items-start gap-[12px] md:gap-[30px]">
+                <a href="./product.html" style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a>
+                <a href="./product.html" style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class=" p-6 rounded-[14px]">
+            <h2 class="text-[36px] md:text-[44px] font-medium mb-6">Подбор авто<br>по параметрам</h2>
+
+            <form class="space-y-4 " action="#" method="get">
+                <!-- Первая строка: три select -->
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-3 ">
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="brand">
+                        <option value="" disabled selected>Марка автомобиля</option>
+                        <option value="bmw">BMW</option>
+                        <option value="audi">Audi</option>
+                        <option value="mercedes">Mercedes-Benz</option>
+                    </select>
+
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="drive_type" id="drive_type">
+                        <option value="" disabled selected>Привод</option>
+                        <option value="front">Передний</option>
+                        <option value="rear">Задний</option>
+                        <option value="all">Полный</option>
+                    </select>
+
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="transmission" id="transmission">
+                        <option value="" disabled selected>КПП</option>
+                        <option value="manual">Механическая</option>
+                        <option value="automatic">Автоматическая</option>
+                        <option value="cvt">CVT</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-3 ">
+                    <input type="number"
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="price_from" id="price_from" placeholder="От 500 000 ₽" />
+
+                    <input type="number"
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="price_to" id="price_to" placeholder="До 2 500 000 ₽" />
+
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="body_type" id="body_type">
+                        <option value="" disabled selected>Кузов</option>
+                        <option value="sedan">Седан</option>
+                        <option value="hatchback">Хэтчбек</option>
+                        <option value="suv">Кроссовер</option>
+                        <option value="pickup">Пикап</option>
+                    </select>
+                </div>
+
+                <!-- Кнопка -->
+                <button type="submit"
+                    class="w-full h-12 mt-4 bg-[#4886FF] hover:bg-[#4886FF] text-white font-semibold text-center text-base px-6 py-3 rounded-lg transition">
+                    Подобрать
+                </button>
+            </form>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-4xl font-medium text-gray-800 mb-8">Хиты продаж</h2>
+            <div class="flex flex-row flex-wrap justify-start items-start gap-[12px] md:gap-[30px]">
+                <a href="./product.html" style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a>
+                <a href="./product.html" style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a> <a href="./product.html"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <div
+                        class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8x] md:gap-[16px] box-border">
+                        <img src="./assets/Rectangle 7.png" alt="Car Image"
+                            class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                        <div>
+                            <p class="text-[16px] md:text-[28px] font-medium text-gray-800">Hyundai Sonata</p>
+                            <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">Внедорожник 5
+                                дв.</span>
+                        </div>
+                        <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
+                            <p class="line-through font-medium text-[10px] md:text-[16px] ">20 959 900 ₽</p>
+                            <div
+                                class="bg-[#DAE7FF]  text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
+                                -51%</div>
+                        </div>
+                        <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4 ">960 000 ₽</p>
+                        <button
+                            class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
+                            Подобрать
+                        </button>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
+        <div
+            class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div>
+                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
+                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
+                </p>
+            </div>
+            <form class="space-y-4 flex flex-col gap-4">
+                <input type="text" placeholder="ФИО"
+                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                <input type="tel" placeholder="Ваш телефон"
+                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                <div class="flex items-center">
+                    <input type="checkbox" id="agree" class="mr-2">
+                    <label for="agree" class="text-sm text-gray-600 leading-tight">
+                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
+                        и разрешаю сделать запрос в бюро кредитных историй
+                    </label>
+                </div>
+                <button id="form-send" type="submit"
+                    class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
+                    Оставить заявку на звонок
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="popupModal"
+        class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md ">
+            <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="text-xl font-bold mb-4">Уникальное предложение на покупку нового авто!</h2>
+            <p class="text-sm mb-4">Акция действует до 3 июля</p>
+            <img src="./assets/Frame 193.png" alt="Три автомобиля" class="w-full h-auto object-cover mb-4">
+            <h3 class="text-2xl font-bold mb-4">Специальное предложение на все автомобили</h3>
+            <form class="space-y-4 ">
+                <input type="text" placeholder="ФИО"
+                    class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]">
+
+                <input type="tel" placeholder="Ваш телефон"
+                    class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none placeholder:text-[#EAEAEA]">
+                <div class="flex items-center">
+                    <input type="checkbox" id="agreePopup" class="mr-2">
+                    <label for="agreePopup" class="text-[12px] text-left leading-tight">
+                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,
+                        и разрешаю сделать запрос в бюро кредитных историй
+                    </label>
+                </div>
+                <button type="submit"
+                    class="w-full bg-white text-[#4886FF] px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-gray-100 transition duration-300">
+                    Получить предложение
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./script.js">
+    </script>
+</body>
+
+</html>

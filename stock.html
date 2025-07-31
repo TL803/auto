@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                    },
+                    screens: {
+                        'md': '1601px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header class="p-4">
+        <div class="container flex justify-end md:justify-between items-center">
+
+            <button id="burgerButton" class="md:hidden text-[#4886FF] font-bold text-lg focus:outline-none">
+                <img src="./assets/Бургер меню.svg" alt="./assets/Бургер меню.svg">
+            </button>
+
+            <nav class="hidden md:flex sm:flex-row justify-between items-center w-full">
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="/"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Главная</a>
+                    <a href="/carLoan.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
+                    <a href="/TradeIn.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Trade-in</a>
+                    <a href="/stock.html"
+                        class="text-[#4886FF] text-[18px] font-regular">Акции</a>
+                    <a href="/contacts.html" class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition ">Контакты</a>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-[40px] text-center">
+                    <a href="#" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                    <button id="openModal"
+                        class="bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                        Обратная связь
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 px-4 flex flex-col gap-[33px] md:gap-[102px]">
+        <a href="" class="h-[310px] md:h-auto rounded-3xl contacts__custom-card">
+            <div class="w-full md:h-[490px] h-[158px] bg-cover bg-center relative rounded-3xl overflow-hidden"
+                style="background-image: url('./assets/Rectangle 41.png');">
+                <div
+                    class="relative hidden md:block z-10 flex items-center justify-between h-full px-12 text-white  relative">
+                    <div class=" flex-col gap-4  absolute top-[40px] left-[56px]">
+                        <h2 class="text-[46px] text-[#A50B03] font-bold leading-tight">
+                            Выгода при обмене<br>ПО TRADE-IN
+                        </h2>
+                        <p
+                            class="bg-[#A50B03] text-[24px] text-white px-6 py-2 rounded-full inline-block w-fit font-semibold shadow-lg">
+                            До 200 тысяч
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-end gap-6 absolute bottom-[40px] right-[56px] ">
+                        <button
+                            class="bg-[#4886FF] text-[24px] text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                            Получить предложение
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="w-[301px] md:hidden  m-auto mt-[20px] flex flex-col gap-[20px]">
+                    <h2 class=" text-[16px] font-medium">
+                        Выгода при обмене<br>ПО TRADE-IN
+                    </h2>
+                    <button
+                        class="bg-[#4886FF] text-[15px] text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Получить предложение
+                    </button>
+                </div>
+            </div>
+        </a>
+
+        <div class="flex gap-[33px] flex-col md:flex-row">
+            <a href=""
+                class="w-full contacts__custom-card md:h-[158px] h-[292px] md:w-[50%] md:h-[337px] rounded-3xl relative">
+                <div
+                    class="relative z-10 items-center justify-between h-full px-12 text-white md:flex relative adaptive-card__stock">
+
+                    <div class="flex-col hidden md:flex gap-4 absolute top-[40px] left-[56px]">
+                        <h2 class="text-[36px] text-[#A50B03] font-medium leading-tight">
+                            Комплект зимних шин<br> в подарок <br>
+                            <span class="text-[#040404]/50 text-lg font-medium">*до 31 августа </span>
+                        </h2>
+                    </div>
+
+                    <div class="flex flex-col items-end gap-6 absolute bottom-[40px] right-[56px]">
+                        <button
+                            class="bg-[#4886FF] hidden md:flex md:text-[24px] text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                            Получить предложение
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    class=" w-[300px] h-[120px] flex flex-col gap-[12px] m-auto md:hidden absolute bottom-[0] left-[20px]">
+                    <h2 class=" text-[16px] font-medium">
+                        Комплект зимних шин в подарок<br>
+                        <span>*до 31 августа </span>
+                    </h2>
+                    <button
+                        class="bg-[#4886FF] text-[15px] w-full text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Получить предложение
+                    </button>
+                </div>
+            </a>
+            <a href="" class="w-full contacts__custom-card md:h-[158px] h-[292px] md:w-[50%] md:h-[337px] rounded-3xl relative">
+                <div class="relative z-10 items-center justify-between h-full px-12 text-white md:flex bg-[350px] md:bg-[350px] bg-top md:bg-center relative adaptive-card__stock"
+                    style="background-image: url('./assets/Rectangle 43.png'); background-repeat: no-repeat;"
+                >
+                    <div class="flex-col hidden md:flex gap-4 absolute top-[40px] left-[56px]">
+                        <h2 class="text-[36px] text-white font-medium leading-tight">
+                            Скидка 10%<br>
+                            за приезд день<br>
+                            в день!<br>
+                        </h2>
+                    </div>
+            
+                    <div class="flex flex-col items-end gap-6 absolute bottom-[40px] right-[56px]">
+                        <button
+                            class="bg-[#4886FF] hidden md:flex md:text-[24px] text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                            Получить предложение
+                        </button>
+                    </div>
+                </div>
+            
+                <!-- Мобильная версия -->
+                <div class="w-[300px] h-[120px] flex flex-col gap-[12px] m-auto md:hidden absolute bottom-[0] left-[20px]">
+                    <h2 class="text-[16px] font-medium">
+                        Скидка 10% за приезд день в день!
+                    </h2>
+                    <button
+                        class="bg-[#4886FF] text-[15px] w-full text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Получить предложение
+                    </button>
+                </div>
+            </a>
+        </div>
+
+        <a href="" class="h-[350px] md:h-auto rounded-3xl contacts__custom-card">
+            <div class="w-full md:h-[490px] h-[158px] bg-cover bg-center relative rounded-3xl overflow-hidden"
+                style="background-image: url('./assets/Rectangle 44.png');">
+                <div
+                    class="relative hidden md:flex items-center justify-between h-full px-12 text-white relative mb-10">
+                    <div class="flex flex-col gap-4 absolute top-[40px] left-[56px]">
+                        <h2 class="text-[36px] font-semibold leading-tight flex flex-col gap-10">
+                            <span>ПОДАРКИ ВСЕМ! ПРИ ПОКУПКЕ<br> АВТОМОБИЛЯ В КРЕДИТ</span>
+                            <span>
+                                <br>- Cниженная ставка кредитования<br>
+                                - Отсрочка платежей на первые 3 месяца
+                            </span>
+                        </h2>
+                    </div>
+
+                    <div class="flex flex-col items-end gap-6 absolute bottom-[40px] right-[56px]">
+                        <button
+                            class="bg-[#4886FF] text-[24px] text-white font-medium px-12 py-3 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                            Получить предложение
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="w-[301px] md:hidden m-auto mt-[20px] flex flex-col gap-[20px]">
+                    <div>
+                        <h2 class="text-[16px] font-medium">
+                            ПОДАРКИ ВСЕМ! ПРИ ПОКУПКЕ<br> АВТОМОБИЛЯ В КРЕДИТ
+                        </h2>
+                        <p class="text-[#CACACA] text-[12px]">Cниженная ставка кредитования</p>
+                        <p class="text-[#CACACA] text-[12px]">Отсрочка платежей на первые 3 месяца</p>
+                    </div>
+                    <button
+                        class="bg-[#4886FF] text-[15px] text-white font-medium px-6 py-2 rounded-[14px] shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Получить предложение
+                    </button>
+                </div>
+            </div>
+        </a>
+    </main>
+    <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
+        <div
+            class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div>
+                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
+                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
+                </p>
+            </div>
+            <form class="space-y-4 flex flex-col gap-4">
+                <input type="text" placeholder="ФИО"
+                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                <input type="tel" placeholder="Ваш телефон"
+                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                <div class="flex items-center">
+                    <input type="checkbox" id="agree" class="mr-2">
+                    <label for="agree" class="text-sm text-gray-600 leading-tight">
+                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
+                        и разрешаю сделать запрос в бюро кредитных историй
+                    </label>
+                </div>
+                <button id="form-send" type="submit"
+                    class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
+                    Оставить заявку на звонок
+                </button>
+            </form>
+        </div>
+    </div>
+    <div id="popupModal"
+        class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-[#4886FF] text-white rounded-[14px] shadow-lg p-6 max-w-md">
+            <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="text-xl font-bold mb-4">Уникальное предложение на покупку нового авто!</h2>
+            <p class="text-sm mb-4">Акция действует до 3 июля</p>
+            <img src="./assets/Frame 193.png" alt="Три автомобиля" class="w-full h-auto object-cover mb-4">
+            <h3 class="text-2xl font-bold mb-4">Специальное предложение на все автомобили</h3>
+            <form class="space-y-4">
+                <input type="text" placeholder="ФИО"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                <input type="tel" placeholder="Ваш телефон"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                <div class="flex items-center">
+                    <input type="checkbox" id="agreePopup" class="mr-2">
+                    <label for="agreePopup" class="text-sm leading-tight">
+                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,
+                        и разрешаю сделать запрос в бюро кредитных историй
+                    </label>
+                </div>
+                <button type="submit"
+                    class="w-full bg-white text-[#4886FF] px-4 py-3 rounded text-xl font-medium hover:bg-gray-100 transition duration-300">
+                    Получить предложение
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+        <div id="mobileMenu" class="hidden md:hidden absolute top-0 right-0 w-full h-screen bg-[#4886FF] text-white p-4">
+        <button id="closeMobileMenu" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="mt-10">
+            <ul class="space-y-4">
+                <li><a href="/" class="text-white hover:text-gray-300">Главная</a></li>
+                <li><a href="/carLoan.html" class="text-white hover:text-gray-300">Автокредит</a></li>
+                <li><a href="/TradeIn.html" class="text-white hover:text-gray-300">Trade-in</a></li>
+                <li><a href="/stock.html" class="text-white hover:text-gray-300">Акции</a></li>
+                <li><a href="/contacts.html" class="text-white hover:text-gray-300">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

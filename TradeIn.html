@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="./style.css">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#0066cc',
+                },
+                screens: {
+                    'md': '1601px'
+                }
+            }
+        }
+    }
+</script>
+
+<body>
+    <header class="p-4">
+        <div class="container flex justify-end md:justify-between items-center">
+            <button id="burgerButton" class="md:hidden text-[#4886FF] font-bold text-lg focus:outline-none">
+                <img src="./assets/Бургер меню.svg" alt="./assets/Бургер меню.svg">
+            </button>
+            <nav class="hidden md:flex sm:flex-row justify-between items-center w-full">
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="/"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Главная</a>
+                    <a href="/carLoan.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
+                    <a href="/TradeIn.html" class="text-[#4886FF] text-[18px] font-regular">Trade-in</a>
+                    <a href="/stock.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Акции</a>
+                    <a href="/contacts.html"
+                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition ">Контакты</a>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-[40px] text-center">
+                    <a href="#" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                    <button id="openModal"
+                        class="bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                        Обратная связь
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto mt-8">
+        <section class=" mx-auto px-4 py-12">
+            <h1 class="text-[24px] md:text-[36px] font-medium leading-tight mb-8">
+                Купить новый автомобиль<br>
+                в Трейд-Ин
+            </h1>
+
+            <div class="md:grid md:grid-cols-1 md:grid-cols-2 gap-6 flex flex-col">
+                <div class="bg-white p-6 rounded-[14px] "
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-3">Trade-in</h2>
+                    <p class="text-gray-600 text-[12px] md:text-[16px] leading-relaxed">
+                        Обменяйте ваш старый автомобиль на новый с доплатой разницы между стоимостью нового авто и
+                        оценочной ценой старого транспортного средства.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[14px] "
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-3">Удобство</h2>
+                    <p class="text-gray-600 text-[12px] md:text-[16px] leading-relaxed">
+                        Весь процесс обмена проходит в одном месте — вам не придется отдельно продавать старую машину и
+                        искать покупателя.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[14px]"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-3">Безопасность сделки</h2>
+                    <p class="text-gray-600 text-[12px] md:text-[16px] leading-relaxed">
+                        Сделка оформляется официально, исключается риск мошенничества или недобросовестных покупателей.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[14px]"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-3">Экономия времени</h2>
+                    <p class="text-gray-600 text-[12px] md:text-[16px] leading-relaxed">
+                        Продажа автомобиля самостоятельно требует много усилий и времени.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class=" mx-auto px-4 py-8">
+                <p class=" text-[#4886FF] font-medium mb-6 md:text-2xl text-[18px]">1.Введите данные желаемого
+                    автомобиля</p>
+
+                <div class="flex flex-wrap -mx-2">
+                    <div class="w-full md:w-1/3 px-2 mb-4">
+                        <select class="custom-select brand" type="brand">
+                            <option value="" disabled selected>Марка автомобиля</option>
+                            <option value="bmw">BMW</option>
+                            <option value="audi">Audi</option>
+                            <option value="mercedes">Mercedes-Benz</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/3 px-2 mb-4">
+                        <select class="custom-select brand" type="brand">
+                            <option value="" disabled selected>Модель</option>
+                            <option value="x5">X5</option>
+                            <option value="q7">Q7</option>
+                            <option value="e-class">E-Class</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/3 px-2 mb-4">
+                        <select class="custom-select brand" type="brand">
+                            <option value="" disabled selected>Комплектация</option>
+                            <option value="basic">Базовая</option>
+                            <option value="premium">Премиум</option>
+                            <option value="luxury">Люкс</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="w-full bg-[#BCD3FF] text-[#4886FF] text-[24px] py-[16px] font-semibold px-4 rounded-md ">
+                    Применить
+                </button>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-[14px] grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="relative">
+                <img src="./assets/Rectangle 2 (2).png" alt="Hyundai Solaris"
+                    class="w-full h-auto object-cover rounded-[14px]">
+
+                <button
+                    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-500 hover:bg-gray-600 text-white p-2 rounded-full transition opacity-75 hover:opacity-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-500 hover:bg-gray-600 text-white p-2 rounded-full transition opacity-75 hover:opacity-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-6 box-border">
+                <h1 class="text-3xl md:text-6xl font-medium text-gray-900 mb-4">Hyundai Solaris</h1>
+                <p class="text-gray-600 mb-6 text-2xl font-medium">Седан</p>
+
+                <div class="mb-8">
+                    <p class="text-gray-600 mb-4">Цвет</p>
+                    <div class="flex space-x-3">
+                        <div
+                            class="w-16 h-14 rounded-[14px] bg-blue-800 cursor-pointer border-2 border-gray-300 hover:border-blue-500 transition">
+                        </div>
+                        <div
+                            class="w-16 h-14 rounded-[14px] bg-red-600 cursor-pointer border-2 border-gray-300 hover:border-red-500 transition">
+                        </div>
+                        <div
+                            class="w-16 h-14 rounded-[14px] bg-indigo-800 cursor-pointer border-2 border-gray-300 hover:border-indigo-500 transition">
+                        </div>
+                        <div
+                            class="w-16 h-14 rounded-[14px] bg-yellow-500 cursor-pointer border-2 border-gray-300 hover:border-yellow-400 transition">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-4 md:mb-[120px] mb-[30px] ">
+                    <div class="flex items-center space-x-2">
+                        <img class="w-10" src="./assets/dashboard-speed-01.svg" alt="Скорость">
+                        <div>
+                            <p class="text-gray-700 font-medium md:text-[16px] text-[12px] md:mr-[0px] mr-[8px]">210
+                                км/ч</p>
+                            <span class="text-xs text-gray-500 text-[10px]">Скорость</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <img class="w-10" src="./assets/dashboard-speed-01 (3).svg" alt="Разгон">
+                        <div>
+                            <p class="text-gray-700 font-medium md:text-[16px] text-[12px]">7.9 сек.</p>
+                            <span class="text-xs text-gray-500 text-[10px]">Разгон</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <img class="w-10" src="./assets/dashboard-speed-01 (1).svg" alt="Мощность">
+                        <div>
+                            <p class="text-gray-700 font-medium md:text-[16px] text-[12px]">249 л.с.</p>
+                            <span class="text-xs text-gray-500 text-[10px]">Мощность</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <img class="w-10" src="./assets/dashboard-speed-01 (2).svg" alt="Расход">
+                        <div>
+                            <p class="text-gray-700 font-medium md:text-[16px] text-[12px]">9.9 л/100 км</p>
+                            <span class="text-xs text-gray-500 text-[10px]">Расход</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2 mb-6">
+                    <div class="flex items-center gap-2">
+                        <p class="md:text-xl line-through text-gray-500 text-[16px]">1 408 000 ₽</p>
+                        <div class="bg-[#DAE7FF] text-[#4886FF] text-xs font-semibold px-2 py-1 rounded">-51%</div>
+                    </div>
+                    <p class="md:text-5xl text-[32px] font-bold text-gray-900">от 552 000 ₽</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <div class=" mx-auto px-4 py-8">
+                <p class="md:text-2xl text-[#4886FF] font-medium mb-6 text-[18px]">2. Введите данные вашего автомобиля
+                </p>
+
+                <div class="flex flex-wrap -mx-2">
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <select class="custom-select brand" type="brand">
+                            <option value="" disabled selected>Марка автомобиля</option>
+                            <option value="bmw">BMW</option>
+                            <option value="audi">Audi</option>
+                            <option value="mercedes">Mercedes-Benz</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <select class="custom-select brand" type="brand">
+                            <option value="" disabled selected>Модель</option>
+                            <option value="x5">X5</option>
+                            <option value="q7">Q7</option>
+                            <option value="e-class">E-Class</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <input class="w-full px-7 py-4 bg-[#F8F8F8]  rounded-md focus:outline-none" placeholder="Год" />
+                    </div>
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <input class="w-full px-7 py-4 bg-[#F8F8F8]  rounded-md focus:outline-none"
+                            placeholder="Пробег" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-4 py-8">
+            <h2 class="md:text-2xl text-[#4886FF] font-medium mb-6 text-[18px]">3. Введите ваши данные</h2>
+
+            <form class="flex flex-col space-y-4 gap-6">
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                    <input type="text" placeholder="ФИО"
+                        class="w-full p-3  rounded-md focus:outline-none  bg-[#F8F8F8]">
+                    <input type="tel" placeholder="Ваш телефон"
+                        class="w-full p-3  rounded-md focus:outline-none  bg-[#F8F8F8]">
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="agreement"
+                        class="h-5 w-5 text-[#4886FF] bg-white border-gray-300 rounded focus:ring-blue-500">
+                    <label for="agreement" class="text-gray-600 leading-tight text-[14px]">
+                        Я соглашаюсь с условиями и даю свое согласие на обработку использования моих персональных<br>
+                        данных, и разрешаю сделать запрос в бюро кредитных историй
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full p-3 bg-[#4886FF] text-white text-[24px] py-[16px] rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Заказать звонок
+                </button>
+            </form>
+        </section>
+
+
+        <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
+            <div
+                class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
+                <button id="closeModal"
+                    class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div>
+                    <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
+                    <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее
+                        время!
+                    </p>
+                </div>
+                <form class="space-y-4 flex flex-col gap-4">
+                    <input type="text" placeholder="ФИО"
+                        class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                    <input type="tel" placeholder="Ваш телефон"
+                        class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="agree" class="mr-2">
+                        <label for="agree" class="text-sm text-gray-600 leading-tight">
+                            Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
+                            и разрешаю сделать запрос в бюро кредитных историй
+                        </label>
+                    </div>
+                    <button id="form-send" type="submit"
+                        class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
+                        Оставить заявку на звонок
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="popupModal"
+            class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
+            <div class="bg-[#4886FF] text-white rounded-[14px] shadow-lg p-6 max-w-md">
+                <button id="closePopup"
+                    class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <h2 class="text-xl font-bold mb-4">Уникальное предложение на покупку нового авто!</h2>
+                <p class="text-sm mb-4">Акция действует до 3 июля</p>
+                <img src="./assets/Frame 193.png" alt="Три автомобиля" class="w-full h-auto object-cover mb-4">
+                <h3 class="text-2xl font-bold mb-4">Специальное предложение на все автомобили</h3>
+                <form class="space-y-4">
+                    <input type="text" placeholder="ФИО"
+                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                    <input type="tel" placeholder="Ваш телефон"
+                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="agreePopup" class="mr-2">
+                        <label for="agreePopup" class="text-sm leading-tight">
+                            Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,
+                            и разрешаю сделать запрос в бюро кредитных историй
+                        </label>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-white text-[#4886FF] px-4 py-3 rounded text-xl font-medium hover:bg-gray-100 transition duration-300">
+                        Получить предложение
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
+        <div id="mobileMenu"
+            class="hidden md:hidden absolute top-0 right-0 w-full h-screen bg-[#4886FF] text-white p-4">
+            <button id="closeMobileMenu"
+                class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <nav class="mt-10">
+                <ul class="space-y-4">
+                    <li><a href="/" class="text-white hover:text-gray-300">Главная</a></li>
+                    <li><a href="/carLoan.html" class="text-white hover:text-gray-300">Автокредит</a></li>
+                    <li><a href="/TradeIn.html" class="text-white hover:text-gray-300">Trade-in</a></li>
+                    <li><a href="/stock.html" class="text-white hover:text-gray-300">Акции</a></li>
+                    <li><a href="/contacts.html" class="text-white hover:text-gray-300">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script src="./script.js"></script>
+    </main>
+</body>
+
+</html>
