@@ -1,12 +1,5 @@
-// Универсальная утилита: безопасно выполняет действие, если элемент найден
-function on(selector, callback) {
-    const el = document.querySelector(selector);
-    if (el) callback(el);
-}
-
-// === Основной DOMContentLoaded ===
 document.addEventListener("DOMContentLoaded", function () {
-    // =============== 1. Основная модалка (formSend) ===============
+    // =============== Модальное окно "Спасибо за заявку" ===============
     const modal = document.getElementById('modal');
     const openModalBtn = document.getElementById('openModal');
     const closeModalBtn = document.getElementById('closeModal');
@@ -22,18 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     <img src="./assets/------------------ 1.svg" alt="Успешно!" class="mx-auto">
                 </div>
             `;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
         });
     }
 
-    if (openModalBtn) {
+    if (openModalBtn && modal) {
         openModalBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         });
     }
 
@@ -53,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // =============== 2. Модалка кредита ===============
+    // =============== Модальное окно "Кредит" ===============
     const creditButtons = document.querySelectorAll(".credit-button");
     const creditModal = document.getElementById("creditModal");
     const closeCreditModal = document.getElementById("closeCreditModal");
@@ -66,41 +55,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 creditModal.classList.add("show");
             });
         });
+    }
 
-        if (closeCreditModal) {
-            closeCreditModal.addEventListener("click", () => {
-                creditModal.classList.remove("show");
-            });
-        }
+    if (closeCreditModal && creditModal) {
+        closeCreditModal.addEventListener("click", () => {
+            creditModal.classList.remove("show");
+        });
+    }
 
+    if (creditModal) {
         window.addEventListener("click", (e) => {
             if (e.target === creditModal) {
                 creditModal.classList.remove("show");
             }
         });
-
-        if (finishModel) {
-            finishModel.addEventListener("click", (e) => {
-                e.preventDefault();
-                creditModal.innerHTML = `
-                    <div class="bg-white rounded-[14px] shadow-lg w-[1200px] h-auto text-center p-12 flex flex-col justify-center relative">
-                        <h2 class="text-[#4886FF] font-bold text-4xl mb-4">Спасибо за заявку!</h2>
-                        <p class="text-gray-600 text-xl mb-8">Мы свяжемся с вами с лучшим предложением по кредиту</p>
-                        <img src="./assets/------------------ 1.svg" alt="Успешно!" class="mx-auto">
-                    </div>
-                `;
-            });
-        }
     }
 
-    // =============== 3. Вкладки (specs / complectations) ===============
+    if (finishModel && creditModal) {
+        finishModel.addEventListener("click", (e) => {
+            e.preventDefault();
+            creditModal.innerHTML = `
+                <div class="bg-white rounded-[14px] shadow-lg w-[1200px] h-auto text-center p-12 flex flex-col justify-center relative">
+                    <h2 class="text-[#4886FF] font-bold text-4xl mb-4">Спасибо за заявку!</h2>
+                    <p class="text-gray-600 text-xl mb-8">Мы свяжемся с вами с лучшим предложением по кредиту</p>
+                    <img src="./assets/------------------ 1.svg" alt="Успешно!" class="mx-auto">
+                </div>
+            `;
+        });
+    }
+
+    // =============== Вкладки: Характеристики / Комплектации ===============
     const tabSpecsBtn = document.getElementById("tab-specs");
     const tabComplectationsBtn = document.getElementById("tab-complectations");
     const contentSpecs = document.getElementById("content-specs");
     const contentComplectations = document.getElementById("content-complectations");
 
-    if (tabSpecsBtn && tabComplectationsBtn && contentSpecs && contentComplectations) {
-        function showTab(tab) {
+    function showTab(tab) {
+        if (tabSpecsBtn && tabComplectationsBtn && contentSpecs && contentComplectations) {
             tabSpecsBtn.classList.remove("bg-blue-100", "text-[#4886FF]");
             tabSpecsBtn.classList.add("bg-white", "text-gray-600");
             tabComplectationsBtn.classList.remove("bg-blue-100", "text-[#4886FF]");
@@ -118,45 +109,51 @@ document.addEventListener("DOMContentLoaded", function () {
                 tabComplectationsBtn.classList.add("bg-blue-100", "text-[#4886FF]");
             }
         }
-
-        tabSpecsBtn.addEventListener("click", () => showTab("specs"));
-        tabComplectationsBtn.addEventListener("click", () => showTab("complectations"));
-        showTab("specs");
     }
 
-    // =============== 4. Popup Modal (каждые 10 секунд) ===============
+    if (tabSpecsBtn) {
+        tabSpecsBtn.addEventListener("click", () => showTab("specs"));
+    }
+
+    if (tabComplectationsBtn) {
+        tabComplectationsBtn.addEventListener("click", () => showTab("complectations"));
+    }
+
+    // Показать первую вкладку по умолчанию
+    if (contentSpecs) showTab("specs");
+
+    // =============== Попап через 150 секунд ===============
     const popupModal = document.getElementById("popupModal");
     const closePopup = document.getElementById("closePopup");
-    const POPUP_INTERVAL = 10000; // 10 секунд
+    const POPUP_INTERVAL = 150000; // 150 секунд
     const LAST_POPUP_KEY = "lastPopupTime";
 
-    if (popupModal) {
-        function showModal() {
+    function showModal() {
+        if (popupModal) {
             popupModal.classList.add("show");
             localStorage.setItem(LAST_POPUP_KEY, Date.now().toString());
         }
+    }
 
-        function hideModal() {
+    function hideModal() {
+        if (popupModal) {
             popupModal.classList.remove("show");
         }
+    }
 
-        function checkAndShowPopup() {
-            const now = Date.now();
-            const lastPopupTimeStr = localStorage.getItem(LAST_POPUP_KEY);
-            if (!lastPopupTimeStr || now - parseInt(lastPopupTimeStr, 10) >= POPUP_INTERVAL) {
-                showModal();
-            }
+    function checkAndShowPopup() {
+        const now = Date.now();
+        const lastPopupTimeStr = localStorage.getItem(LAST_POPUP_KEY);
+        if (!lastPopupTimeStr || now - parseInt(lastPopupTimeStr, 10) >= POPUP_INTERVAL) {
+            showModal();
         }
+    }
 
-        // Показываем, если прошло 10 секунд с последнего показа
+    if (popupModal && closePopup) {
         checkAndShowPopup();
+        setInterval(checkAndShowPopup, 150000);
 
-        // Проверяем каждые 10 секунд
-        setInterval(checkAndShowPopup, 10000);
-
-        if (closePopup) {
-            closePopup.addEventListener("click", hideModal);
-        }
+        closePopup.addEventListener("click", hideModal);
 
         window.addEventListener("click", (e) => {
             if (e.target === popupModal) {
@@ -165,7 +162,86 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // =============== 5. Слайдер и ипотека ===============
+    // =============== Exit-Intent модальное окно ===============
+    let exitModalShown = false;
+
+    function createExitModal() {
+        if (exitModalShown || document.getElementById("exit-modal-overlay")) return;
+
+        const overlay = document.createElement("div");
+        overlay.id = "exit-modal-overlay";
+        overlay.className = "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4";
+
+        const modal = document.createElement("div");
+        modal.className = "bg-[#4886FF] text-white rounded-[14px] shadow-xl max-w-lg w-full relative overflow-hidden";
+        modal.innerHTML = `
+            <button id="exit-modal-close" class="absolute top-3 right-3 text-white text-2xl font-bold hover:text-gray-200 transition z-10">&times;</button>
+            <div class="p-6 pt-8 text-center">
+                <h2 class="text-2xl font-bold mb-1">Успейте купить Hyundai Solaris</h2>
+                <p class="text-blue-100 text-sm mb-6">2.5 л. 6АКПП (180 л.с.) FWD</p>
+                <img src="./assets/Rectangle 36.png" alt="Hyundai Solaris" class="w-full h-auto rounded mb-6" />
+                <h3 class="text-xl font-semibold mb-6">В кредит на специальных условиях!</h3>
+                <form id="exit-modal-form" class="space-y-4">
+                    <input type="text" name="fullname" placeholder="ФИО"
+                        class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]"
+                        required />
+                    <input type="tel" name="phone" placeholder="Ваш телефон"
+                        class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]"
+                        required />
+                    <div class="flex items-start space-x-2">
+                        <input type="checkbox" id="agreement" name="agreement" class="mt-1.5 h-4 w-4 focus:ring-blue-500" required />
+                        <label for="agreement" class="text-xs leading-tight">
+                            Я соглашаюсь с условиями и даю своё согласие на обработку моих персональных данных, и разрешаю сделать запрос в бюро кредитных историй
+                        </label>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-white text-[#4886FF] font-bold py-3 rounded hover:bg-gray-100 transition duration-200">
+                        Получить предложение
+                    </button>
+                </form>
+            </div>
+        `;
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        document.getElementById("exit-modal-close").addEventListener("click", () => {
+            overlay.remove();
+        });
+
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                overlay.remove();
+            }
+        });
+
+        document.getElementById("exit-modal-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Спасибо! Мы свяжемся с вами с выгодным предложением.");
+            overlay.remove();
+        });
+
+        exitModalShown = true;
+
+        // Автоудаление через 100 секунд
+        setTimeout(() => {
+            if (overlay && document.body.contains(overlay)) {
+                overlay.remove();
+            }
+        }, 100000);
+    }
+
+    function handleExitIntent(e) {
+        if (exitModalShown) return;
+        if (e.clientY <= 10) {
+            createExitModal();
+            document.removeEventListener("mouseout", handleExitIntent);
+        }
+    }
+
+    document.addEventListener("mouseout", handleExitIntent);
+
+    // =============== Слайдер первоначального взноса ===============
     const slider = document.getElementById('slider');
     const progress = document.getElementById('progress');
     const percentValue = document.getElementById('percentValue');
@@ -186,27 +262,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // =============== Чекбокс Trade-in ===============
     const checkbox = document.getElementById('checkbox');
     const tradeinForm = document.getElementById('tradein-form');
+
     if (checkbox && tradeinForm) {
         checkbox.addEventListener('change', function () {
             tradeinForm.classList.toggle('hidden', !this.checked);
         });
     }
 
-    // =============== 6. Карточки (6/12/24/36 месяцев) ===============
+    // =============== Скролл карточек ===============
     window.scrollCards = function (direction) {
         const container = document.getElementById('cardsContainer');
         const scrollAmount = 232;
-        if (container) {
-            container.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
+        if (direction === 'left') {
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
+    // =============== Активация карточек (например, срок кредита) ===============
     const cards = document.querySelectorAll('.card');
+
     function resetCards() {
         cards.forEach(card => {
             card.classList.remove('bg-[#4886FF]', 'text-white');
@@ -246,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // =============== 7. Мобильное меню ===============
+    // =============== Мобильное меню (бургер) ===============
     const burgerButton = document.getElementById('burgerButton');
     const mobileMenu = document.getElementById('mobileMenu');
     const closeMobileMenu = document.getElementById('closeMobileMenu');
@@ -263,125 +342,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    window.addEventListener('click', (e) => {
-        if (mobileMenu && mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && e.target !== burgerButton) {
-            mobileMenu.classList.remove('active');
+    // =============== Обработка класса "has-value" для селектов ===============
+    function updateSelectClass(select) {
+        if (select.value) {
+            select.classList.add('has-value');
+        } else {
+            select.classList.remove('has-value');
+        }
+    }
+
+    document.addEventListener('change', function (e) {
+        if (e.target.classList.contains('brand')) {
+            updateSelectClass(e.target);
         }
     });
-});
 
-// =============== 8. EXIT MODAL: Через 10 секунд ПОСЛЕ ухода с /products ===============
-document.addEventListener("DOMContentLoaded", function () {
-    const EXIT_INTENT_KEY = "exitIntentTime";
-    const MODAL_SHOWN_KEY = "exitModalShown";
-    const EXIT_DELAY = 10000; // 10 секунд
-
-    // === Этап 1: На странице /products — фиксируем момент ухода мыши вверх ===
-    if (window.location.pathname.includes('products')) {
-        let exitIntentRecorded = false;
-
-        function handleExitIntent(e) {
-            if (exitIntentRecorded || e.clientY > 10) return;
-
-            sessionStorage.setItem(EXIT_INTENT_KEY, Date.now().toString());
-            exitIntentRecorded = true;
-
-            // Удаляем обработчик после первого срабатывания
-            document.removeEventListener("mouseout", handleExitIntent);
-        }
-
-        document.addEventListener("mouseout", handleExitIntent);
-    }
-
-    // === Этап 2: На ЛЮБОЙ другой странице — проверяем, прошло ли 10 секунд с момента ухода ===
-    if (!window.location.pathname.includes('products')) {
-        const exitIntentTimeStr = sessionStorage.getItem(EXIT_INTENT_KEY);
-        const modalShown = sessionStorage.getItem(MODAL_SHOWN_KEY);
-
-        if (modalShown || !exitIntentTimeStr) return;
-
-        const exitIntentTime = parseInt(exitIntentTimeStr, 10);
-        const now = Date.now();
-        const elapsed = now - exitIntentTime;
-
-        if (elapsed >= EXIT_DELAY) {
-            createExitModal();
-            sessionStorage.setItem(MODAL_SHOWN_KEY, 'true');
-            sessionStorage.removeItem(EXIT_INTENT_KEY);
-        }
-    }
-
-    // === Функция создания модалки (ваш HTML) ===
-    function createExitModal() {
-        if (document.getElementById("exit-modal-overlay")) return;
-
-        const overlay = document.createElement("div");
-        overlay.id = "exit-modal-overlay";
-        overlay.className = "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4";
-
-        const modal = document.createElement("div");
-        modal.className = "bg-[#4886FF] text-white rounded-[14px] shadow-xl max-w-lg w-full relative overflow-hidden";
-        modal.innerHTML = `
-            <button id="exit-modal-close" class="absolute top-3 right-3 text-white text-2xl font-bold hover:text-gray-200 transition z-10">&times;</button>
-            <div class="p-6 pt-8">
-                <h2 class="text-2xl font-bold mb-1">Успейте купить Hyundai Solaris</h2>
-                <p class="text-blue-100 text-sm mb-6">2.5 л. 6АКПП (180 л.с.) FWD</p>
-                <img src="./assets/Rectangle 36.png" alt="Hyundai Solaris" class="w-full h-auto rounded mb-6" />
-                <h3 class="text-xl font-semibold mb-6">В кредит на специальных условиях!</h3>
-                <form id="exit-modal-form" class="space-y-4">
-                    <input type="text" name="fullname" placeholder="ФИО"
-                        class="w-full px-4 py-3 rounded text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                        required />
-                    <input type="tel" name="phone" placeholder="Ваш телефон"
-                        class="w-full px-4 py-3 rounded text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                        required />
-                    <div class="flex items-start space-x-2">
-                        <input type="checkbox" id="agreement" name="agreement" class="mt-1.5 h-4 w-4 text-[#4886FF] focus:ring-blue-500" required />
-                        <label for="agreement" class="text-xs leading-tight">
-                            Я соглашаюсь с условиями и даю свое согласие на обработку использования моих персональных данных, и разрешаю сделать запрос в бюро кредитных историй
-                        </label>
-                    </div>
-                    <button type="submit"
-                        class="w-full bg-white text-[#4886FF] font-bold py-3 rounded hover:bg-gray-100 transition duration-200">
-                        Получить предложение
-                    </button>
-                </form>
-            </div>
-        `;
-
-        overlay.appendChild(modal);
-        document.body.appendChild(overlay);
-
-        // Закрытие крестиком
-        document.getElementById("exit-modal-close").addEventListener("click", () => {
-            overlay.remove();
+    window.addEventListener('load', function () {
+        document.querySelectorAll('.brand').forEach(function (select) {
+            updateSelectClass(select);
         });
-
-        // Закрытие кликом по фону
-        overlay.addEventListener("click", (e) => {
-            if (e.target === overlay) {
-                overlay.remove();
-            }
-        });
-
-        // Обработка формы
-        document.getElementById("exit-modal-form").addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("Спасибо! Мы свяжемся с вами с выгодным предложением.");
-            overlay.remove();
-        });
-    }
-});
-
-// =============== 9. Обработчики для select (has-value) ===============
-document.addEventListener('change', function (e) {
-    if (e.target.classList.contains('brand')) {
-        e.target.classList.toggle('has-value', !!e.target.value);
-    }
-});
-
-window.addEventListener('load', function () {
-    document.querySelectorAll('.brand').forEach(function (select) {
-        select.classList.toggle('has-value', !!select.value);
     });
 });
