@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,29 +22,28 @@
     </script>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body class="font-sans">
-    <header class="p-4 hidden md:flex">
-        <div class="container flex justify-end md:justify-between items-center">
-            <nav class="hidden md:flex justify-between items-center w-full">
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <a href="./" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
-                    <a href="./carLoan.html"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
-                    <a href="./TradeIn.html"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Trade-in</a>
-                    <a href="./stock.html"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Акции</a>
-                    <a href="./contacts.html"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition ">Контакты</a>
-                </div>
-                <div class="flex flex-col items-center gap-[40px] text-center">
-                    <a href="#" class="text-[18px] flex items-center font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
-                    <button id="openModal"
-                        class="bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
-                        Обратная связь
-                    </button>
-                </div>
+    <header class="p-4 md:flex hidden">
+        <div class="container flex flex-col sm:flex-row justify-between items-center gap-4">
+            <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                <a href="/" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
+                <a href="/carLoan.html"
+                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
+                <a href="/TradeIn.html"
+                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Trade-in</a>
+                <a href="/stock.html"
+                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Акции</a>
+                <a href="/contacts.html"
+                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Контакты</a>
             </nav>
+            <div class="flex flex-col sm:flex-row items-center gap-[40px] text-center">
+                <a href="#" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                <button id="openModal"
+                    class="bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                    Обратная связь
+                </button>
+            </div>
         </div>
     </header>
 
@@ -92,10 +92,12 @@
             class="relative bg-cover bg-center w-full h-[850px] md:h-[850px] md:flex hidden items-center justify-center text-white rounded-[14px] mb-8"
             style="background-image: url('./assets/Rectangle 2 (1).png');">
             <div class="p-6 md:p-8 absolute left-6 md:left-[60px] top-6 md:top-[70px] max-w-xs md:max-w-md">
-                <h1 class="text-3xl md:text-4xl font-bold mb-3 md:mb-4 bg-red-500 px-6 md:px-[24px] py-3 md:py-[12px] rounded-[12px]">
+                <h1
+                    class="text-3xl md:text-4xl font-bold mb-3 md:mb-4 bg-red-500 px-6 md:px-[24px] py-3 md:py-[12px] rounded-[12px]">
                     Горячие скидки на автомобили!
                 </h1>
-                <p class="inline-block text-xl md:text-2xl px-6 md:px-[24px] py-3 md:py-[12px] font-bold mb-6 rounded-[12px] bg-red-500">
+                <p
+                    class="inline-block text-xl md:text-2xl px-6 md:px-[24px] py-3 md:py-[12px] font-bold mb-6 rounded-[12px] bg-red-500">
                     До 40%
                 </p>
             </div>
@@ -106,22 +108,108 @@
         </section>
 
         <section class="mb-8">
-            <div id="brands-container" class="flex flex-row flex-wrap gap-6">
+            <div id="brands-container" class="flex flex-row flex-wrap gap-[8px] md:gap-6">
             </div>
         </section>
 
         <section class="mb-12">
             <h2 class="text-4xl font-medium text-gray-800 mb-8">KIA</h2>
-            <div id="kia-cards-container" class="js-cards-container flex flex-row flex-wrap justify-start items-start gap-[12px] md:gap-[30px]">
+            <div id="kia-cards-container"
+                class="js-cards-container flex flex-row flex-wrap justify-start items-start gap-[12px] md:gap-[30px]">
             </div>
         </section>
 
         <section class="p-6 rounded-[14px]">
             <h2 class="text-[36px] md:text-[44px] font-medium mb-6">Подбор авто<br>по параметрам</h2>
             <div class="relative h-8 flex items-center mb-6">
-                <input type="range" class="thick-blue-slider md:hidden flex" min="500000" max="2500000" value="1500000"
-                    step="100000">
+                <input type="range" id="minPrice" class="thick-blue-slider md:hidden flex" min="500000" max="2500000"
+                    value="500000" step="100000">
+                <input type="range" id="maxPrice" class="thick-blue-slider md:hidden flex ml-[-100%]" min="500000"
+                    max="2500000" value="2500000" step="100000">
             </div>
+
+            <style>
+              .thick-blue-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #D9D9D9;
+    border-radius: 5px;
+    outline: none;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.thick-blue-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #4886FF;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.thick-blue-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #4886FF;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3;
+}
+
+/* Двухсторонний слайдер: заполнение между ползунками */
+#minPrice, #maxPrice {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #D9D9D9;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    z-index: 2;
+}
+
+#minPrice::-webkit-slider-thumb, #maxPrice::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #4886FF;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 4;
+}
+
+/* Прогресс-бар между ползунками */
+#minPrice {
+    z-index: 3;
+}
+
+#maxPrice {
+    z-index: 1;
+}
+
+#minPrice, #maxPrice {
+    background: linear-gradient(to right, 
+        #D9D9D9 0%, 
+        #D9D9D9 var(--min), 
+        #4886FF var(--min), 
+        #4886FF var(--max), 
+        #D9D9D9 var(--max), 
+        #D9D9D9 100%
+    );
+}
+            </style>
             <div class="flex justify-between items-center text-sm font-medium mt-4 mb-6 md:hidden flex">
                 <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-md shadow-sm">
                     <span class="md:text-[18px] text-[14px]" id="minPriceValue">От 500 000 ₽</span>
@@ -133,19 +221,25 @@
             </div>
             <form class="space-y-4" action="#" method="get">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <select class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300" name="brand">
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="brand">
                         <option value="" disabled selected>Марка автомобиля</option>
                         <option value="bmw">BMW</option>
                         <option value="audi">Audi</option>
                         <option value="mercedes">Mercedes-Benz</option>
                     </select>
-                    <select class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300" name="drive_type">
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="drive_type">
                         <option value="" disabled selected>Привод</option>
                         <option value="front">Передний</option>
                         <option value="rear">Задний</option>
                         <option value="all">Полный</option>
                     </select>
-                    <select class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300" name="transmission">
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="transmission">
                         <option value="" disabled selected>КПП</option>
                         <option value="manual">Механическая</option>
                         <option value="automatic">Автоматическая</option>
@@ -153,9 +247,15 @@
                     </select>
                 </div>
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none" name="price_from" placeholder="От 500 000 ₽" />
-                    <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none" name="price_to" placeholder="До 2 500 000 ₽" />
-                    <select class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300" name="body_type">
+                    <input type="number"
+                        class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none"
+                        name="price_from" placeholder="От 500 000 ₽" />
+                    <input type="number"
+                        class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none"
+                        name="price_to" placeholder="До 2 500 000 ₽" />
+                    <select
+                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                        name="body_type">
                         <option value="" disabled selected>Кузов</option>
                         <option value="sedan">Седан</option>
                         <option value="hatchback">Хэтчбек</option>
@@ -172,7 +272,8 @@
 
         <section class="mb-12">
             <h2 class="text-4xl font-medium text-gray-800 mb-8">Хиты продаж</h2>
-            <div id="kia-cards-container" class="js-cards-container flex flex-row flex-wrap justify-start items-start gap-[12px] md:gap-[30px]">
+            <div id="kia-cards-container"
+                class="js-cards-container flex flex-row flex-wrap justify-start items-start gap-[12px] md:gap-[30px]">
             </div>
         </section>
     </main>
@@ -214,8 +315,8 @@
         class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
         <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md ">
             <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-0 right-0" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-0 right-0" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
@@ -246,4 +347,5 @@
 
     <script src="./script.js"></script>
 </body>
+
 </html>
