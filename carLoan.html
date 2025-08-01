@@ -187,9 +187,7 @@
             </p>
 
             <div class="relative h-8 flex items-center mb-6">
-
                 <input type="range" class="thick-blue-slider" min="0" max="50" value="25">
-
             </div>
 
             <div class="flex justify-between items-center text-sm font-medium">
@@ -204,146 +202,152 @@
         </section>
 
 
-        <section class="container mx-auto px-4 py-8">
-            <h2 class="text-[#4886FF] mb-8 font-medium md:text-2xl text-[18px]">3. Выберите комфортный платеж</h2>
-            <input type="range" class="thick-blue-slider md:hidden flex" min="0" max="50" value="25">
-            <div class="flex justify-between items-center text-sm font-medium flex md:hidden">
-                <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-md shadow-sm">
-                    <span class="md:text-[18px] text-[14px]" id="percentValue">5 лет</span>
-                </div>
-                <div class="text-gray-600 md:text-[18px] text-[12px]">Первоначальный взнос</div>
-                <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-md shadow-sm">
-                    <span class="md:text-[18px] text-[14px]" id="amountValue">26 000 ₽</span>
-                </div>
-            </div>
-            <div class="relative mx-auto hidden md:flex">
-                <button onclick="scrollCards('left')"
-                    class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center cursor-pointer  transition"
-                    style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-                    ←
-                </button>
+<section class="container mx-auto px-4 py-8">
+    <h2 class="text-[#4886FF] mb-8 font-medium md:text-2xl text-[18px]">3. Выберите комфортный платеж</h2>
 
-                <div id="cardsContainer"
-                    class="flex justify-center gap-[32px] overflow-x-auto p-16 box-border scroll-smooth"
-                    style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+    <input 
+        type="range" 
+        class="thick-blue-slider md:hidden block w-full" 
+        id="mobilePaymentSlider" 
+        min="0" 
+        max="4" 
+        value="1">
 
-                    <div data-year="7"
-                        class="card w-[240px] h-[280px] bg-white  shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                        style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                        <span class="text-[32px] font-regular text-gray-500">7 лет</span>
-                        <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                        <span class="text-[46px] font-medium mt-2">50 000</span>
-                        <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                        <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-                    </div>
+    <!-- Отображение значений -->
+    <div class="flex justify-between items-center text-sm font-medium md:hidden mt-4">
+        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-md shadow-sm">
+            <span class="text-[14px]" id="termValue">6 лет</span>
+        </div>
+        <div class="text-gray-600 text-[12px]">Срок кредита</div>
+        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-md shadow-sm">
+            <span class="text-[14px]" id="paymentValue">60 000 ₽</span>
+        </div>
+    </div>
 
-                    <div data-year="6"
-                        class="card w-[240px] h-[280px] bg-[#4886FF] text-white  shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                        style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                        <span class="text-[32px] font-regular">6 лет</span>
-                        <span class="text-[18px] font-regular">Платеж, ₽</span>
-                        <span class="text-[46px] font-medium mt-2">60 000</span>
-                        <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                        <span class="text-[32px] font-regular mt-2">10,9%</span>
-                    </div>
+    <!-- Десктопные карточки -->
+    <div class="relative mx-auto hidden md:flex">
+        <button onclick="scrollCards('left')"
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition"
+                style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+            ←
+        </button>
 
-                    <div data-year="5"
-                        class="card w-[240px] h-[280px] bg-white  shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                        style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                        <span class="text-[32px] font-regular text-gray-500">5 лет</span>
-                        <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                        <span class="text-[46px] font-medium mt-2">70 000</span>
-                        <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                        <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-                    </div>
-
-                    <div data-year="4"
-                        class="card w-[240px] h-[280px] bg-white  shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                        style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                        <span class="text-[32px] font-regular text-gray-500">4 года</span>
-                        <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                        <span class="text-[46px] font-medium mt-2">80 000</span>
-                        <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                        <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-                    </div>
-
-                    <div data-year="3"
-                        class="card w-[240px] h-[280px] bg-white  shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                        style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                        <span class="text-[32px] font-regular text-gray-500">3 года</span>
-                        <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                        <span class="text-[46px] font-medium mt-2">90 000</span>
-                        <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                        <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-                    </div>
-                </div>
-
-                <button onclick="scrollCards('right')"
-                    class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center cursor-pointer  transition"
-                    style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-                    →
-                </button>
-            </div>
-
-            <div class="mt-4 bg-white rounded-[14px] p-4"
+        <div id="cardsContainer"
+             class="flex justify-center gap-[32px] overflow-x-auto p-16 box-border scroll-smooth"
+             style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+            
+            <div data-year="7" data-term="7 лет" data-payment="50 000"
+                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
                 style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-6">
-                        <input id="checkbox" class="md:w-6 md:h-6 w-12 h-12 mt-[12px]" type="checkbox" />
-                        <div>
-                            <label class="md:text-[26px] font-medium text-gray-500 text-[20px]"
-                                for="checkbox">Trade-in</label>
-                            <p class="text-[12px] md:text-[20px] text-gray-500 leading-tight">Обменяйте ваш старый
-                                автомобиль на новый
-                                с доплатой разницы между стоимостью нового авто и<br class="hidden md:flex"> оценочной
-                                ценой старого
-                                транспортного средства.
-                                рыба</p>
-                            <span class="mt-2 md:text-[32px] text-[20px] font-medium text-[#4886FF] flex md:hidden">80
-                                000 ₽</span>
-
-                        </div>
-                    </div>
-                    <span class="mt-2 text-[32px] font-medium text-[#4886FF] hidden md:flex">80 000 ₽</span>
-                </div>
+                <span class="text-[32px] font-regular text-gray-500">7 лет</span>
+                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
+                <span class="text-[46px] font-medium mt-2">50 000</span>
+                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
+                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
             </div>
 
-            <section id="tradein-form" class="mt-6 hidden">
-                <div class="mx-auto px-4 py-8">
-                    <div class="flex flex-wrap -mx-2">
-                        <div class="w-full md:w-1/4 px-2 mb-4">
-                            <select class="custom-select brand">
-                                <option value="" disabled selected>Марка автомобиля</option>
-                                <option value="bmw">BMW</option>
-                                <option value="audi">Audi</option>
-                                <option value="mercedes">Mercedes-Benz</option>
-                            </select>
-                        </div>
-                        <div class="w-full md:w-1/4 px-2 mb-4">
-                            <select class="custom-select brand">
-                                <option value="" disabled selected>Модель</option>
-                                <option value="x5">X5</option>
-                                <option value="q7">Q7</option>
-                                <option value="e-class">E-Class</option>
-                            </select>
-                        </div>
-                        <div class="w-full md:w-1/4 px-2 mb-4">
-                            <input class="w-full px-7 py-4 bg-[#F8F8F8]  rounded-md focus:outline-none"
-                                placeholder="Год" />
-                        </div>
-                        <div class="w-full md:w-1/4 px-2 mb-4">
-                            <input class="w-full px-7 py-4 bg-[#F8F8F8]  rounded-md focus:outline-none"
-                                placeholder="Пробег" />
-                        </div>
-                    </div>
+            <div data-year="6" data-term="6 лет" data-payment="60 000"
+                class="card w-[240px] h-[280px] bg-[#4886FF] text-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
+                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                <span class="text-[32px] font-regular">6 лет</span>
+                <span class="text-[18px] font-regular">Платеж, ₽</span>
+                <span class="text-[46px] font-medium mt-2">60 000</span>
+                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
+                <span class="text-[32px] font-regular mt-2">10,9%</span>
+            </div>
 
-                    <button
-                        class="w-full bg-[#BCD3FF] rounded-[20px] text-[#4886FF] text-[24px] py-[16px] font-semibold px-4 rounded-md focus:outline-none focus:shadow-outline">
-                        Применить
-                    </button>
+            <div data-year="5" data-term="5 лет" data-payment="70 000"
+                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
+                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                <span class="text-[32px] font-regular text-gray-500">5 лет</span>
+                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
+                <span class="text-[46px] font-medium mt-2">70 000</span>
+                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
+                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
+            </div>
+
+            <div data-year="4" data-term="4 года" data-payment="80 000"
+                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
+                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                <span class="text-[32px] font-regular text-gray-500">4 года</span>
+                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
+                <span class="text-[46px] font-medium mt-2">80 000</span>
+                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
+                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
+            </div>
+
+            <div data-year="3" data-term="3 года" data-payment="90 000"
+                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
+                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                <span class="text-[32px] font-regular text-gray-500">3 года</span>
+                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
+                <span class="text-[46px] font-medium mt-2">90 000</span>
+                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
+                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
+            </div>
+        </div>
+
+        <button onclick="scrollCards('right')"
+                class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition"
+                style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+            →
+        </button>
+    </div>
+
+    <!-- Trade-in блок -->
+    <div class="mt-4 bg-white rounded-[14px] p-4"
+         style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+        <div class="flex justify-between items-center">
+            <div class="flex gap-6">
+                <input id="checkbox" class="md:w-6 md:h-6 w-12 h-12 mt-[12px]" type="checkbox" />
+                <div>
+                    <label class="md:text-[26px] font-medium text-gray-500 text-[20px]" for="checkbox">Trade-in</label>
+                    <p class="text-[12px] md:text-[20px] text-gray-500 leading-tight">
+                        Обменяйте ваш старый автомобиль на новый с доплатой разницы между стоимостью нового авто и<br class="hidden md:flex">
+                        оценочной ценой старого транспортного средства.
+                    </p>
+                    <span class="mt-2 md:text-[32px] text-[20px] font-medium text-[#4886FF] flex md:hidden">80 000 ₽</span>
                 </div>
-            </section>
-        </section>
+            </div>
+            <span class="mt-2 text-[32px] font-medium text-[#4886FF] hidden md:flex">80 000 ₽</span>
+        </div>
+    </div>
+
+    <!-- Форма Trade-in -->
+    <section id="tradein-form" class="mt-6 hidden">
+        <div class="mx-auto px-4 py-8">
+            <div class="flex flex-wrap -mx-2">
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <select class="custom-select brand">
+                        <option value="" disabled selected>Марка автомобиля</option>
+                        <option value="bmw">BMW</option>
+                        <option value="audi">Audi</option>
+                        <option value="mercedes">Mercedes-Benz</option>
+                    </select>
+                </div>
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <select class="custom-select brand">
+                        <option value="" disabled selected>Модель</option>
+                        <option value="x5">X5</option>
+                        <option value="q7">Q7</option>
+                        <option value="e-class">E-Class</option>
+                    </select>
+                </div>
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <input class="w-full px-7 py-4 bg-[#F8F8F8] rounded-md focus:outline-none" placeholder="Год" />
+                </div>
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <input class="w-full px-7 py-4 bg-[#F8F8F8] rounded-md focus:outline-none" placeholder="Пробег" />
+                </div>
+            </div>
+            <button class="w-full bg-[#BCD3FF] rounded-[20px] text-[#4886FF] text-[24px] py-[16px] font-semibold px-4 rounded-md focus:outline-none focus:shadow-outline">
+                Применить
+            </button>
+        </div>
+    </section>
+</section>
+
+
 
 
 
@@ -414,8 +418,8 @@
         class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
         <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md ">
             <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-0 right-0" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-0 right-0" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>

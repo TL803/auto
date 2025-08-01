@@ -20,6 +20,9 @@
             }
         }
     </script>
+    <!-- Добавьте ПОСЛЕ <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" />
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -39,8 +42,8 @@
             </nav>
             <div class="flex flex-col sm:flex-row items-center gap-[40px] text-center">
                 <a href="#" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
-                <button id="openModal"
-                    class="bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                <button
+                    class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
                     Обратная связь
                 </button>
             </div>
@@ -49,7 +52,7 @@
 
     <section
         class="relative md:hidden bg-cover bg-center w-full h-[400px] flex items-center justify-center text-white rounded-[14px] mb-8"
-        style="background-image: url('./assets/Rectangle 2 (1).png');">
+        style="background-image: url('./assets/Rectangle\ 52.png');">
         <button id="burgerButton" class="md:hidden absolute right-6 top-6 z-10 focus:outline-none">
             <img src="./assets/Бургер меню (1).svg" alt="Меню">
         </button>
@@ -62,29 +65,30 @@
             </h2>
         </div>
         <button
-            class="bg-[#4886FF] absolute bottom-[50px] hover:bg-[#3a6ecc] text-3xl w-[80%] text-white font-bold px-6 py-3 rounded-[8px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            class="bg-[#4886FF] absolute bottom-[50px] hover:bg-[#3a6ecc] text-xl w-[80%] text-white font-medium px-6 py-3 rounded-[8px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
             Выбрать автомобиль
         </button>
     </section>
 
     <main class="container full-photo md:w-full mx-auto mt-8">
-        <div id="mobileMenu"
-            class="hidden md:hidden absolute top-0 right-0 w-full h-screen bg-[#4886FF] text-white p-4">
-            <button id="closeMobileMenu"
-                class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <nav class="mt-10">
-                <ul class="space-y-4">
-                    <li><a href="./" class="text-white hover:text-gray-300">Главная</a></li>
-                    <li><a href="./carLoan.html" class="text-white hover:text-gray-300">Автокредит</a></li>
-                    <li><a href="./TradeIn.html" class="text-white hover:text-gray-300">Trade-in</a></li>
-                    <li><a href="./stock.html" class="text-white hover:text-gray-300">Акции</a></li>
-                    <li><a href="./contacts.html" class="text-white hover:text-gray-300">Контакты</a></li>
+        <div id="mobileMenu" class="hidden md:hidden  absolute top-0 right-0 w-[70%] h-screen bg-white text-white p-4" style="z-index: 1;">
+            <nav class="mt-10 flex flex-col justify-between h-[90%]">
+                <ul class="space-y-4 mb-20 ">
+                    <li><a href="./" style="color: #4886FF !important;">Главная</a></li>
+                    <li><a href="./carLoan.html" style="color: #ACACAC !important;">Автокредит</a></li>
+                    <li><a href="./TradeIn.html" style="color: #ACACAC !important;">Trade-in</a></li>
+                    <li><a href="./stock.html" style="color: #ACACAC !important;">Акции</a></li>
+                    <li><a href="./contacts.html" style="color: #ACACAC !important;">Контакты</a></li>
                 </ul>
+                <div class="w-full flex flex-col items-center gap-4">
+                    <p><a href="./contacts.html" class="font-bold" style="color: #4886FF !important;">+7 (999)
+                            999-99-99</a>
+                    </p>
+                    <button
+                        class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                        Обратная связь
+                    </button>
+                </div>
             </nav>
         </div>
 
@@ -108,7 +112,8 @@
         </section>
 
         <section class="mb-8">
-            <div id="brands-container" class="flex flex-row flex-wrap gap-[8px] md:gap-6">
+            <div id="brands-container"
+                class="flex flex-row flex-wrap gap-[6px] md:gap-[8px] md:gap-6 md:text-[16px] text-[12px]">
             </div>
         </section>
 
@@ -121,96 +126,11 @@
 
         <section class="p-6 rounded-[14px]">
             <h2 class="text-[36px] md:text-[44px] font-medium mb-6">Подбор авто<br>по параметрам</h2>
-            <div class="relative h-8 flex items-center mb-6">
-                <input type="range" id="minPrice" class="thick-blue-slider md:hidden flex" min="500000" max="2500000"
-                    value="500000" step="100000">
-                <input type="range" id="maxPrice" class="thick-blue-slider md:hidden flex ml-[-100%]" min="500000"
-                    max="2500000" value="2500000" step="100000">
+            <div class="relative h-8 flex md:hidden  items-center mb-6">
+                <div id="price-slider" class="w-full"></div>
             </div>
 
-            <style>
-              .thick-blue-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    background: #D9D9D9;
-    border-radius: 5px;
-    outline: none;
-    pointer-events: auto;
-    z-index: 2;
-}
-
-.thick-blue-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    background: #4886FF;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.thick-blue-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    background: #4886FF;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 3;
-}
-
-/* Двухсторонний слайдер: заполнение между ползунками */
-#minPrice, #maxPrice {
-    -webkit-appearance: none;
-    appearance: none;
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    background: #D9D9D9;
-    border-radius: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: auto;
-    z-index: 2;
-}
-
-#minPrice::-webkit-slider-thumb, #maxPrice::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    background: #4886FF;
-    border: 2px solid white;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    z-index: 4;
-}
-
-/* Прогресс-бар между ползунками */
-#minPrice {
-    z-index: 3;
-}
-
-#maxPrice {
-    z-index: 1;
-}
-
-#minPrice, #maxPrice {
-    background: linear-gradient(to right, 
-        #D9D9D9 0%, 
-        #D9D9D9 var(--min), 
-        #4886FF var(--min), 
-        #4886FF var(--max), 
-        #D9D9D9 var(--max), 
-        #D9D9D9 100%
-    );
-}
-            </style>
-            <div class="flex justify-between items-center text-sm font-medium mt-4 mb-6 md:hidden flex">
+            <div class="flex justify-between items-center text-sm font-medium mt-4 mb-6 md:hidden">
                 <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-md shadow-sm">
                     <span class="md:text-[18px] text-[14px]" id="minPriceValue">От 500 000 ₽</span>
                 </div>
@@ -219,27 +139,61 @@
                     <span class="md:text-[18px] text-[14px]" id="maxPriceValue">До 2 500 000 ₽</span>
                 </div>
             </div>
+
+            <script>
+
+            </script>
+            <style>
+                #price-slider {
+                    width: 100%;
+                    cursor: pointer;
+                    height: 7px;
+                    border: none;
+                    background-color: #D9D9D9;
+                    /* Серый фон для трека */
+                    margin-top: 30px;
+                }
+
+                #price-slider .noUi-connect {
+                    background-color: #4886FF;
+                }
+
+                #price-slider .noUi-handle {
+                    cursor: pointer;
+                    height: 30px;
+                    width: 30px;
+                    top: -12px;
+                    right: -9px;
+                    border-radius: 50%;
+                    border: none;
+                    box-shadow: none;
+                    background-color: #4886FF;
+                    outline: none;
+                }
+
+                #price-slider .noUi-handle::after {
+                    display: none;
+                }
+
+                #price-slider .noUi-handle::before {
+                    display: none;
+                }
+            </style>
             <form class="space-y-4" action="#" method="get">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <select
-                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                        name="brand">
+                    <select class="custom-select brand" name="brand">
                         <option value="" disabled selected>Марка автомобиля</option>
                         <option value="bmw">BMW</option>
                         <option value="audi">Audi</option>
                         <option value="mercedes">Mercedes-Benz</option>
                     </select>
-                    <select
-                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                        name="drive_type">
+                    <select class="custom-select brand" name="drive_type">
                         <option value="" disabled selected>Привод</option>
                         <option value="front">Передний</option>
                         <option value="rear">Задний</option>
                         <option value="all">Полный</option>
                     </select>
-                    <select
-                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                        name="transmission">
+                    <select class="custom-select brand" name="transmission">
                         <option value="" disabled selected>КПП</option>
                         <option value="manual">Механическая</option>
                         <option value="automatic">Автоматическая</option>
@@ -247,15 +201,11 @@
                     </select>
                 </div>
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <input type="number"
-                        class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none"
+                    <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg "
                         name="price_from" placeholder="От 500 000 ₽" />
-                    <input type="number"
-                        class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg focus:outline-none"
-                        name="price_to" placeholder="До 2 500 000 ₽" />
-                    <select
-                        class="w-full px-4 py-3 bg-[#F8F8F8] rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                        name="body_type">
+                    <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg" name="price_to"
+                        placeholder="До 2 500 000 ₽" />
+                    <select class="custom-select brand" name="body_type">
                         <option value="" disabled selected>Кузов</option>
                         <option value="sedan">Седан</option>
                         <option value="hatchback">Хэтчбек</option>
@@ -278,10 +228,11 @@
         </section>
     </main>
 
-    <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
+    <!-- Модальное окно (без id) -->
+    <div style="z-index: 100;" class="modal-overlay hidden w-full h-full bg-black/50 fixed z-12 inset-0 flex items-center justify-center">
         <div
             class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
+            <button class="close-modal absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -294,18 +245,18 @@
             </div>
             <form class="space-y-4 flex flex-col gap-4">
                 <input type="text" placeholder="ФИО"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                    class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
                 <input type="tel" placeholder="Ваш телефон"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
+                    class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
                 <div class="flex items-center">
                     <input type="checkbox" id="agree" class="mr-2">
                     <label for="agree" class="text-sm text-gray-600 leading-tight">
-                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
+                        Я соглашаюсь с условиями и даю своё согласие на обработку моих персональных данных,<br>
                         и разрешаю сделать запрос в бюро кредитных историй
                     </label>
                 </div>
-                <button id="form-send" type="submit"
-                    class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
+                <button type="submit"
+                    class="form-send w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300">
                     Оставить заявку на звонок
                 </button>
             </form>
