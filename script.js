@@ -480,7 +480,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 span.classList.remove('text-white');
                 span.classList.add('text-gray-500');
             });
-            const divider = card.querySelector('.h-0.5');
+            const divider = card.querySelector('.h-0\\.5');
             if (divider) {
                 divider.classList.remove('bg-blue-200');
                 divider.classList.add('bg-[#D9D9D9]');
@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
             span.classList.add('text-white');
             span.classList.remove('text-gray-500');
         });
-        const divider = activeCard.querySelector('.h-0.5');
+        const divider = activeCard.querySelector('.h-0\\.5');
         if (divider) {
             divider.classList.add('bg-blue-200');
             divider.classList.remove('bg-[#D9D9D9]');
@@ -588,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     carBrands.forEach(brand => {
         const brandElement = document.createElement('div');
-        brandElement.className = 'flex flex-row items-center gap-[10px] rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200 ';
+        brandElement.className = 'flex flex-row items-center  rounded-[12px] bg-[#F8F8F8] px-4 py-2 shrink-0 cursor-pointer border border-transparent transition-all duration-200 ';
         brandElement.setAttribute('onclick', "this.classList.toggle('bg-[#4886FF]'); this.classList.toggle('bg-[#4886FF]/20'); this.classList.toggle('border-[#4886FF]');");
         brandElement.innerHTML = `
             <div class="w-[24px] h-[24px] rounded-full bg-[#D9D9D9]"></div>
@@ -602,44 +602,91 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const carData = {
-        model: "Hyundai Sonata",
-        type: "Внедорожник 5 дв.",
-        oldPrice: "20 959 900 ₽",
-        discount: "-51%",
-        price: "960 000 ₽",
-        image: "./assets/Rectangle 7.png",
-        link: "./product.html"
-    };
+    const carDataArray = [
+        {
+            model: "Jaecoo J7 Lifestyle 150",
+            type: "Внедорожник 5 дв.",
+            oldPrice: "20 959 900 ₽",
+            discount: "-51%",
+            price: "19 300 000 ₽",
+            image: "./assets/Rectangle 7.png",
+            link: "./product.html"
+        },
+        {
+            model: "Chery Tiggo 8 Pro Plug-in Hybrid",
+            type: "Седан",
+            oldPrice: "1 959 900 ₽",
+            discount: "-51%",
+            price: "960 000 ₽",
+            image: "./assets/Rectangle 7.png",
+            link: "./product.html"
+        },
+        {
+            model: "Geely Monjaro",
+            type: "Внедорожник 5 дв.",
+            oldPrice: "2 850 000 ₽",
+            discount: "-45%",
+            price: "1 567 500 ₽",
+            image: "./assets/Rectangle 7.png",
+            link: "./product.html"
+        },
+        {
+            model: "Chery Tiggo 8 Pro",
+            type: "Внедорожник 7 мест",
+            oldPrice: "2 690 000 ₽",
+            discount: "-40%",
+            price: "1 614 000 ₽",
+            image: "./assets/Rectangle 7.png",
+            link: "./product.html"
+        },
+        {
+            model: "Haval F7",
+            type: "Внедорожник 5 дв.",
+            oldPrice: "2 450 000 ₽",
+            discount: "-38%",
+            price: "1 519 000 ₽",
+            image: "./assets/Rectangle 7.png",
+            link: "./product.html"
+        },
+        {
+            model: "EXEED TXL",
+            type: "Внедорожник 7 мест",
+            oldPrice: "3 100 000 ₽",
+            discount: "-42%",
+            price: "1 800 000 ₽",
+            image: "./assets/Rectangle 7.png",
+            link: "./product.html"
+        }
+    ];
 
     // === Генерация карточек для всех контейнеров с классом .js-cards-container ===
     const containers = document.querySelectorAll('.js-cards-container');
 
     containers.forEach(container => {
-        // Очистим контейнер (на случай, если что-то уже есть)
+        // Очистим контейнер
         container.innerHTML = '';
 
-        // Создаём 6 одинаковых карточек
-        for (let i = 0; i < 6; i++) {
+        // Создаём карточки на основе массива carDataArray
+        carDataArray.forEach(car => {
             const cardLink = document.createElement("a");
-            cardLink.href = carData.link;
+            cardLink.href = car.link;
             cardLink.style.boxShadow = "0 20px 50px rgba(0, 0, 0, 0.1)";
             cardLink.style.borderRadius = "0.5rem";
 
             cardLink.innerHTML = `
                 <div class="bg-white w-[162px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8px] md:gap-[16px] box-border">
-                    <img src="${carData.image}" alt="Car Image" class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
+                    <img src="${car.image}" alt="Car Image" class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
                     <div>
-                        <p class="text-[16px] md:text-[28px] font-medium text-gray-800">${carData.model}</p>
-                        <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">${carData.type}</span>
+                        <p class="text-[16px] md:text-[28px] font-medium text-gray-800">${car.model}</p>
+                        <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">${car.type}</span>
                     </div>
                     <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">
-                        <p class="line-through font-medium text-[10px] md:text-[16px]">${carData.oldPrice}</p>
+                        <p class="line-through font-medium text-[10px] md:text-[16px]">${car.oldPrice}</p>
                         <div class="bg-[#DAE7FF] text-[#4886FF] text-[10px] md:text-sm font-bold px-[11px] py-[4px] md:px-3 md:py-1.5 rounded-full md:rounded">
-                            ${carData.discount}
+                            ${car.discount}
                         </div>
                     </div>
-                    <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4">${carData.price}</p>
+                    <p class="text-[20px] md:text-3xl font-medium md:font-bold text-gray-900 mb-4">${car.price}</p>
                     <button class="w-full bg-[#4886FF] text-[14px] md:text-2xl text-white py-[9px] font-semibold py-4 md:py-5 rounded-[14px] transition">
                         Подобрать
                     </button>
@@ -647,10 +694,9 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
             container.appendChild(cardLink);
-        }
+        });
     });
 
-    // === Генерация брендов (как в оригинале) ===
     const carBrands = [
         "BAIC", "Lada", "Belgee", "Changan", "Chery", "Dongfeng", "EXEED", "Faw", "Forthing", "Gac",
         "Geely", "Haval", "Hyundai", "Jaecoo", "Jac", "Jetour", "Jetta", "KAIYI", "Livan", "Moskvich",
@@ -672,9 +718,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // === Остальной функционал (оставьте ваш оригинальный JS ниже) ===
-    // Все ваши модалки, попапы, слайдеры и т.д. — можно вставить сюда
-    // Они не конфликтуют с новым кодом
 });
 
 

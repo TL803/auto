@@ -155,6 +155,86 @@
             background-repeat: no-repeat;
         }
 
+
+
+
+
+        /* Стили для бургер-меню */
+        #mobileMenu {
+            display: none;
+            /* Скрыто по умолчанию */
+            position: fixed;
+            z-index: 9999;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        #mobileMenu.active {
+            display: block;
+            transform: translateX(0);
+        }
+
+        #mobileMenu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #mobileMenu li a {
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .active {
+            background-color: #4886FF;
+            color: white;
+        }
+
+
+        .thick-blue-slider {
+            width: 100%;
+            height: 30px;
+            /* Толщина всего ползунка */
+            margin: 20px 0;
+            -webkit-appearance: none;
+            /* Важно для кастомизации */
+            background: transparent;
+            /* Делаем фон прозрачным */
+        }
+
+        /* Стиль трека (синяя часть сзади) - Chrome/Safari */
+        .thick-blue-slider::-webkit-slider-runnable-track {
+            height: 15px;
+            background: linear-gradient(to right, #4886FF 0%, #4886FF var(--fill-percent, 50%), #ddd var(--fill-percent, 50%), #ddd 100%);
+            border-radius: 10px;
+        }
+
+        .thick-blue-slider::-moz-range-track {
+            height: 15px;
+            background: linear-gradient(to right, #4886FF 0%, #4886FF var(--fill-percent, 50%), #ddd var(--fill-percent, 50%), #ddd 100%);
+            border-radius: 10px;
+        }
+
+        .thick-blue-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            margin-top: -5px;
+            background: #4886FF;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .thick-blue-slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4886FF;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
         @media (max-width: 1600px) {
             .container {
                 width: 375px !important;
@@ -171,88 +251,14 @@
                 background-size: 100%;
                 background-repeat: no-repeat;
             }
+
+            .change-bg {
+                background-image: url('./assets/Rectangle 2 (1).png') !important;
+            }
         }
 
-
-
-        /* Стили для бургер-меню */
-#mobileMenu {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed;
-    z-index: 9999;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-100%);
-}
-
-#mobileMenu.active {
-    display: block;
-    transform: translateX(0);
-}
-
-#mobileMenu ul {
-    list-style: none;
-    padding: 0;
-}
-
-#mobileMenu li a {
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.active {
-    background-color: #4886FF;
-    color: white;
-}
-
-
-  .thick-blue-slider {
-    width: 100%;
-    height: 30px;  /* Толщина всего ползунка */
-    margin: 20px 0;
-    -webkit-appearance: none; /* Важно для кастомизации */
-    background: transparent; /* Делаем фон прозрачным */
-  }
-
-  /* Стиль трека (синяя часть сзади) - Chrome/Safari */
-  .thick-blue-slider::-webkit-slider-runnable-track {
-    height: 15px;
-    background: linear-gradient(to right, #4886FF 0%, #4886FF var(--fill-percent, 50%), #ddd var(--fill-percent, 50%), #ddd 100%);
-    border-radius: 10px;
-  }
-
-  /* Стиль трека - Firefox */
-  .thick-blue-slider::-moz-range-track {
-    height: 15px;
-    background: linear-gradient(to right, #4886FF 0%, #4886FF var(--fill-percent, 50%), #ddd var(--fill-percent, 50%), #ddd 100%);
-    border-radius: 10px;
-  }
-
-  /* Стиль бегунка (ползунка) */
-  .thick-blue-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    margin-top: -5px; /* Центрируем */
-    background: #4886FF;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .thick-blue-slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #4886FF;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-
-
-
-
-
-
-  
+        @media (max-width: 780px) {
+            .change-bg {
+                background-image: url('./assets/Rectangle\ 52.png');
+            }
+        }
