@@ -72,7 +72,8 @@
     </section>
 
     <main class="container full-photo md:w-full mx-auto mt-8">
-        <div id="mobileMenu" class="hidden md:hidden  absolute top-0 right-0 w-[70%] h-screen bg-white text-white p-4" style="z-index: 1;">
+        <div id="mobileMenu" class="hidden md:hidden  absolute top-0 right-0 w-[70%] h-screen bg-white text-white p-4"
+            style="z-index: 1;">
             <nav class="mt-10 flex flex-col justify-between h-[90%]">
                 <ul class="space-y-4 mb-20 ">
                     <li><a href="./" style="color: #4886FF !important;">Главная</a></li>
@@ -145,40 +146,7 @@
 
             </script>
             <style>
-                #price-slider {
-                    width: 100%;
-                    cursor: pointer;
-                    height: 7px;
-                    border: none;
-                    background-color: #D9D9D9;
-                    /* Серый фон для трека */
-                    margin-top: 30px;
-                }
-
-                #price-slider .noUi-connect {
-                    background-color: #4886FF;
-                }
-
-                #price-slider .noUi-handle {
-                    cursor: pointer;
-                    height: 30px;
-                    width: 30px;
-                    top: -12px;
-                    right: -9px;
-                    border-radius: 50%;
-                    border: none;
-                    box-shadow: none;
-                    background-color: #4886FF;
-                    outline: none;
-                }
-
-                #price-slider .noUi-handle::after {
-                    display: none;
-                }
-
-                #price-slider .noUi-handle::before {
-                    display: none;
-                }
+              
             </style>
             <form class="space-y-4" action="#" method="get">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -229,8 +197,8 @@
         </section>
     </main>
 
-    <!-- Модальное окно (без id) -->
-    <div style="z-index: 100;" class="modal-overlay hidden w-full h-full bg-black/50 fixed z-12 inset-0 flex items-center justify-center">
+    <div style="z-index: 100;"
+        class="modal-overlay hidden w-full h-full bg-black/50 fixed z-12 inset-0 flex items-center justify-center">
         <div
             class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
             <button class="close-modal absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
@@ -240,8 +208,9 @@
                 </svg>
             </button>
             <div>
-                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
-                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
+                <h2 class="text-[#4886FF] text-center font-bold text-2xl md:text-4xl mb-4">Остались вопросы?</h2>
+                <p class="text-gray-600 text-center text-[14px] md:text-xl mb-8">Оставьте ваш номер и мы перезвоним в
+                    ближайшее время!
                 </p>
             </div>
             <form class="space-y-4 flex flex-col gap-4">
@@ -251,52 +220,54 @@
                     class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
                 <div class="flex items-center">
                     <input type="checkbox" id="agree" class="mr-2">
-                    <label for="agree" class="text-sm text-gray-600 leading-tight">
-                        Я соглашаюсь с условиями и даю своё согласие на обработку моих персональных данных,<br>
+                    <label for="agree" class="text-[10px] md:text-sm text-gray-600 leading-tight">
+                        Я соглашаюсь с условиями и даю своё согласие на обработку моих персональных данных,<br
+                            class="md:flex hidden">
                         и разрешаю сделать запрос в бюро кредитных историй
                     </label>
                 </div>
                 <button type="submit"
-                    class="form-send w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300">
+                    class="form-send w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-sm md:text-xl font-medium hover:bg-[#4886FF] transition duration-300">
                     Оставить заявку на звонок
                 </button>
             </form>
         </div>
     </div>
-    <div id="popupModal"
-        class="hidden fixed top-0 left-0 w-full h-screen bg-black/50 flex items-center justify-center z-50">
-        <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md ">
-            <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-0 right-0" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+ <div id="popupModal"
+    class="hidden fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md relative">
+        <button id="closePopup" class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <h2 class="text-xl font-bold mb-4">Уникальное предложение на покупку нового авто!</h2>
+        <p class="text-sm mb-4">Акция действует до 3 июля</p>
+        <img src="./assets/Frame 193.png" alt="Три автомобиля" class="w-full h-auto object-cover mb-4">
+        <h3 class="text-2xl font-bold mb-4">Специальное предложение на все автомобили</h3>
+        <form class="space-y-4">
+            <input type="text" placeholder="ФИО"
+                class="w-full px-7 py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]">
+
+            <input type="tel" placeholder="Ваш телефон"
+                class="w-full px-7 py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none placeholder:text-[#EAEAEA]">
+
+            <div class="flex items-center">
+                <input type="checkbox" id="agreePopup" class="mr-2">
+                <label for="agreePopup" class="text-[12px] text-left leading-tight">
+                    Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,
+                    и разрешаю сделать запрос в бюро кредитных историй
+                </label>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-white text-[#4886FF] px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-gray-100 transition duration-300">
+                Получить предложение
             </button>
-            <h2 class="text-xl font-bold mb-4">Уникальное предложение на покупку нового авто!</h2>
-            <p class="text-sm mb-4">Акция действует до 3 июля</p>
-            <img src="./assets/Frame 193.png" alt="Три автомобиля" class="w-full h-auto object-cover mb-4">
-            <h3 class="text-2xl font-bold mb-4">Специальное предложение на все автомобили</h3>
-            <form class="space-y-4 ">
-                <input type="text" placeholder="ФИО"
-                    class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none text-[#EAEAEA] placeholder:text-[#EAEAEA]">
-
-                <input type="tel" placeholder="Ваш телефон"
-                    class="w-full px-7 h-full py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none placeholder:text-[#EAEAEA]">
-                <div class="flex items-center">
-                    <input type="checkbox" id="agreePopup" class="mr-2">
-                    <label for="agreePopup" class="text-[12px] text-left leading-tight">
-                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,
-                        и разрешаю сделать запрос в бюро кредитных историй
-                    </label>
-                </div>
-                <button type="submit"
-                    class="w-full bg-white text-[#4886FF] px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-gray-100 transition duration-300">
-                    Получить предложение
-                </button>
-            </form>
-        </div>
+        </form>
     </div>
-
+</div>
     <script src="./script.js"></script>
 </body>
 

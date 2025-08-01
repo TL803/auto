@@ -105,7 +105,6 @@
             border: none;
             border-radius: 8px;
             color: #B8B8B8;
-            /* серый по умолчанию */
             background-color: #F9F9F9;
             background-image: url('./assets/Polygon 2.svg');
             background-repeat: no-repeat;
@@ -159,10 +158,8 @@
 
 
 
-        /* Стили для бургер-меню */
         #mobileMenu {
             display: none;
-            /* Скрыто по умолчанию */
             position: fixed;
             z-index: 9999;
             transition: transform 0.3s ease-in-out;
@@ -196,15 +193,11 @@
         .thick-blue-slider {
             width: 100%;
             height: 30px;
-            /* Толщина всего ползунка */
             margin: 20px 0;
             -webkit-appearance: none;
-            /* Важно для кастомизации */
             background: transparent;
-            /* Делаем фон прозрачным */
         }
 
-        /* Стиль трека (синяя часть сзади) - Chrome/Safari */
         .thick-blue-slider::-webkit-slider-runnable-track {
             height: 15px;
             background: linear-gradient(to right, #4886FF 0%, #4886FF var(--fill-percent, 50%), #ddd var(--fill-percent, 50%), #ddd 100%);
@@ -261,4 +254,41 @@
             .change-bg {
                 background-image: url('./assets/Rectangle\ 52.png');
             }
+        }
+
+
+
+
+        #price-slider {
+            width: 100%;
+            cursor: pointer;
+            height: 7px;
+            border: none;
+            background-color: #D9D9D9;
+            margin-top: 30px;
+        }
+
+        #price-slider .noUi-connect {
+            background-color: #4886FF;
+        }
+
+        #price-slider .noUi-handle {
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            top: -12px;
+            right: -9px;
+            border-radius: 50%;
+            border: none;
+            box-shadow: none;
+            background-color: #4886FF;
+            outline: none;
+        }
+
+        #price-slider .noUi-handle::after {
+            display: none;
+        }
+
+        #price-slider .noUi-handle::before {
+            display: none;
         }
