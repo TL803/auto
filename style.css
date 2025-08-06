@@ -53,15 +53,7 @@
             transform: translateX(-50%) translateY(-50%) scale(1.1);
         }
 
-        #slider {
-            position: absolute;
-            width: 100%;
-            height: 2rem;
-            opacity: 0;
-            cursor: pointer;
-            z-index: 20;
-            -webkit-appearance: none;
-        }
+
 
         select {
             width: 100%;

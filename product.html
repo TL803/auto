@@ -87,10 +87,9 @@
         </nav>
     </div>
     <main class="container mx-auto mt-8 px-4 flex flex-col gap-[102px]">
-
         <section class="bg-white p-6 rounded-[14px] grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="relative">
-                <img src="./assets/Rectangle 2 (2).png" alt="Hyundai Solaris"
+                <img id="carImage" src="./assets/Rectangle 2 (2).png" alt="Hyundai Solaris"
                     class="w-full h-auto object-cover rounded-[14px]">
 
                 <button
@@ -115,8 +114,8 @@
 
                 <div class="mb-8">
                     <p class="text-gray-600 mb-4">Цвет</p>
-                    <div class="flex space-x-3">
-                        <div
+                    <div id="colors" class="flex space-x-3 overflow-x-auto pb-2 md:overflow-visible" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+                        <!-- <div
                             class="w-16 h-14 rounded-[14px] bg-blue-800 cursor-pointer border-2 border-gray-300 hover:border-blue-500 transition">
                         </div>
                         <div
@@ -127,7 +126,7 @@
                         </div>
                         <div
                             class="w-16 h-14 rounded-[14px] bg-yellow-500 cursor-pointer border-2 border-gray-300 hover:border-yellow-400 transition">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -170,10 +169,7 @@
                     </div>
                     <p class="md:text-5xl text-[32px] font-bold text-gray-900">от 552 000 ₽</p>
                 </div>
-                <button
-                    class="w-full bg-[#4886FF]  text-white text-[18px] md:text-[24px] font-semibold py-5 rounded-[18px] transition duration-200">
-                    Получить предложение
-                </button>
+
             </div>
         </section>
 
@@ -783,7 +779,8 @@
     </div>
 
 
-    <script src="./script.js"></script>
+    <script src="./script.js" type="module"></script>
+    <script src="./script/changeColors.js" type="module"></script>
 </body>
 
 </html>
