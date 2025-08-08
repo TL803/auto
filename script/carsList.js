@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="bg-white w-[162px] h-[368px] md:h-[642px] p-[12px] md:p-6 md:p-8 rounded-[18px] md:min-w-[480px] flex flex-col gap-[8px] md:gap-[16px] box-border">
                     <img src="${car.image}" alt="Car Image" class="md:w-full w-[138px] h-[108px] md:h-60 object-cover rounded-md mb-4">
                     <div>
-                        <p class="text-[16px] md:text-[28px] font-medium text-gray-800">${car.model}</p>
+                        <p class="text-[16px] h-[60px] md:h-[90px] md:text-[28px] font-medium text-gray-800">${car.model}</p>
                         <span class="text-gray-500 font-medium block mb-2 text-[12px] md:text-[16px]">${car.type}</span>
                     </div>
                     <div class="flex items-center mb-[0px] md:mb-[-15px] gap-[24px]">

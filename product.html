@@ -89,18 +89,20 @@
     <main class="container mx-auto mt-8 px-4 flex flex-col gap-[102px]">
         <section class="bg-white p-6 rounded-[14px] grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="relative">
-                <img id="carImage" src="./assets/Rectangle 2 (2).png" alt="Hyundai Solaris"
-                    class="w-full h-auto object-cover rounded-[14px]">
-
+                <div class="md:w-[744px] md:h-[704px] flex justify-center items-center p-4 bg-white"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 3rem;">
+                    <img id="carImage" src="./assets/car_white.png" alt="Hyundai Solaris"
+                        class="max-w-full max-h-full object-contain">
+                </div>
                 <button
-                    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-500 hover:bg-gray-600 text-white p-2 rounded-full transition opacity-75 hover:opacity-100">
+                    class="absolute ChangeColorBack top-1/2 left-4 transform -translate-y-1/2 bg-gray-500 hover:bg-gray-600 text-white p-2 rounded-full transition opacity-75 hover:opacity-100">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <button
-                    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-500 hover:bg-gray-600 text-white p-2 rounded-full transition opacity-75 hover:opacity-100">
+                    class="absolute top-1/2 ChangeColorFront right-4 transform -translate-y-1/2 bg-gray-500 hover:bg-gray-600 text-white p-2 rounded-full transition opacity-75 hover:opacity-100">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -114,23 +116,13 @@
 
                 <div class="mb-8">
                     <p class="text-gray-600 mb-4">Цвет</p>
-                    <div id="colors" class="flex space-x-3 overflow-x-auto pb-2 md:overflow-visible" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
-                        <!-- <div
-                            class="w-16 h-14 rounded-[14px] bg-blue-800 cursor-pointer border-2 border-gray-300 hover:border-blue-500 transition">
-                        </div>
-                        <div
-                            class="w-16 h-14 rounded-[14px] bg-red-600 cursor-pointer border-2 border-gray-300 hover:border-red-500 transition">
-                        </div>
-                        <div
-                            class="w-16 h-14 rounded-[14px] bg-indigo-800 cursor-pointer border-2 border-gray-300 hover:border-indigo-500 transition">
-                        </div>
-                        <div
-                            class="w-16 h-14 rounded-[14px] bg-yellow-500 cursor-pointer border-2 border-gray-300 hover:border-yellow-400 transition">
-                        </div> -->
+                    <div id="colors" class="flex space-x-3 overflow-x-auto pb-2 md:overflow-visible"
+                        style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+                        <!-- Цвета будут добавлены JS -->
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-4 md:mb-[120px] mb-[30px] ">
+                <div class="flex flex-wrap gap-4 md:mb-[120px] mb-[30px]">
                     <div class="flex items-center space-x-2">
                         <img class="w-10" src="./assets/dashboard-speed-01.svg" alt="Скорость">
                         <div>
@@ -169,7 +161,6 @@
                     </div>
                     <p class="md:text-5xl text-[32px] font-bold text-gray-900">от 552 000 ₽</p>
                 </div>
-
             </div>
         </section>
 
@@ -459,24 +450,95 @@
                                 2.5 л. 6АКПП (180 л.с.) FWD
                             </h2>
                             <div class="space-y-4 p-4">
+                                <div class="flex flex-col gap-2 max-w-xs mx-auto">
+                                    <div class="flex items-center justify-between">
+                                        <div class="relative">
+                                            <div class="flex items-center gap-1">
+                                                <span class="font-semibold text-sm">Active Plus New</span>
+                                                <details class="inline-block" id="features-dropdown">
+                                                    <summary class="flex cursor-pointer list-none focus:outline-none"
+                                                        aria-label="Показать характеристики">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-4 w-4 text-gray-600 hover:text-[#4886FF] transition-transform duration-200"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                    </summary>
 
-                                <div class="flex flex-col gap-3">
-                                    <div class="flex justify-between">
-                                        <span class="font-semibold">Active Plus New</span>
-                                        <span class="line-through text-gray-500">1 489 000 ₽</span>
+                                                    <div
+                                                        class="absolute left-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-xl z-10 min-w-[320px] max-w-xs overflow-hidden">
+                                                        <div class="p-3 text-xs">
+                                                            <h3 class="text-sm font-semibold mb-2">Характеристики Luxe
+                                                            </h3>
+                                                            <div class="grid grid-cols-2 gap-2">
+                                                                <div>
+                                                                    <h4 class="font-bold mb-1">Безопасность</h4>
+                                                                    <ul class="list-disc pl-3 space-y-0.5">
+                                                                        <li>Система помощи при старте в гору (HSA)</li>
+                                                                        <li>Подушка безопасности пассажира</li>
+                                                                        <li>BAS, EBD</li>
+                                                                        <li>Помощь при спуске</li>
+                                                                        <li>Боковые подушки</li>
+                                                                        <li>ASR</li>
+                                                                        <li>ESP</li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <div>
+                                                                    <h4 class="font-bold mb-1">Интерьер</h4>
+                                                                    <ul class="list-disc pl-3 space-y-0.5">
+                                                                        <li>Климат-контроль</li>
+                                                                        <li>Электростеклоподъемники задние</li>
+                                                                        <li>Парктроник задний</li>
+                                                                        <li>Передние стеклоподъемники</li>
+                                                                        <li>Доступ без ключа</li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <div>
+                                                                    <h4 class="font-bold mb-1">Экстерьер</h4>
+                                                                    <ul class="list-disc pl-3 space-y-0.5">
+                                                                        <li>Рейлинги</li>
+                                                                        <li>Металлик</li>
+                                                                        <li>Светодиодные фары</li>
+                                                                        <li>Противотуманки</li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <div>
+                                                                    <h4 class="font-bold mb-1">Комфорт</h4>
+                                                                    <ul class="list-disc pl-3 space-y-0.5">
+                                                                        <li>Мультимедиа с экраном</li>
+                                                                        <li>Круиз-контроль</li>
+                                                                        <li>Подогрев сидений</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </details>
+                                            </div>
+                                        </div>
+
+                                        <span class="line-through text-gray-500 text-xs whitespace-nowrap">1 489 000
+                                            ₽</span>
                                     </div>
+
                                     <div class="flex justify-between">
-                                        <span class="text-[#4886FF] font-medium">от 633 000 ₽</span>
-                                        <span class="text-sm text-gray-600">В кредит от 7 806 ₽/мес.</span>
+                                        <span class="text-[#4886FF] font-medium text-sm">от 633 000 ₽</span>
+                                        <span class="text-xs text-gray-600">В кредит от 7 806 ₽/мес.</span>
                                     </div>
+
                                     <div class="flex gap-2">
                                         <button
-                                            class="flex-1 bg-[#4886FF] text-white py-3 rounded-lg font-medium credit-button">В
-                                            кредит</button>
-
+                                            class="flex-1 bg-[#4886FF] text-white py-2 rounded-lg font-medium text-sm hover:bg-[#3a75d9] transition">
+                                            В кредит
+                                        </button>
                                         <button
-                                            class="flex-1 bg-white py-3 rounded-lg border text-[#4886FF] border-[#4886FF] font-medium">
-                                            <a href="/TradeIn.html">Trade-in </a></button>
+                                            class="flex-1 bg-white py-2 rounded-lg border text-[#4886FF] border-[#4886FF] font-medium text-sm hover:bg-gray-50 transition">
+                                            <a href="/TradeIn.html" class="block w-full h-full">Trade-in</a>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -533,28 +595,67 @@
                         <div>
                             <h2 class="text-xl font-bold mb-6">2.5 л. 6АКПП (180 л.с.) FWD</h2>
                             <div class="space-y-6">
-                                <div class="grid grid-cols-5 gap-6 items-center border-b pb-6">
-                                    <div class="flex items-center gap-2">
-                                        <span class="font-semibold text-lg">Active Plus New</span>
+                                <details class="w-full group col-span-5">
+                                    <summary class="list-none">
+                                        <!-- Основная строка комплектации -->
+                                        <div class="grid grid-cols-5 gap-6 items-center border-b pb-6 cursor-pointer">
+                                            <div class="flex items-center justify-between gap-2">
+                                                <span class="font-semibold text-lg">Active Plus New</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5 transition-transform duration-300 group-open:rotate-180"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </div>
+                                            <div class="text-right flex justify-center">
+                                                <span class="line-through text-lg">1 489 000 ₽</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-blue-600 font-medium text-lg">от 633 000 ₽</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-600">В кредит от 7 806 ₽/мес.</span>
+                                            </div>
+                                            <div class="flex gap-2">
+                                                <button
+                                                    class="flex-1 bg-[#4886FF] text-white py-3 rounded-[14px] font-medium credit-button">В
+                                                    кредит</button>
+                                                <button
+                                                    class="flex-1 bg-white py-3 rounded-[14px] border text-[#4886FF] border-[#4886FF] font-medium">
+                                                    <a href="/TradeIn.html">Trade-in</a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </summary>
+
+                                    <!-- Раскрывающийся список с деталями -->
+                                    <div
+                                        class="col-span-5 mt-4 mb-6 pb-6 grid grid-cols-1 md:grid-cols-2 gap-y-4 text-sm text-gray-700">
+                                        <div><strong>Безопасность:</strong></div>
+                                        <div></div>
+                                        <div>• Подушка безопасности водителя</div>
+                                        <div>• Подушка безопасности пассажира</div>
+                                        <div>• Боковые подушки</div>
+                                        <div>• Система стабилизации (ESP)</div>
+                                        <div>• Антиблокировочная система (ABS)</div>
+                                        <div>• ISOFIX</div>
+
+                                        <div class="mt-4"><strong>Комфорт:</strong></div>
+                                        <div></div>
+                                        <div>• Климат-контроль</div>
+                                        <div>• Мультимедиа с экраном</div>
+                                        <div>• Подогрев сидений</div>
+                                        <div>• Электропакет</div>
+
+                                        <div class="mt-4"><strong>Экстерьер:</strong></div>
+                                        <div></div>
+                                        <div>• Противотуманные фары</div>
+                                        <div>• Светодиодные фары</div>
+                                        <div>• Рейлинги на крыше</div>
+                                        <div>• Окраска «металлик»</div>
                                     </div>
-                                    <div class="text-right">
-                                        <span class="line-through text-lg">1 489 000 ₽</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-blue-600 font-medium text-lg">от 633 000 ₽</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-600">В кредит от 7 806 ₽/мес.</span>
-                                    </div>
-                                    <div class="flex gap-2">
-                                        <button
-                                            class="flex-1 bg-[#4886FF] text-white py-3 rounded-[14px] font-medium credit-button">В
-                                            кредит</button>
-                                        <button
-                                            class="flex-1 bg-white  py-3 rounded-[14px] border text-[#4886FF] border-[#4886FF] font-medium"><a
-                                                href="/TradeIn.html">Trade-in </a></button>
-                                    </div>
-                                </div>
+                                </details>
 
                                 <div class="grid grid-cols-5 gap-6 items-center border-b pb-6">
                                     <div class="flex items-center gap-2">
@@ -621,39 +722,6 @@
         </section>
     </main>
 
-    <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
-        <div
-            class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <div>
-                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
-                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
-                </p>
-            </div>
-            <form class="space-y-4 flex flex-col gap-4">
-                <input type="text" placeholder="ФИО"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                <input type="tel" placeholder="Ваш телефон"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                <div class="flex items-center">
-                    <input type="checkbox" id="agree" class="mr-2">
-                    <label for="agree" class="text-sm text-gray-600 leading-tight">
-                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
-                        и разрешаю сделать запрос в бюро кредитных историй
-                    </label>
-                </div>
-                <button id="form-send" type="submit"
-                    class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
-                    Оставить заявку на звонок
-                </button>
-            </form>
-        </div>
-    </div>
 
     <div id="creditModal"
         class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">

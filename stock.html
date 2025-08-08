@@ -78,7 +78,7 @@
         </div>
 
     <main class="container mx-auto mt-8 px-4 flex flex-col gap-[33px] md:gap-[102px]">
-        <a href="" class="h-[310px] md:h-auto rounded-3xl contacts__custom-card">
+        <div class="h-[310px] md:h-auto rounded-3xl cursor-pointer contacts__custom-card credit-button">
             <div class="w-full md:h-[490px] h-[158px] bg-cover bg-center relative rounded-3xl overflow-hidden"
                 style="background-image: url('./assets/Rectangle 41.png');">
                 <div
@@ -112,11 +112,11 @@
                     </button>
                 </div>
             </div>
-        </a>
+        </div>
 
         <div class="flex gap-[33px] flex-col md:flex-row">
             <a href=""
-                class="w-full contacts__custom-card md:h-[158px] h-[292px] md:w-[50%] md:h-[337px] rounded-3xl relative">
+                class="w-full credit-button contacts__custom-card md:h-[158px] h-[292px] md:w-[50%] md:h-[337px] rounded-3xl relative">
                 <div
                     class="relative z-10 items-center justify-between h-full px-12 text-white md:flex relative adaptive-card__stock">
 
@@ -147,7 +147,7 @@
                     </button>
                 </div>
             </a>
-            <a href="" class="w-full contacts__custom-card md:h-[158px] h-[292px] md:w-[50%] md:h-[337px] rounded-3xl relative">
+            <a href="" class="w-full credit-button contacts__custom-card md:h-[158px] h-[292px] md:w-[50%] md:h-[337px] rounded-3xl relative">
                 <div class="relative z-10 items-center justify-between h-full px-12 text-white md:flex bg-[350px] md:bg-[350px] bg-top md:bg-center relative adaptive-card__stock"
                     style="background-image: url('./assets/Rectangle 43.png'); background-repeat: no-repeat;"
                 >
@@ -179,7 +179,7 @@
             </a>
         </div>
 
-        <a href="" class="h-[350px] md:h-auto rounded-3xl contacts__custom-card">
+        <a class="h-[350px] cursor-pointer credit-button md:h-auto rounded-3xl contacts__custom-card">
             <div class="w-full md:h-[490px] h-[158px] bg-cover bg-center relative rounded-3xl overflow-hidden"
                 style="background-image: url('./assets/Rectangle 44.png');">
                 <div
@@ -203,7 +203,7 @@
                 </div>
             </div>
             <div>
-                <div class="w-[301px] md:hidden m-auto mt-[20px] flex flex-col gap-[20px]">
+                <div class="w-[301px]  credit-button md:hidden m-auto mt-[20px] flex flex-col gap-[20px]">
                     <div>
                         <h2 class="text-[16px] font-medium">
                             ПОДАРКИ ВСЕМ! ПРИ ПОКУПКЕ<br> АВТОМОБИЛЯ В КРЕДИТ
@@ -219,39 +219,7 @@
             </div>
         </a>
     </main>
-    <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
-        <div
-            class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <div>
-                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
-                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
-                </p>
-            </div>
-            <form class="space-y-4 flex flex-col gap-4">
-                <input type="text" placeholder="ФИО"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                <input type="tel" placeholder="Ваш телефон"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                <div class="flex items-center">
-                    <input type="checkbox" id="agree" class="mr-2">
-                    <label for="agree" class="text-sm text-gray-600 leading-tight">
-                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
-                        и разрешаю сделать запрос в бюро кредитных историй
-                    </label>
-                </div>
-                <button id="form-send" type="submit"
-                    class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
-                    Оставить заявку на звонок
-                </button>
-            </form>
-        </div>
-    </div>
+
  <div id="popupModal"
     class="hidden fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-50">
     <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md relative">

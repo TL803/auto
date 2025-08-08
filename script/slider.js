@@ -13,14 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Устанавливаем шаг 10% программно, если не задан
+    slider.step = 10;
+
     function updateSlider() {
-        const value = slider.value;
-        const min = slider.min || 0;
-        const max = slider.max || 100;
+        const value = Number(slider.value);
+        const min = Number(slider.min) || 0;
+        const max = Number(slider.max) || 100;
         const percent = ((value - min) / (max - min)) * 100;
         slider.style.setProperty('--fill-percent', `${percent}%`);
-        percentValue.textContent = `${Math.round(percent)}%`;
-        const amount = propertyPrice * (percent / 100);
+        percentValue.textContent = `${Math.round(value)}%`; // value уже в процентах
+        const amount = propertyPrice * (value / 100);
         amountValue.textContent = formatNumber(Math.round(amount));
     }
 
