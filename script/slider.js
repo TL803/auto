@@ -13,20 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Устанавливаем шаг 10% программно, если не задан
+    slider.min = 0;
+    slider.max = 90;
     slider.step = 10;
 
     function updateSlider() {
         const value = Number(slider.value);
-        const min = Number(slider.min) || 0;
-        const max = Number(slider.max) || 100;
+        const min = Number(slider.min);
+        const max = Number(slider.max);
         const percent = ((value - min) / (max - min)) * 100;
         slider.style.setProperty('--fill-percent', `${percent}%`);
-        percentValue.textContent = `${Math.round(value)}%`; // value уже в процентах
+        percentValue.textContent = `${Math.round(value)}%`;
         const amount = propertyPrice * (value / 100);
         amountValue.textContent = formatNumber(Math.round(amount));
     }
 
     slider.addEventListener('input', updateSlider);
-    updateSlider();
+    updateSlider(); // Инициализация начального состояния
 });

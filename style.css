@@ -236,17 +236,8 @@
                 background-size: 100%;
                 background-repeat: no-repeat;
             }
-
-            .change-bg {
-                background-image: url('./assets/Rectangle 2 (1).png') !important;
-            }
         }
 
-        @media (max-width: 780px) {
-            .change-bg {
-                background-image: url('./assets/Rectangle\ 52.png');
-            }
-        }
 
 
 

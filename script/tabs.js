@@ -31,5 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (tabComplectationsBtn) {
         tabComplectationsBtn.addEventListener("click", () => showTab("complectations"));
     }
-    if (contentSpecs) showTab("specs");
+
+    if (contentComplectations) {
+        showTab("complectations");
+    }
 });

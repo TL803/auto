@@ -145,19 +145,7 @@
 
                 <div class="mb-8">
                     <p class="text-gray-600 mb-4">Цвет</p>
-                    <div id="colors" class="flex space-x-3 overflow-x-auto pb-2 md:overflow-visible" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
-                        <!-- <div
-                            class="w-16 h-14 rounded-[14px] bg-blue-800 cursor-pointer border-2 border-gray-300 hover:border-blue-500 transition">
-                        </div>
-                        <div
-                            class="w-16 h-14 rounded-[14px] bg-red-600 cursor-pointer border-2 border-gray-300 hover:border-red-500 transition">
-                        </div>
-                        <div
-                            class="w-16 h-14 rounded-[14px] bg-indigo-800 cursor-pointer border-2 border-gray-300 hover:border-indigo-500 transition">
-                        </div>
-                        <div
-                            class="w-16 h-14 rounded-[14px] bg-yellow-500 cursor-pointer border-2 border-gray-300 hover:border-yellow-400 transition">
-                        </div> -->
+                    <div id="colors" class="flex space-x-3 flex-wrap overflow-x-auto pb-2 md:overflow-visible" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
                     </div>
                 </div>
 
@@ -245,77 +233,26 @@
         </div>
     </div>
 
-    <!-- Десктопные карточки -->
-    <div class="relative mx-auto hidden md:flex">
-        <button onclick="scrollCards('left')"
-                class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition"
-                style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-            ←
-        </button>
+<div class="relative mb-[50px]">
+    <button onclick="scrollCards('left')"
+            class="absolute hidden md:flex left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10  items-center justify-center cursor-pointer transition"
+            style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+        ←
+    </button>
 
-        <div id="cardsContainer"
-             class="flex justify-center gap-[32px] overflow-x-auto p-16 box-border scroll-smooth"
-             style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
-            
-            <div data-year="7" data-term="7 лет" data-payment="50 000"
-                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                <span class="text-[32px] font-regular text-gray-500">7 лет</span>
-                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                <span class="text-[46px] font-medium mt-2">50 000</span>
-                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-            </div>
-
-            <div data-year="6" data-term="6 лет" data-payment="60 000"
-                class="card w-[240px] h-[280px] bg-[#4886FF] text-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                <span class="text-[32px] font-regular">6 лет</span>
-                <span class="text-[18px] font-regular">Платеж, ₽</span>
-                <span class="text-[46px] font-medium mt-2">60 000</span>
-                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                <span class="text-[32px] font-regular mt-2">10,9%</span>
-            </div>
-
-            <div data-year="5" data-term="5 лет" data-payment="70 000"
-                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                <span class="text-[32px] font-regular text-gray-500">5 лет</span>
-                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                <span class="text-[46px] font-medium mt-2">70 000</span>
-                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-            </div>
-
-            <div data-year="4" data-term="4 года" data-payment="80 000"
-                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                <span class="text-[32px] font-regular text-gray-500">4 года</span>
-                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                <span class="text-[46px] font-medium mt-2">80 000</span>
-                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-            </div>
-
-            <div data-year="3" data-term="3 года" data-payment="90 000"
-                class="card w-[240px] h-[280px] bg-white shadow-md p-4 flex flex-col items-center justify-center cursor-pointer"
-                style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
-                <span class="text-[32px] font-regular text-gray-500">3 года</span>
-                <span class="text-[18px] font-regular text-gray-500">Платеж, ₽</span>
-                <span class="text-[46px] font-medium mt-2">90 000</span>
-                <div class="w-4/5 h-0.5 bg-[#D9D9D9] mt-2"></div>
-                <span class="text-[32px] font-regular text-gray-500 mt-2">10,9%</span>
-            </div>
-        </div>
-
-        <button onclick="scrollCards('right')"
-                class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition"
-                style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-            →
-        </button>
+    <div id="cardsContainer"
+         class="md:flex gap-[32px] hidden justify-center overflow-x-auto p-16 box-border scroll-smooth"
+         style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
     </div>
 
-    <!-- Trade-in блок -->
+    <button onclick="scrollCards('right')"
+            class="absolute hidden right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 md:flex items-center justify-center cursor-pointer transition"
+            style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+        →
+    </button>
+</div>
+
+
     <div class="mt-4 bg-white rounded-[14px] p-4"
          style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
         <div class="flex justify-between items-center">
@@ -400,39 +337,7 @@
         </section>
 
     </main>
-    <div id="modal" class="hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center">
-        <div
-            class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <div>
-                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
-                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
-                </p>
-            </div>
-            <form class="space-y-4 flex flex-col gap-4">
-                <input type="text" placeholder="ФИО"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                <input type="tel" placeholder="Ваш телефон"
-                    class="w-full px-7  py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                <div class="flex items-center">
-                    <input type="checkbox" id="agree" class="mr-2">
-                    <label for="agree" class="text-sm text-gray-600 leading-tight">
-                        Я соглашаюсь с условиями и даю свое согласие на обработку моих персональных данных,<br>
-                        и разрешаю сделать запрос в бюро кредитных историй
-                    </label>
-                </div>
-                <button id="form-send" type="submit"
-                    class="w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300 ">
-                    Оставить заявку на звонок
-                </button>
-            </form>
-        </div>
-    </div>
+
 
  <div id="popupModal"
     class="hidden fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-50">
@@ -470,39 +375,7 @@
     </div>
 </div>
 
-    <div style="z-index: 100;" class="modal-overlay hidden w-full h-full bg-black/50 fixed z-12 inset-0 flex items-center justify-center">
-        <div
-            class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6">
-            <button class="close-modal absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <div>
-                <h2 class="text-[#4886FF] text-center font-bold text-4xl mb-4">Остались вопросы?</h2>
-                <p class="text-gray-600 text-center text-xl mb-8">Оставьте ваш номер и мы перезвоним в ближайшее время!
-                </p>
-            </div>
-            <form class="space-y-4 flex flex-col gap-4">
-                <input type="text" placeholder="ФИО"
-                    class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
-                <input type="tel" placeholder="Ваш телефон"
-                    class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
-                <div class="flex items-center">
-                    <input type="checkbox" id="agree" class="mr-2">
-                    <label for="agree" class="text-sm text-gray-600 leading-tight">
-                        Я соглашаюсь с условиями и даю своё согласие на обработку моих персональных данных,<br>
-                        и разрешаю сделать запрос в бюро кредитных историй
-                    </label>
-                </div>
-                <button type="submit"
-                    class="form-send w-full bg-[#4886FF] text-white px-4 py-3 rounded-[14px] text-xl font-medium hover:bg-[#4886FF] transition duration-300">
-                    Оставить заявку на звонок
-                </button>
-            </form>
-        </div>
-    </div>
+
     <script src="./script.js" type="module"></script>
     <script src="./script/changeColors.js"></script>
     <script src="./script/showAuto.js"></script>
