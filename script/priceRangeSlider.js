@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         noUiSlider.create(sliderElement, {
             start: [500000, 2500000],
             connect: true,
-            step: 100000, // <-- Шаг 100 000
+            step: 100000,
             range: {
                 min: 500000,
                 max: 2500000

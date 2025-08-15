@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let exitModalShown = false;
-    const startTime = Date.now();
-
     function createExitModal() {
-        if (exitModalShown || document.getElementById("exit-modal-overlay")) return;
-        exitModalShown = true;
+        if (document.getElementById("exit-modal-overlay")) return;
 
         const overlay = document.createElement("div");
         overlay.id = "exit-modal-overlay";
@@ -75,21 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function handleExitIntent(e) {
-        if (exitModalShown) return;
-        if (e.clientY <= 10 && !e.toElement && !e.relatedTarget) {
-            const timeOnPage = Date.now() - startTime;
-            if (timeOnPage >= 10000) {
-                createExitModal();
-                document.removeEventListener("mouseout", handleExitIntent);
-            }
-        }
-    }
-
-    document.addEventListener("mouseout", handleExitIntent);
-
-    setTimeout(() => {
-        if (!exitModalShown && document.body.contains(document.body)) {
-        }
-    }, 120000);
+    document.querySelector('.modal-trigger').addEventListener('click', function(e) {
+        e.preventDefault();
+        createExitModal();
+    });
 });

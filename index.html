@@ -43,7 +43,7 @@
             </nav>
             <div class="flex flex-col sm:flex-row items-center gap-[20px] text-center">
                 <a href="#" class="text-[18px] font-medium text-[#4886FF] mr-[60px]">Кулакова, вл. 24, корп.3</a>
-                <a href="#" class="text-[18px] font-medium text-[#4886FF] ">+7 (999) 999-99-99</a>
+                <a href="tel:+74951168260" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
                 <button
                     class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
                     Обратная связь
@@ -125,28 +125,23 @@
             </div>
         </section>
 
-        <section class="p-6 rounded-[14px] container">
+        <section class="p-6 rounded-[14px] container bg-white">
             <h2 class="text-[36px] md:text-[44px] font-medium mb-6">Подбор авто<br>по параметрам</h2>
-            <div class="relative h-8 flex md:hidden  items-center mb-6">
-                <div id="price-slider" class="w-full"></div>
+
+            <div class="relative h-8 flex md:hidden items-center mb-6">
+                <div id="price-slider" class="w-full bg-gray-200 h-1 rounded"></div>
             </div>
 
             <div class="flex justify-between items-center text-sm font-medium mt-4 mb-6 md:hidden">
                 <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-md shadow-sm">
-                    <span class="md:text-[18px] text-[14px]" id="minPriceValue">От 500 000 ₽</span>
+                    <span id="minPriceValue">От 500 000 ₽</span>
                 </div>
-                <div class="text-gray-600 md:text-[18px] text-[12px]">Цена</div>
+                <div class="text-gray-600">Цена</div>
                 <div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-md shadow-sm">
-                    <span class="md:text-[18px] text-[14px]" id="maxPriceValue">До 2 500 000 ₽</span>
+                    <span id="maxPriceValue">До 2 500 000 ₽</span>
                 </div>
             </div>
 
-            <script>
-
-            </script>
-            <style>
-
-            </style>
             <form class="space-y-4" action="#" method="get">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                     <select class="custom-select brand" name="brand">
@@ -154,17 +149,20 @@
                         <option value="bmw">BMW</option>
                         <option value="audi">Audi</option>
                         <option value="mercedes">Mercedes-Benz</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="volkswagen">Volkswagen</option>
+                        <option value="lada">Lada</option>
+                        <option value="ford">Ford</option>
                     </select>
-                    <select class="custom-select brand " name="drive_type">
+                    <select class="custom-select brand" name="drive_type">
                         <option value="" disabled selected>Привод</option>
-                        <option value="front">Передний</option>
-                        <option value="rear">Задний</option>
-                        <option value="all">Полный</option>
+                        <option value="Передний">Передний</option>
+                        <option value="Задний">Задний</option>
+                        <option value="Полный">Полный</option>
                     </select>
-
                 </div>
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg "
+                    <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg"
                         name="price_from" placeholder="От 500 000 ₽" />
                     <input type="number" class="w-full px-4 py-3 bg-[#F8F8F8] md:flex hidden rounded-lg" name="price_to"
                         placeholder="До 2 500 000 ₽" />
@@ -172,21 +170,18 @@
                         <option value="" disabled selected>Кузов</option>
                         <option value="sedan">Седан</option>
                         <option value="hatchback">Хэтчбек</option>
+                        <option value="wagon">Универсал</option>
                         <option value="suv">Кроссовер</option>
                         <option value="pickup">Пикап</option>
                     </select>
                 </div>
                 <button type="submit"
-                    class="w-full h-12 mt-4 bg-[#4886FF] hover:bg-[#4886FF] text-white font-semibold text-center text-base px-6 py-3 rounded-lg transition">
+                    class="w-full h-12 mt-4 bg-[#4886FF] hover:bg-[#3a70d4] text-white font-semibold text-center text-base px-6 py-3 rounded-lg transition">
                     Подобрать
                 </button>
             </form>
 
-
-            <div class="FilteredAuto">
-
-            </div>
-
+            <div class="FilteredAuto mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
         <section class="mb-12 container">
@@ -209,51 +204,47 @@
     </div>
 
 
-    <footer class="bg-blue-500 text-white p-8  md:flex-row gap-8">
-        <div class="container flex flex-col gap-[100px] md:flex-row">
-            <!-- Левая часть: информация -->
-            <div class="w-full md:w-1/2 flex flex-col  gap-[32px]">
-                <div class="mb-4">
-                    <p class="text-[20px] text-[#FFFFFF80]">Адрес</p>
-                    <p class="text-[24px] text-white font-medium">г. Москва, Береговой проезд, дом 4/6с3</p>
-                </div>
-                <div class="mb-4">
-                    <p class="text-[20px] text-[#FFFFFF80]">График работы</p>
-                    <p class="text-[24px] text-white font-medium">Ежедневно с 9:00 до 21:00</p>
-                </div>
-                <div class="mb-4">
-                    <p class="text-[20px] text-[#FFFFFF80]">Контакты</p>
-                    <p class="text-[24px] text-white font-medium">+7 999 999 99 99</p>
-                </div>
-                <!-- Кнопка обратной связи -->
-                <button
-                    class="bg-white open-modal-btn text-[24px] w-full md:w-max text-[#4886FF] px-[65px] py-[20px] rounded-[16px] transition duration-300 self-start">
-                    Обратная связь
-                </button>
-                <div class="flex flex-col gap-[10px] text-left text-sm text-white/80">
-                    <p class="text-[15px] text-[#FFFFFF80] leading-[20px] whitespace-nowrap">
-                        Все права защищены
-                    </p>
-                    <p
-                        class="text-[15px] text-[#FFFFFF80] leading-[20px] whitespace-nowrap overflow-hidden text-ellipsis">
-                        ООО Техником-Авто, ул. Кулагова, вл. 24,<br class="md:hidden flex"> корп. 3, ОГРН 1176952010180,
-                        ИНН 6950207759
-                    </p>
-                </div>
+<footer class="bg-blue-500 text-white  py-6 sm:p-8">
+    <div class="container flex flex-col gap-6 sm:gap-8 md:gap-[100px] md:flex-row">
+        <div class="w-full md:w-1/2 flex flex-col gap-4 sm:gap-6 md:gap-[32px]">
+            <div>
+                <p class="text-[14px] sm:text-[16px] md:text-[20px] text-[#FFFFFF80]">Адрес</p>
+                <p class="text-[16px] sm:text-[18px] md:text-[24px] text-white font-medium leading-tight">г. Москва, Береговой проезд, дом 4/6с3</p>
             </div>
-
-            <!-- Правая часть: карта -->
-            <div class="w-full md:w-[1056px] flex flex-col rounded-[24px]">
-                <!-- Yandex Map iframe -->
-                <iframe
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a1f6d8e7e3f3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8d&amp;source=constructor"
-                    class="w-full h-[300px] md:h-[402px] rounded-[24px] shadow" frameborder="0" title="Яндекс.Карта"
-                    loading="lazy"></iframe>
-
-
+            <div>
+                <p class="text-[14px] sm:text-[16px] md:text-[20px] text-[#FFFFFF80]">График работы</p>
+                <p class="text-[16px] sm:text-[18px] md:text-[24px] text-white font-medium leading-tight">Ежедневно с 9:00 до 21:00</p>
+            </div>
+            <div>
+                <p class="text-[14px] sm:text-[16px] md:text-[20px] text-[#FFFFFF80]">Контакты</p>
+                <p class="text-[16px] sm:text-[18px] md:text-[24px] text-white font-medium leading-tight">+7 999 999 99 99</p>
+            </div>
+            
+            <button
+                class="bg-white open-modal-btn text-[16px] sm:text-[18px] md:text-[24px] w-full text-[#4886FF] px-4 sm:px-6 md:px-[65px] py-2 sm:py-3 md:py-[20px] rounded-[12px] md:rounded-[16px] transition duration-300 md:self-start">
+                Обратная связь
+            </button>
+            
+            <div class="flex flex-col gap-1 sm:gap-2 text-left">
+                <p class="text-[12px] sm:text-[14px] md:text-[15px] text-[#FFFFFF80] leading-snug">
+                    Все права защищены
+                </p>
+                <p class="text-[12px] sm:text-[14px] md:text-[15px] text-[#FFFFFF80] leading-snug">
+                    ООО Техником-Авто, ул. Кулагова, вл. 24, корп. 3,<br>ОГРН 1176952010180, ИНН 6950207759
+                </p>
             </div>
         </div>
-    </footer>
+
+        <div class="w-full mt-4 md:mt-0 md:w-[1056px]">
+            <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a1f6d8e7e3f3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8d&amp;source=constructor"
+                class="w-full h-[200px] sm:h-[250px] md:h-[402px] rounded-[12px] sm:rounded-[16px] md:rounded-[24px] shadow"
+                frameborder="0" 
+                title="Яндекс.Карта"
+                loading="lazy"></iframe>
+        </div>
+    </div>
+</footer>
 
     <div id="popupModal" class="hidden fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-50">
         <div class="bg-[#4886FF] text-white text-center rounded-[14px] shadow-lg p-12 max-w-md relative">
@@ -276,7 +267,7 @@
                     class="w-full px-7 py-6 bg-[#F8F8F866]/50 rounded-md focus:outline-none placeholder:text-[#EAEAEA]">
 
                 <div class="flex items-center">
-                    <input type="checkbox" id="agreePopup" class="mr-2">
+                    <input type="checkbox"  id="agreePopup" class="mr-2" checked>
                     <label for="agreePopup" class="text-[12px] text-left leading-tight">
                         я согласен с <a href="./privacyPolicy.html">политикой обработки персональных данных</a>
                     </label>

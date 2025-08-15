@@ -66,17 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
             brandElement.dataset.brand = brand.name;
 
-            brandElement.innerHTML = `
-                <div class="w-[60px] h-[60px] flex items-center justify-center">
-                    <img 
-                        src="${brand.image}" 
-                        alt="${brand.name}" 
-                        onerror="this.onerror=null; this.src='/images/brands/placeholder.svg';" 
-                        class="max-w-full max-h-full object-contain"
-                    >
-                </div>
-                <p class="text-gray-800 font-medium text-sm">${brand.name}</p>
-            `;
+brandElement.innerHTML = `
+    <div class="w-[60px] h-[60px] flex items-center justify-center">
+        <img 
+            src="${brand.image}" 
+            alt="${brand.name}" 
+            onerror="this.onerror=null; this.src='/images/brands/placeholder.svg';" 
+            class="max-w-full max-h-full object-contain"
+            loading="lazy"
+            decoding="async"
+        >
+    </div>
+    <p class="text-gray-800 font-medium text-sm">${brand.name}</p>
+`;
 
             if (selectedBrands.includes(brand.name)) {
                 brandElement.classList.add('bg-[#4886FF]/20', 'border-[#4886FF]');
@@ -106,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ? carDataArray
             : carDataArray.filter(car => {
                 return selectedBrands.some(brand => car.model.startsWith(brand));
-              });
+            });
 
         containers.forEach(container => {
             container.innerHTML = '';
@@ -122,6 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
             src="${car.image}" 
             alt="Car Image" 
             class="w-full h-full object-contain rounded-md"
+            loading="lazy"
+            decoding="async"
         >
     </div>
     <div>
@@ -139,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Подобрать
     </button>
 </div>
-                `;
+`;
                 container.appendChild(cardLink);
             });
         });

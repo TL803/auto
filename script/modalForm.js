@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalOverlay = document.createElement('div');
     modalOverlay.id = 'modal';
     modalOverlay.className = 'modal-overlay hidden w-full h-full bg-black/50 fixed z-[10] inset-0 flex items-center justify-center';
-    modalOverlay.style.display = 'none'; 
+    modalOverlay.style.display = 'none';
 
     modalOverlay.innerHTML = `
         <div class="bg-white rounded-[14px] w-[1200px] shadow-lg p-12 h-[600px] flex flex-col justify-center relative gap-6 max-w-full mx-4">
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <input type="text" placeholder="ФИО" class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
                 <input type="tel" placeholder="Ваш телефон" class="w-full px-7 py-6 bg-[#F8F8F8] rounded-md focus:outline-none">
     <div class="flex items-center">
-        <input type="checkbox" id="agreePopup" class="mr-2 w-[20px] h-[20px]">
+        <input type="checkbox" id="agreePopup" class="mr-2 w-[20px] h-[20px] checked">
         <label for="agreePopup" class="text-[16px] text-left leading-tight">
             я согласен с <a class="text-blue-600 underline" href="./privacyPolicy.html">политикой обработки персональных данных</a>
         </label>
