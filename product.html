@@ -793,67 +793,10 @@
         </div>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const priceElement = document.getElementById('price');
-    const optionBlocks = document.querySelectorAll('.bg-white.flex.p-4');
+<script src="./src/components/iterating/ChangeColors.js"></script>
+<script src="./src/components/calculators/tradeInCalculator.js"></script>
+<script src="./src/components/tabs/tabs.js"></script>
 
-    function parsePrice(text) {
-        return parseInt(text.replace(/\D/g, ''), 10) || 0;
-    }
-
-    function updateTotalDiscount() {
-        let total = 0;
-
-        optionBlocks.forEach(block => {
-            const checkbox = block.querySelector('input[type="checkbox"]');
-            const priceElementInBlock = block.querySelector('p.text-\\[\\#4886FF\\]');
-            if (!priceElementInBlock) return;
-
-            const priceValue = parsePrice(priceElementInBlock.textContent);
-            if (checkbox && checkbox.checked) {
-                total += priceValue;
-            }
-        });
-
-        priceElement.textContent = total.toLocaleString('ru-RU') + ' ₽';
-    }
-
-    optionBlocks.forEach(block => {
-        const checkbox = block.querySelector('input[type="checkbox"]');
-        if (checkbox) {
-            checkbox.addEventListener('change', updateTotalDiscount);
-        }
-    });
-
-    priceElement.textContent = '0 ₽';
-
-});
-</script>
-    <script>
-        // Этот код — только на products.html
-        document.addEventListener("mouseleave", function handleExitIntent(e) {
-            // Срабатывает только при движении вверх
-            if (e.clientY > 10) return;
-
-            // Перезаписываем метки при каждом уходе (важно!)
-            sessionStorage.setItem("fromProductsExit", Date.now());
-            sessionStorage.setItem("cameFromProducts", "true");
-
-            // Убираем обработчик, чтобы не срабатывал повторно во время одной сессии на этой странице
-            document.removeEventListener("mouseleave", handleExitIntent);
-        });
-
-        // Также можно сбросить триггер при возврате на products.html
-        // Это позволит показать модалку снова, если пользователь уйдёт ещё раз
-        sessionStorage.removeItem("cameFromProducts");
-        sessionStorage.removeItem("fromProductsExit");
-    </script>
-
-
-
-    <script src="./script.js" type="module"></script>
-    <script src="./script/changeColors.js" type="module"></script>
 </body>
 
 </html>
