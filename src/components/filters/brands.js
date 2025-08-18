@@ -1,3 +1,4 @@
+// brands.js
 import { carBrands } from './data.js';
 
 let selectedBrands = [];
@@ -27,7 +28,7 @@ function renderBrands(containerId = 'brands-container') {
         brandElement.innerHTML = `
             <div class="w-[60px] h-[60px] flex items-center justify-center">
                 <img 
-                    src="${brand.image}" 
+                    src="/images/brands/${brand.image}" 
                     alt="${brand.name}" 
                     onerror="this.onerror=null; this.src='/images/brands/placeholder.svg';" 
                     class="max-w-full max-h-full object-contain"

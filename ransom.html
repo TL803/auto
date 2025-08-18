@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                    },
+                    screens: {
+                        'md': '1601px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header class="p-4 md:flex hidden">
+        <div class="container flex flex-col sm:flex-row justify-between items-center gap-4">
+            <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                <a href="./" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
+                <a href="./carLoan.html"
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Автокредит</a>
+                <a href="./TradeIn.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Trade-in</a>
+                <a href="./stock.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Акции</a>
+                <a href="./contacts.html"
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Контакты</a> <a
+                    href="./direkt.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Директ</a>
+                <a href="./service.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Сервис </a>
+                <a href="./Leasing.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Лизинг </a>
+                <a href="./ransom.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Выкуп </a>
+                <a href="./AutoForTaxi.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Авто под
+                    такси </a>
+            </nav>
+            <div class="flex flex-col sm:flex-row items-center gap-[20px] text-center">
+                <a href="#" class="text-[18px] font-medium text-[#4886FF] mr-[60px]">Кулакова, вл. 24, корп.3</a>
+                <a href="tel:+74951168260" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                <button
+                    class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                    Обратная связь
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <h2 class="md:text-[64px] text-[#4886FF] font-medium mb-6 text-[24px]">Выкуп</h2>
+        <h2 class="md:text-2xl text-[#4886FF] font-medium mb-6 text-[18px]">1. Введите данные автомобиля для выкупа</h2>
+        <section class="mt-6">
+            <div class="mx-auto px-4 py-8">
+                <div class="flex flex-wrap -mx-2">
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <input class="w-full px-7 py-4 bg-[#F8F8F8] rounded-md focus:outline-none" type="text"
+                            placeholder="Марка автомобиля">
+                    </div>
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <input class="w-full px-7 py-4 bg-[#F8F8F8] rounded-md focus:outline-none" type="text"
+                            placeholder="Модель">
+
+                    </div>
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <input class="w-full px-7 py-4 bg-[#F8F8F8] rounded-md focus:outline-none" placeholder="Год" />
+                    </div>
+                    <div class="w-full md:w-1/4 px-2 mb-4">
+                        <input class="w-full px-7 py-4 bg-[#F8F8F8] rounded-md focus:outline-none"
+                            placeholder="Пробег" />
+                    </div>
+                </div>
+                <button
+                    class="w-full bg-[#BCD3FF] rounded-[20px] text-[#4886FF] text-[24px] py-[16px] font-semibold px-4 rounded-md focus:outline-none focus:shadow-outline">
+                    Применить
+                </button>
+            </div>
+        </section>
+
+
+        <section class="container mx-auto px-4 py-8">
+            <h2 class="md:text-2xl text-[#4886FF] font-medium mb-6 text-[18px]">2. Введите ваши данные</h2>
+
+            <form class="flex flex-col space-y-4 gap-6">
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 ">
+                    <input type="text" placeholder="ФИО"
+                        class="w-full p-3  rounded-md focus:outline-none  bg-[#F8F8F8] important-input-fiend">
+                    <input type="tel" placeholder="Ваш телефон"
+                        class="w-full p-3  rounded-md focus:outline-none  bg-[#F8F8F8] important-input-fiend">
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="agreement"
+                        class="h-5 w-5 text-[#4886FF] bg-white border-gray-300 rounded focus:ring-blue-500">
+                    <label for="agreement" class="text-gray-600 leading-tight text-[14px]">
+                        Я соглашаюсь с условиями и даю свое согласие на обработку использования моих персональных<br>
+                        данных, и разрешаю сделать запрос в бюро кредитных историй
+                    </label>
+                </div>
+
+                <button id="order-call" type="submit" disabled
+                    class="w-full p-3 bg-[#4886FF] text-white text-[24px] py-[16px] rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Заказать звонок
+                </button>
+            </form>
+        </section>
+    </main>
+
+
+
+    <footer class="bg-blue-500 text-white  py-6 sm:p-8">
+        <div class="container flex flex-col gap-6 sm:gap-8 md:gap-[100px] md:flex-row">
+            <div class="w-full md:w-1/2 flex flex-col gap-4 sm:gap-6 md:gap-[32px]">
+                <div>
+                    <p class="text-[14px] sm:text-[16px] md:text-[20px] text-[#FFFFFF80]">Адрес</p>
+                    <p class="text-[16px] sm:text-[18px] md:text-[24px] text-white font-medium leading-tight">г. Москва,
+                        Береговой проезд, дом 4/6с3</p>
+                </div>
+                <div>
+                    <p class="text-[14px] sm:text-[16px] md:text-[20px] text-[#FFFFFF80]">График работы</p>
+                    <p class="text-[16px] sm:text-[18px] md:text-[24px] text-white font-medium leading-tight">Ежедневно
+                        с 9:00 до 21:00</p>
+                </div>
+                <div>
+                    <p class="text-[14px] sm:text-[16px] md:text-[20px] text-[#FFFFFF80]">Контакты</p>
+                    <p class="text-[16px] sm:text-[18px] md:text-[24px] text-white font-medium leading-tight">+7 999 999
+                        99 99</p>
+                </div>
+
+                <button
+                    class="bg-white open-modal-btn text-[16px] sm:text-[18px] md:text-[24px] w-full text-[#4886FF] px-4 sm:px-6 md:px-[65px] py-2 sm:py-3 md:py-[20px] rounded-[12px] md:rounded-[16px] transition duration-300 md:self-start">
+                    Обратная связь
+                </button>
+
+                <div class="flex flex-col gap-1 sm:gap-2 text-left">
+                    <p class="text-[12px] sm:text-[14px] md:text-[15px] text-[#FFFFFF80] leading-snug">
+                        Все права защищены
+                    </p>
+                    <p class="text-[12px] sm:text-[14px] md:text-[15px] text-[#FFFFFF80] leading-snug">
+                        ООО Техником-Авто, ул. Кулагова, вл. 24, корп. 3,<br>ОГРН 1176952010180, ИНН 6950207759
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-full mt-4 md:mt-0 md:w-[1056px]">
+                <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a1f6d8e7e3f3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8e5e8e3b8d&amp;source=constructor"
+                    class="w-full h-[200px] sm:h-[250px] md:h-[402px] rounded-[12px] sm:rounded-[16px] md:rounded-[24px] shadow"
+                    frameborder="0" title="Яндекс.Карта" loading="lazy"></iframe>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/components/iterating/banksIteration.js"></script>
+    <script src="./src/modules/showAuto.js"></script>
+    <script src="./src/components/iterating/ChangeColors.js"></script>
+    <script src="./src/components/utils/selectedOption.js"></script>
+    <script src="./src/components/sliders/slider.js"></script>
+    <script src="./src/components/sliders/mobilePaymentSlider.js"></script>
+</body>
+
+</html>

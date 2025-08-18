@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Автосалон</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                    },
+                    screens: {
+                        md: '1601px',
+                        sm: '780px'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Добавьте ПОСЛЕ <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="font-sans">
+    <header class="p-4 md:flex hidden">
+        <div class="container flex flex-col sm:flex-row justify-between items-center gap-4">
+            <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                <a href="./" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
+                <a href="./carLoan.html"
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Автокредит</a>
+                <a href="./TradeIn.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Trade-in</a>
+                <a href="./stock.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Акции</a>
+                <a href="./contacts.html"
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Контакты</a> <a
+                    href="./direkt.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Директ</a>
+                <a href="./service.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Сервис </a>
+                <a href="./Leasing.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Лизинг </a>
+                <a href="./ransom.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Выкуп </a>
+                <a href="./AutoForTaxi.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Авто под
+                    такси </a>
+            </nav>
+            <div class="flex flex-col sm:flex-row items-center gap-[20px] text-center">
+                <a href="#" class="text-[18px] font-medium text-[#4886FF] mr-[60px]">Кулакова, вл. 24, корп.3</a>
+                <a href="tel:+74951168260" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                <button
+                    class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
+                    Обратная связь
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <button id="burgerButton" class="md:hidden absolute right-6 top-6 z-10 focus:outline-none">
+        <img src="./assets/Бургер меню.svg" alt="Меню">
+    </button>
+
+
+    <main class="container mx-auto mt-[80px] mb-[80px]">
+        <div id="taxi-container" class="flex flex-wrap gap-[16px] md:gap-[64px]"></div>
+    </main>
+
+    <script src="./src/components/iterating/TaxiIteration.js"></script>
+</body>
+
+</html>

@@ -33,13 +33,17 @@
             <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
                 <a href="./" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
                 <a href="./carLoan.html"
-                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
-                <a href="./TradeIn.html"
-                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Trade-in</a>
-                <a href="./stock.html"
-                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Акции</a>
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Автокредит</a>
+                <a href="./TradeIn.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Trade-in</a>
+                <a href="./stock.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Акции</a>
                 <a href="./contacts.html"
-                    class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Контакты</a>
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Контакты</a> <a
+                    href="./direkt.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Директ</a>
+                <a href="./service.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Сервис </a>
+                <a href="./Leasing.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Лизинг </a>
+                <a href="./ransom.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Выкуп </a>
+                <a href="./AutoForTaxi.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Авто под
+                    такси </a>
             </nav>
             <div class="flex flex-col sm:flex-row items-center gap-[20px] text-center">
                 <a href="#" class="text-[18px] font-medium text-[#4886FF] mr-[60px]">Кулакова, вл. 24, корп.3</a>
@@ -281,22 +285,23 @@
             </form>
         </div>
     </div>
-<!-- <img src="./src/components/filters/brands.js" alt=""> -->
-<script src="./src/components/sliders/BannerSlider.js"></script>
-<script type="module">
-    import { renderBrands, setSelectedBrandsUpdater } from './src/components/filters/brands.js';
-    import { updateCarsDisplay } from './src/components/filters/cars.js';
 
-    setSelectedBrandsUpdater(updateCarsDisplay);
+    <!-- <img src="./src/components/filters/brands.js" alt=""> -->
+    <script src="./src/components/sliders/BannerSlider.js"></script>
+    <script type="module">
+        import { renderBrands, setSelectedBrandsUpdater } from './src/components/filters/brands.js';
+        import { updateCarsDisplay } from './src/components/filters/cars.js';
 
-    renderBrands();
-</script>
+        setSelectedBrandsUpdater(updateCarsDisplay);
 
-<script src="./src/components/sliders/priceRangeSlider.js"></script>
-<script src="./src/components/modals/modalForm.js"></script>
-<script src="./src/mobile/MobileMenu.js"></script>
-<script src="./src/components/utils/selectedOption.js"></script>
-<script src="./src/components/filters/AdvancedCarFilter.js"></script>
+        renderBrands();
+    </script>
+
+    <script src="./src/components/sliders/priceRangeSlider.js"></script>
+    <script src="./src/components/modals/modalForm.js"></script>
+    <script src="./src/mobile/MobileMenu.js"></script>
+    <script src="./src/components/utils/selectedOption.js"></script>
+    <script src="./src/components/filters/AdvancedCarFilter.js"></script>
 </body>
 
 </html>

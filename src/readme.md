@@ -60,7 +60,6 @@
 ## 💰 `carLoan.html`
 
 ```html
-
 <script src="./src/components/utils/selectedOption.js"></script>
 <script src="./src/modules/showAuto.js"></script>
 <script src="./src/components/sliders/slider.js"></script>

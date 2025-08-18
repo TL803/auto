@@ -26,33 +26,31 @@
 </head>
 
 <body>
-    <header class="p-4">
-        <div class="container flex justify-end md:justify-between items-center">
-
-            <button id="burgerButton" class="md:hidden text-[#4886FF] font-bold text-lg focus:outline-none">
-                <img src="./assets/Бургер меню.svg" alt="./assets/Бургер меню.svg">
-            </button>
-
-            <nav class="hidden md:flex sm:flex-row justify-between items-center w-full">
-                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-                    <a href="./"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Главная</a>
-                    <a href="./carLoan.html"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Автокредит</a>
-                    <a href="./TradeIn.html"
-                        class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition">Trade-in</a>
-                    <a href="./stock.html"
-                        class="text-[#4886FF] text-[18px] font-regular">Акции</a>
-                    <a href="./contacts.html" class="text-gray-600 text-[18px] font-regular hover:text-gray-900 transition ">Контакты</a>
-                </div>
-                <div class="flex flex-col sm:flex-row items-center gap-[40px] text-center">
-                    <a href="#" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
-                 <button
+    <header class="p-4 md:flex hidden">
+        <div class="container flex flex-col sm:flex-row justify-between items-center gap-4">
+            <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                <a href="./" class="text-[#4886FF] text-[18px] font-regular">Главная</a>
+                <a href="./carLoan.html"
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Автокредит</a>
+                <a href="./TradeIn.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Trade-in</a>
+                <a href="./stock.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Акции</a>
+                <a href="./contacts.html"
+                    class="text-gray-600  font-regular hover:text-gray-900 transition">Контакты</a> <a
+                    href="./direkt.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Директ</a>
+                <a href="./service.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Сервис </a>
+                <a href="./Leasing.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Лизинг </a>
+                <a href="./ransom.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Выкуп </a>
+                <a href="./AutoForTaxi.html" class="text-gray-600  font-regular hover:text-gray-900 transition">Авто под
+                    такси </a>
+            </nav>
+            <div class="flex flex-col sm:flex-row items-center gap-[20px] text-center">
+                <a href="#" class="text-[18px] font-medium text-[#4886FF] mr-[60px]">Кулакова, вл. 24, корп.3</a>
+                <a href="tel:+74951168260" class="text-[18px] font-medium text-[#4886FF]">+7 (999) 999-99-99</a>
+                <button
                     class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
                     Обратная связь
                 </button>
-                </div>
-            </nav>
+            </div>
         </div>
     </header>
 
