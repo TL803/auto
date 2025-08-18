@@ -52,7 +52,60 @@ const carDataArray = [
         price: "1 800 000 ₽",
         image: "./assets/taxi/Haval F7x.png",
         link: "./product.html"
-    }
+    },    {
+        model: "BAIC J7 Lifestyle 150",
+        type: "Внедорожник 5 дв.",
+        oldPrice: "20 959 900 ₽",
+        discount: "-51%",
+        price: "19 300 000 ₽",
+        image: "./assets/taxi/Baic U5 PLUS.png",
+        link: "./product.html"
+    },
+    {
+        model: "Chery Tiggo 8 Pro Plug-in Hybrid",
+        type: "Седан",
+        oldPrice: "1 959 900 ₽",
+        discount: "-51%",
+        price: "960 000 ₽",
+        image: "./assets/taxi/Chery Tiggo 4 Pro.png",
+        link: "./product.html"
+    },
+    {
+        model: "Lada Granta Sportline Лифтбек",
+        type: "Внедорожник 5 дв.",
+        oldPrice: "2 850 000 ₽",
+        discount: "-45%",
+        price: "1 567 500 ₽",
+        image: "./assets/taxi/Moskvich 6.png",
+        link: "./product.html"
+    },
+    {
+        model: "Chery Tiggo 8 Pro",
+        type: "Внедорожник 7 мест",
+        oldPrice: "2 690 000 ₽",
+        discount: "-40%",
+        price: "1 614 000 ₽",
+        image: "./assets/taxi/Chery Tiggo 4 Pro.png",
+        link: "./product.html"
+    },
+    {
+        model: "Haval F7",
+        type: "Внедорожник 5 дв.",
+        oldPrice: "2 450 000 ₽",
+        discount: "-38%",
+        price: "1 519 000 ₽",
+        image: "./assets/taxi/Haval F7.png",
+        link: "./product.html"
+    },
+    {
+        model: "EXEED TXL",
+        type: "Внедорожник 7 мест",
+        oldPrice: "3 100 000 ₽",
+        discount: "-42%",
+        price: "1 800 000 ₽",
+        image: "./assets/taxi/Haval F7x.png",
+        link: "./product.html"
+    },
 ];
 
 const selectedBrands = [];

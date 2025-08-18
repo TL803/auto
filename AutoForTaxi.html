@@ -55,17 +55,74 @@
             </div>
         </div>
     </header>
-
+    <!-- <img src="./assets/Frame 262 (1).png" alt=""> -->
     <button id="burgerButton" class="md:hidden absolute right-6 top-6 z-10 focus:outline-none">
         <img src="./assets/Бургер меню.svg" alt="Меню">
     </button>
 
 
-    <main class="container mx-auto mt-[80px] mb-[80px]">
+    <main class="container mx-auto mt-[80px] mb-[80px] relative">
         <div id="taxi-container" class="flex flex-wrap gap-[16px] md:gap-[64px]"></div>
+        <img class="absolute right-0" src="./assets/Group 899.svg" alt="./assets/Group 899.svg">
     </main>
+    <script src="./src/components/taxiCastom/castomTaxiPage.js"></script>
 
     <script src="./src/components/iterating/TaxiIteration.js"></script>
+    <script src="./src/main.js"></script>
+
+    <!-- <script>
+        const body = document.body;
+        function createTaxi(atPosition) {
+            const taxi = document.createElement('img');
+            taxi.src = './assets/Frame 262 (1).png';
+            taxi.className = 'absolute w-full z-[100000000] pointer-events-none';
+
+            taxi.style.top = `${atPosition}px`;
+            taxi.style.left = '0';
+            body.appendChild(taxi);
+        }
+
+        const THRESHOLD = 2300;
+        const FIRST_POSITION = 500;
+        let ticking = false;
+        let lastScrollTop = 0;
+
+        const addedPositions = new Set();
+
+        window.addEventListener('scroll', () => {
+            const currentScrollTop = window.scrollY;
+            const visibleBottom = currentScrollTop + window.innerHeight;
+
+            const nextSection = Math.floor(visibleBottom / THRESHOLD);
+            const targetPosition = nextSection * THRESHOLD;
+
+            if (targetPosition === 0) return;
+
+            if (!ticking && !addedPositions.has(targetPosition) && targetPosition <= document.body.scrollHeight) {
+                requestAnimationFrame(() => {
+                    createTaxi(targetPosition);
+                    addedPositions.add(targetPosition);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+
+            lastScrollTop = currentScrollTop;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.body.scrollHeight >= FIRST_POSITION) {
+                const firstTaxi = document.createElement('img');
+                firstTaxi.src = './assets/Frame 262 (1).png';
+                firstTaxi.className = 'absolute w-full z-[-1] pointer-events-none';
+                firstTaxi.style.top = `${FIRST_POSITION}px`;
+                firstTaxi.style.left = '0';
+                body.appendChild(firstTaxi);
+                addedPositions.add(FIRST_POSITION);
+            }
+        });
+    </script> -->
+
 </body>
 
 </html>

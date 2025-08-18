@@ -35,14 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
         closeMobileMenu.addEventListener('click', closeMenu);
     }
 
-    document.addEventListener('click', (event) => {
-        const isMenuActive = mobileMenu && !mobileMenu.classList.contains('hidden');
-        if (isMenuActive &&
-            !event.target.closest('#mobileMenu') &&
-            !event.target.closest('#burgerButton')) {
-            closeMenu();
-        }
-    });
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+    }
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {

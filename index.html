@@ -62,27 +62,39 @@
 
 
     <main class=" full-photo md:w-full mx-auto mt-8">
-        <div id="mobileMenu" class="hidden md:hidden  absolute top-0 right-0 w-[70%] h-screen bg-white text-white p-4"
-            style="z-index: 1;">
-            <nav class="mt-10 flex flex-col justify-between h-[90%]">
-                <ul class="space-y-4 mb-20 ">
-                    <li><a href="./" style="color: #4886FF !important;">Главная</a></li>
-                    <li><a href="./carLoan.html" style="color: #ACACAC !important;">Автокредит</a></li>
-                    <li><a href="./TradeIn.html" style="color: #ACACAC !important;">Trade-in</a></li>
-                    <li><a href="./stock.html" style="color: #ACACAC !important;">Акции</a></li>
-                    <li><a href="./contacts.html" style="color: #ACACAC !important;">Контакты</a></li>
-                </ul>
-                <div class="w-full flex flex-col items-center gap-4">
-                    <p><a href="./contacts.html" class="font-bold" style="color: #4886FF !important;">+7 (999)
-                            999-99-99</a>
-                    </p>
-                    <button
-                        class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] transition hover:bg-gray-50">
-                        Обратная связь
-                    </button>
-                </div>
-            </nav>
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[11] hidden"></div>
+<div id="mobileMenu"
+    class="hidden md:hidden absolute top-0 right-0 w-[70%] h-screen bg-white text-white p-4 z-2">
+    
+    <nav class="flex flex-col h-full">
+        <div class="flex-1 overflow-y-auto py-2" id="mobileMenuScrollArea">
+            <ul class="space-y-4">
+                <li><a href="./" style="color: #4886FF !important;">Главная</a></li>
+                <li><a href="./carLoan.html" style="color: #ACACAC !important;">Автокредит</a></li>
+                <li><a href="./TradeIn.html" style="color: #ACACAC !important;">Trade-in</a></li>
+                <li><a href="./stock.html" style="color: #ACACAC !important;">Акции</a></li>
+                <li><a href="./contacts.html" style="color: #ACACAC !important;">Контакты</a></li>
+                <li><a href="./direkt.html" style="color: #ACACAC !important;">Директ</a></li>
+                <li><a href="./service.html" style="color: #ACACAC !important;">Сервис</a></li>
+                <li><a href="./Leasing.html" style="color: #ACACAC !important;">Лизинг</a></li>
+                <li><a href="./ransom.html" style="color: #ACACAC !important;">Выкуп</a></li>
+                <li><a href="./AutoForTaxi.html" style="color: #ACACAC !important;">Авто под такси</a></li>
+            </ul>
         </div>
+
+        <div class="w-full flex flex-col items-center gap-4 pt-4 mt-2 border-t border-gray-200">
+            <p class="flex items-center gap-[10px]"><img src="./assets/Vector (13).svg" alt=""><a href="tel:+79999999999" class="font-bold" style="color: #4886FF !important;">Пн-Сб с 9:00 до 23:00</a></p>
+            <p class="flex items-center gap-[10px]"><img src="./assets/Vector (14).svg" alt=""><a href="tel:+79999999999" class="font-bold" style="color: #4886FF !important;">г. Сочи ул. Счастье д. 8 </a></p>
+            <p class="flex items-center gap-[10px]"><img src="./assets/Vector (15).svg" alt=""><a href="tel:+79999999999" class="font-bold" style="color: #4886FF !important;">+7 (999) 999-99-99</a></p>
+            <button
+                class="open-modal-btn bg-white w-[210px] font-medium text-[#4886FF] px-4 py-2 rounded-[12px] border border-[#4886FF] transition hover:bg-gray-50">
+                Обратная связь
+            </button>
+        </div>
+    </nav>
+</div>
+
+
 
         <section class="relative md:container mx-auto px-4 mb-[60px]">
             <button id="prev-banner" class="absolute top-1/2 left-4 md:left-8 z-10 
@@ -302,6 +314,7 @@
     <script src="./src/mobile/MobileMenu.js"></script>
     <script src="./src/components/utils/selectedOption.js"></script>
     <script src="./src/components/filters/AdvancedCarFilter.js"></script>
+    <script src="./src/main.js"></script>
 </body>
 
 </html>
