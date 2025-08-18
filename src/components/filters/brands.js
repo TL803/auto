@@ -1,4 +1,3 @@
-// brands.js
 import { carBrands } from './data.js';
 
 let selectedBrands = [];

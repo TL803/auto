@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const priceElement = document.getElementById('price');
+    const priceElement = document.getElementById('profit');
     const optionBlocks = document.querySelectorAll('.bg-white.flex.p-4');
 
     function parsePrice(text) {

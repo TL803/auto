@@ -15,9 +15,11 @@ const bannersData = [
           До 40%
         </p>
       </div>
-      <button class="bg-[#4886FF] pointer-events-auto open-modal-btn rounded-[16px] text-medium text-white text-[32px] md:text-[36px] px-8 md:px-[100px] py-[24px] transition absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px] hover:bg-blue-700">
-        Подобрать авто
-      </button>
+      <a href="/loan" class="absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px]">
+        <button class="bg-[#4886FF] pointer-events-auto rounded-[16px] text-medium text-white text-[32px] md:text-[36px] px-8 md:px-[100px] py-[24px] transition hover:bg-blue-700">
+          Подобрать авто
+        </button>
+      </a>
     </div>
   `,
 
@@ -37,7 +39,7 @@ const bannersData = [
       <div class="flex flex-col absolute top-[160px] left-[90px]">
         <h1 class="text-[64px] font-bold">BAIC X55</h1>
         <p class="text-[36px] mb-[52px] font-Medium">Кредит от 0,01%</p>
-        <a href='https://db.site-srk.ru/auto/baic/x55/baic_x55_cross'>
+        <a href='/auto/baic/x55/baic_x55_cross'>
           <button class="bg-white pointer-events-auto text-[36px] cursor-pointer w-max font-bold text-[#F88446] px-[96px] py-[24px] rounded-full">
             Подробнее
           </button>
@@ -88,7 +90,7 @@ const bannersData = [
           Выгода до 200 тысяч
         </p>
       </div>
-      <a href="./TradeIn.html" class="absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px]">
+      <a href="/tradein" class="absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px]">
         <button class="bg-[#4886FF] pointer-events-auto rounded-[16px] text-medium text-white text-[32px] md:text-[36px] px-8 md:px-[100px] py-[24px] transition hover:bg-blue-700">
           Воспользоваться
         </button>
@@ -112,7 +114,7 @@ const bannersData = [
       <div class="flex flex-col absolute top-[160px] left-[90px]">
         <h1 class="text-[64px] font-bold">LIVAN S6PRO</h1>
         <p class="text-[36px] mb-[52px] font-Medium">Автомобиль, созданный для побед!</p>
-        <a href='https://db.site-srk.ru/auto/livan/s6pro/livan_s6pro_sedan'>
+        <a href='/auto/livan/s6pro/livan_s6pro_sedan'>
           <button class="bg-white pointer-events-auto text-[36px] cursor-pointer w-max font-bold text-[#038963] px-[96px] py-[24px] rounded-full">
             Подробнее
           </button>
@@ -151,14 +153,14 @@ const bannersData = [
   /* html */
   `
     <div class="w-full h-full relative bg-[#BCD3FF] pointer-events-none select-none"
-         style="background-image: url('./assets/banners/bg/афиша (3).png'); 
+         style="background-image: url('./assets/banners/bg/афиша3.png'); 
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 border-radius: 20px;">
                 <p class="text-[96px] absolute top-[100px] left-[93px] font-extrabold leading-[100px] text-white">Ваш шанс <br>
 на одобрение — 95%</p>
-      <a href="./carLoan.html" class="absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px]">
+      <a href="/loan" class="absolute right-6 md:right-[60px] bottom-6 md:bottom-[60px]">
         <button class="bg-[#4886FF] pointer-events-auto rounded-[16px] text-medium text-white text-[32px] md:text-[36px] px-8 md:px-[100px] py-[24px] transition hover:bg-blue-700">
           Рассчитать кредит  
         </button>
@@ -182,7 +184,7 @@ const bannersData = [
       <div class="flex flex-col absolute top-[160px] left-[90px]">
         <h1 class="text-[64px] font-bold">KAIYI X3 Pro</h1>
         <p class="text-[36px] mb-[52px] font-Medium">Свобода движения. Мощь в каждой детали</p>
-        <a href='https://db.site-srk.ru/auto/kaiyi/x3/kaiyi_x3_cross'>
+        <a href='/auto/kaiyi/x3/kaiyi_x3_cross'>
           <button class="bg-white pointer-events-auto text-[36px] cursor-pointer w-max font-bold text-[#3664BF] px-[96px] py-[24px] rounded-full">
             Подробнее
           </button>
@@ -217,6 +219,10 @@ const bannersData = [
       </div>
     </div>
   `,
+
+
+
+
 ];
 
 const adaptiveBannersData = [
@@ -233,10 +239,12 @@ const adaptiveBannersData = [
                 До 40%
             </h2>
         </div>
-        <button
-            class="bg-[#4886FF] pointer-events-auto open-modal-btn absolute bottom-[50px] hover:bg-[#3a6ecc] w-[80%] text-white font-medium px-6 py-3 rounded-[8px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-            Выбрать автомобиль
-        </button>
+        <a href="/loan" class="absolute bottom-[50px] w-[80%]">
+          <button
+            class="bg-white text-[#179FE3] hover:bg-[#e6f7ff] text-[#179FE3] font-medium px-6 py-3 rounded-[20px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            Подобрать авто
+          </button>
+        </a>
     </section>
   `,
   /*html*/
@@ -255,8 +263,8 @@ const adaptiveBannersData = [
       <div class="flex flex-col absolute top-[60px] w-full text-center">
         <h1 class="text-[32px] font-bold">BAIC X55</h1>
         <p class="text-[15px] mb-[20px] font-Medium">Кредит от 0,01%</p>
-        <a href='https://db.site-srk.ru/auto/baic/x55/baic_x55_cross'>
-          <button class="bg-white pointer-events-auto text-[14px] cursor-pointer w-max font-bold text-[#DD7035] px-[54px] py-[8px] rounded-full">
+        <a href='/auto/baic/x55/baic_x55_cross'>
+          <button class="bg-white text-[14px] cursor-pointer w-max font-bold text-[#DD7035] px-[54px] py-[8px] rounded-full">
             Подробнее
           </button>
         </a>
@@ -265,7 +273,7 @@ const adaptiveBannersData = [
       <img 
         src="./assets/banners/auto/Frame 320.webp"  fetchpriority="high"
         alt="BAIC X55" 
-        class="absolute bottom-[60px] m-auto w-[281px]"
+        class="absolute bottom-[60px] left-[10%] w-[281px]"
         loading="lazy"
         decoding="async">
 
@@ -304,9 +312,9 @@ const adaptiveBannersData = [
                 Выгода до 200 тысяч
             </h2>
         </div>
-        <a href="./TradeIn.html" class="absolute bottom-[50px] w-[80%]">
+        <a href="/tradein" class="absolute bottom-[50px] w-[80%]">
           <button
-            class="bg-[#4886FF] pointer-events-auto hover:bg-[#3a6ecc] text-white font-medium px-6 py-3 rounded-[8px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            class="bg-[#4886FF] hover:bg-[#3a6ecc] text-white font-medium px-6 py-3 rounded-[8px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
             Воспользоваться
           </button>
         </a>
@@ -325,11 +333,11 @@ const adaptiveBannersData = [
         loading="lazy"
         decoding="async">
 
-      <div class="flex flex-col absolute  top-[60px] m-auto text-center">
+      <div class="flex flex-col absolute top-[60px] left-[24px]">
         <h1 class="text-[32px] font-bold">LIVAN S6PRO</h1>
         <p class="text-[15px] mb-[20px] font-Medium">Автомобиль, созданный для побед!</p>
-        <a href='https://db.site-srk.ru/auto/livan/s6pro/livan_s6pro_sedan'>
-          <button class="bg-white pointer-events-auto text-[14px] cursor-pointer w-max font-bold text-[#038963] px-[54px] py-[8px] rounded-full">
+        <a href='/auto/livan/s6pro/livan_s6pro_sedan'>
+          <button class="bg-white text-[14px] cursor-pointer w-max font-bold text-[#038963] px-[54px] py-[8px] rounded-full">
             Подробнее
           </button>
         </a>
@@ -338,7 +346,7 @@ const adaptiveBannersData = [
       <img 
         src="./assets/banners/auto/Frame 319.webp"  fetchpriority="high"
         alt="LIVAN S6PRO" 
-        class="absolute bottom-[40px] m-auto w-[281px]"
+        class="absolute bottom-[40px] left-[30%] w-[281px]"
         loading="lazy"
         decoding="async">
 
@@ -368,12 +376,12 @@ const adaptiveBannersData = [
   `
     <section
         class="relative md:hidden bg-cover bg-center w-full h-[400px] flex items-center justify-center text-white rounded-[14px] change-bg"
-        style="background-image: url('./assets/banners/bg/афиша (3).png');">
+        style="background-image: url('./assets/banners/bg/афиша3.png');">
                         <p class="text-[30px] absolute top-[60px] left-[30px] font-extrabold leading-[40px] text-white">Ваш шанс <br>
 на одобрение — 95%</p>
-        <a href="./carLoan.html" class="absolute bottom-[50px] w-[80%]">
+        <a href="/loan" class="absolute bottom-[50px] w-[80%]">
           <button
-            class="bg-white pointer-events-auto text-[#179FE3] hover:bg-[#e6f7ff] text-[#179FE3] font-medium px-6 py-3 rounded-[20px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            class="bg-white text-[#179FE3] hover:bg-[#e6f7ff] text-[#179FE3] font-medium px-6 py-3 rounded-[20px] shadow-md transition duration-300 ease-in-out transform hover:scale-105">
             Рассчитать кредит
           </button>
         </a>
@@ -392,11 +400,11 @@ const adaptiveBannersData = [
         loading="lazy"
         decoding="async">
 
-      <div class="flex flex-col absolute top-[60px] m-auto text-center">
+      <div class="flex flex-col absolute top-[60px] left-[24px]">
         <h1 class="text-[32px] font-bold">KAIYI X3 Pro</h1>
         <p class="text-[15px] mb-[20px] font-Medium">Свобода движения. Мощь в каждой детали</p>
-        <a href='https://db.site-srk.ru/auto/kaiyi/x3/kaiyi_x3_cross'>
-          <button class="bg-white pointer-events-auto text-[14px] cursor-pointer w-max font-bold text-[#3664BF] px-[54px] py-[8px] rounded-full">
+        <a href='/auto/kaiyi/x3/kaiyi_x3_cross'>
+          <button class="bg-white text-[14px] cursor-pointer w-max font-bold text-[#3664BF] px-[54px] py-[8px] rounded-full">
             Подробнее
           </button>
         </a>
@@ -405,7 +413,7 @@ const adaptiveBannersData = [
       <img 
         src="./assets/banners/auto/Frame 318.webp"  fetchpriority="high"
         alt="KAIYI X3 Pro" 
-        class="absolute bottom-[40px] m-auto w-[281px]"
+        class="absolute bottom-[40px] left-[30%] w-[281px]"
         loading="lazy"
         decoding="async">
 
@@ -430,6 +438,10 @@ const adaptiveBannersData = [
       </div>
     </section>
   `,
+
+
+
+
 ];
 
 let currentBannerIndex = 0;
