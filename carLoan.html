@@ -324,38 +324,35 @@
 
 
 
-        <section class="container mx-auto px-4 py-8 box-border">
-            <h2 class="font-medium text-[#4886FF] md:text-2xl text-[18px]">4. Заполните ваши данные <span
-                    class="text-red-500">*</span></h2>
-            <p class="text-gray-600 mb-4  text-[18px] font-roboto">Заполнение анкеты займет у вас не больше 5 минут</p>
+<section class="container mx-auto px-4 py-8 box-border">
+    <h2 class="font-medium text-[#4886FF] md:text-2xl text-[18px]">4. Заполните ваши данные <span
+            class="text-red-500">*</span></h2>
+    <p class="text-gray-600 mb-4 text-[18px] font-roboto">Заполнение анкеты займет у вас не больше 5 минут</p>
 
-            <form class="flex flex-col space-y-4 gap-6">
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                    <input type="text" placeholder="ФИО"
-                        class="w-full px-7 h-full py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Ваш телефон"
-                        class="w-full px-7 h-full py-6 bg-[#F8F8F8]  rounded-md focus:outline-none">
-                </div>
+    <form class="flex flex-col space-y-4 gap-6" id="myForm">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+            <input type="text" id="fullName" placeholder="ФИО"
+                class="w-full px-7 h-full py-6 bg-[#F8F8F8] rounded-md focus:outline-none border border-transparent focus:border-blue-300 transition">
+            <input type="tel" id="phone" placeholder="Ваш телефон"
+                class="w-full px-7 h-full py-6 bg-[#F8F8F8] rounded-md focus:outline-none border border-transparent focus:border-blue-300 transition">
+        </div>
 
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" id="agreement"
-                        class="h-5 w-5 text-[#4886FF] bg-white border-gray-300 rounded focus:ring-blue-500">
-                    <label for="agreement" class=" leading-tight md:text-[14px] text-[12px] text-[#A6A6A6]">
-                        Я соглашаюсь с условиями и даю свое согласие на обработку использования моих персональных<br>
-                        данных, и разрешаю сделать запрос в бюро кредитных историй
-                    </label>
-                </div>
+        <div class="flex items-center space-x-2">
+            <input type="checkbox" id="agreement"
+                class="h-5 w-5 text-[#4886FF] bg-white border-gray-300 rounded focus:ring-blue-500">
+            <label for="agreement" class="leading-tight md:text-[14px] text-[12px] text-[#A6A6A6]">
+                Я соглашаюсь с условиями и даю свое согласие на обработку использования моих персональных<br>
+                данных, и разрешаю сделать запрос в бюро кредитных историй
+            </label>
+        </div>
 
-                <button type="submit"
-                    class="w-full p-3 bg-[#4886FF] text-white text-[24px] py-[16px] rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Получить предложение
-                </button>
-            </form>
-        </section>
-
-    </main>
-
-    <script src="./src/modules/validation/phone.js"></script>
+        <button type="submit"
+            class="w-full p-3 bg-[#4886FF] text-white text-[24px] py-[16px] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Получить предложение
+        </button>
+    </form>
+</section>
+    <script src="./src/modules/validation/valid.js"></script>
     <script src="./src/modules/showAuto.js"></script>
     <script src="./src/components/iterating/ChangeColors.js"></script>
     <script src="./src/components/utils/selectedOption.js"></script>
