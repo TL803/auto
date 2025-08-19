@@ -5,19 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const termSlider = document.getElementById('termSlider');
   const termValue = document.getElementById('termValue');
 
-  // Формат числа: 1200000 → "1 200 000"
   function formatNumber(num) {
     return num.toLocaleString('ru-RU');
   }
 
-  // Склонение слова "год"
   function getYearWord(year) {
     if (year % 10 === 1 && year % 100 !== 11) return 'год';
     if (year % 10 >= 2 && year % 10 <= 4 && (year % 100 < 10 || year % 100 >= 20)) return 'года';
     return 'лет';
   }
 
-  // === Настройка слайдера "Первоначальный взнос" ===
   if (downPaymentSlider && downPaymentValue) {
     downPaymentSlider.min = 100000;
     downPaymentSlider.max = 5000000;
@@ -34,18 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     downPaymentSlider.addEventListener('input', updateDownPaymentDisplay);
 
-    // Улучшенный обработчик клика для фокуса
     downPaymentValue.addEventListener('mousedown', function (e) {
-      e.preventDefault(); // Предотвращаем возможные проблемы с выделением
+      e.preventDefault();
       this.focus();
     });
 
     downPaymentValue.addEventListener('focus', function () {
-      // Сохраняем текущее значение перед очисткой
       if (!this.dataset.originalValue) {
         this.dataset.originalValue = this.textContent;
       }
-      this.textContent = this.textContent.replace(/[^\d]/g, '');
+      this.textContent = '';
     });
 
     downPaymentValue.addEventListener('input', function () {
@@ -90,15 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const percent = ((num - downPaymentSlider.min) / (downPaymentSlider.max - downPaymentSlider.min)) * 100;
       downPaymentSlider.style.setProperty('--progress', `${percent}%`);
-      
-      // Очищаем сохраненное значение
+
       delete this.dataset.originalValue;
     });
 
     updateDownPaymentDisplay();
   }
 
-  // === Настройка слайдера "Срок кредита" ===
   if (termSlider && termValue) {
     termSlider.min = 1;
     termSlider.max = 8;
@@ -114,18 +107,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     termSlider.addEventListener('input', updateTermDisplay);
 
-    // Улучшенный обработчик клика для фокуса
     termValue.addEventListener('mousedown', function (e) {
-      e.preventDefault(); // Предотвращаем возможные проблемы с выделением
+      e.preventDefault();
       this.focus();
     });
 
     termValue.addEventListener('focus', function () {
-      // Сохраняем текущее значение перед очисткой
       if (!this.dataset.originalValue) {
         this.dataset.originalValue = this.textContent;
       }
-      this.textContent = this.textContent.replace(/[^\d]/g, '');
+      this.textContent = '';
     });
 
     termValue.addEventListener('input', function () {
@@ -169,8 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const percent = ((num - termSlider.min) / (termSlider.max - termSlider.min)) * 100;
       termSlider.style.setProperty('--progress', `${percent}%`);
-      
-      // Очищаем сохраненное значение
+
       delete this.dataset.originalValue;
     });
 
