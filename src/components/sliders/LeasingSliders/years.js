@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const termSlider = document.getElementById('termSlider');
   const termValue = document.getElementById('termValue');
 
-  // Формат числа с пробелами (1 200 000)
+  // Формат числа: 1200000 → "1 200 000"
   function formatNumber(num) {
     return num.toLocaleString('ru-RU');
   }
@@ -19,39 +19,161 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === Настройка слайдера "Первоначальный взнос" ===
   if (downPaymentSlider && downPaymentValue) {
-    // Устанавливаем параметры через JS (если не заданы в HTML)
     downPaymentSlider.min = 100000;
     downPaymentSlider.max = 5000000;
     downPaymentSlider.step = 100000;
-    downPaymentSlider.value = 100000; // начальное значение
+    downPaymentSlider.value = 100000;
 
-    downPaymentSlider.addEventListener('input', function () {
-      const value = parseInt(this.value);
+    function updateDownPaymentDisplay() {
+      const value = parseInt(downPaymentSlider.value);
       downPaymentValue.textContent = formatNumber(value) + ' ₽';
 
-      // Обновление прогресс-бара
-      const percent = ((value - this.min) / (this.max - this.min)) * 100;
-      this.style.setProperty('--progress', `${percent}%`);
+      const percent = ((value - downPaymentSlider.min) / (downPaymentSlider.max - downPaymentSlider.min)) * 100;
+      downPaymentSlider.style.setProperty('--progress', `${percent}%`);
+    }
+
+    downPaymentSlider.addEventListener('input', updateDownPaymentDisplay);
+
+    // Улучшенный обработчик клика для фокуса
+    downPaymentValue.addEventListener('mousedown', function (e) {
+      e.preventDefault(); // Предотвращаем возможные проблемы с выделением
+      this.focus();
     });
 
-    // Инициируем событие, чтобы отобразить начальное значение
-    downPaymentSlider.dispatchEvent(new Event('input'));
+    downPaymentValue.addEventListener('focus', function () {
+      // Сохраняем текущее значение перед очисткой
+      if (!this.dataset.originalValue) {
+        this.dataset.originalValue = this.textContent;
+      }
+      this.textContent = this.textContent.replace(/[^\d]/g, '');
+    });
+
+    downPaymentValue.addEventListener('input', function () {
+      const selection = window.getSelection();
+      const range = selection.getRangeAt(0);
+      const cursorPosition = range.startOffset;
+
+      let value = this.textContent;
+      let cleaned = value.replace(/[^0-9]/g, '');
+
+      this.textContent = cleaned;
+
+      try {
+        const newRange = document.createRange();
+        const textNode = this.firstChild;
+        newRange.setStart(textNode, Math.min(cursorPosition, textNode.length));
+        newRange.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(newRange);
+      } catch (e) {
+        const rangeEnd = document.createRange();
+        rangeEnd.selectNodeContents(this);
+        rangeEnd.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(rangeEnd);
+      }
+    });
+
+    downPaymentValue.addEventListener('blur', function () {
+      let inputText = this.textContent.trim();
+      let num = parseInt(inputText.replace(/[^0-9]/g, ''));
+
+      if (isNaN(num)) {
+        num = parseInt(downPaymentSlider.value);
+      } else {
+        num = Math.max(parseInt(downPaymentSlider.min), Math.min(parseInt(downPaymentSlider.max), num));
+        num = Math.round(num / parseInt(downPaymentSlider.step)) * parseInt(downPaymentSlider.step);
+      }
+
+      downPaymentSlider.value = num;
+      downPaymentValue.textContent = formatNumber(num) + ' ₽';
+
+      const percent = ((num - downPaymentSlider.min) / (downPaymentSlider.max - downPaymentSlider.min)) * 100;
+      downPaymentSlider.style.setProperty('--progress', `${percent}%`);
+      
+      // Очищаем сохраненное значение
+      delete this.dataset.originalValue;
+    });
+
+    updateDownPaymentDisplay();
   }
 
   // === Настройка слайдера "Срок кредита" ===
   if (termSlider && termValue) {
     termSlider.min = 1;
     termSlider.max = 8;
-    termSlider.value = 1; // начальное значение
+    termSlider.value = 1;
 
-    termSlider.addEventListener('input', function () {
-      const term = parseInt(this.value);
+    function updateTermDisplay() {
+      const term = parseInt(termSlider.value);
       termValue.textContent = `${term} ${getYearWord(term)}`;
 
-      const percent = ((term - this.min) / (this.max - this.min)) * 100;
-      this.style.setProperty('--progress', `${percent}%`);
+      const percent = ((term - termSlider.min) / (termSlider.max - termSlider.min)) * 100;
+      termSlider.style.setProperty('--progress', `${percent}%`);
+    }
+
+    termSlider.addEventListener('input', updateTermDisplay);
+
+    // Улучшенный обработчик клика для фокуса
+    termValue.addEventListener('mousedown', function (e) {
+      e.preventDefault(); // Предотвращаем возможные проблемы с выделением
+      this.focus();
     });
 
-    termSlider.dispatchEvent(new Event('input'));
+    termValue.addEventListener('focus', function () {
+      // Сохраняем текущее значение перед очисткой
+      if (!this.dataset.originalValue) {
+        this.dataset.originalValue = this.textContent;
+      }
+      this.textContent = this.textContent.replace(/[^\d]/g, '');
+    });
+
+    termValue.addEventListener('input', function () {
+      const selection = window.getSelection();
+      const range = selection.getRangeAt(0);
+      const cursorPosition = range.startOffset;
+
+      let value = this.textContent;
+      let cleaned = value.replace(/[^0-9]/g, '');
+
+      this.textContent = cleaned;
+
+      try {
+        const newRange = document.createRange();
+        const textNode = this.firstChild;
+        newRange.setStart(textNode, Math.min(cursorPosition, textNode.length));
+        newRange.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(newRange);
+      } catch (e) {
+        const rangeEnd = document.createRange();
+        rangeEnd.selectNodeContents(this);
+        rangeEnd.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(rangeEnd);
+      }
+    });
+
+    termValue.addEventListener('blur', function () {
+      let inputText = this.textContent.trim();
+      let num = parseInt(inputText.replace(/[^0-9]/g, ''));
+
+      if (isNaN(num)) {
+        num = parseInt(termSlider.value);
+      } else {
+        num = Math.max(parseInt(termSlider.min), Math.min(parseInt(termSlider.max), num));
+      }
+
+      termSlider.value = num;
+      termValue.textContent = `${num} ${getYearWord(num)}`;
+
+      const percent = ((num - termSlider.min) / (termSlider.max - termSlider.min)) * 100;
+      termSlider.style.setProperty('--progress', `${percent}%`);
+      
+      // Очищаем сохраненное значение
+      delete this.dataset.originalValue;
+    });
+
+    updateTermDisplay();
   }
 });

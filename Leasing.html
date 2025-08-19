@@ -54,7 +54,9 @@
             </div>
         </div>
     </header>
-
+    <button id="burgerButton" class="md:hidden absolute right-6 top-6 z-10 focus:outline-none">
+        <img src="./assets/Бургер меню.svg" alt="Меню">
+    </button>
     <div id="mobileMenuOverlay" class="hidden md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
 
     <div id="mobileMenu" class="hidden md:hidden fixed top-0 right-0 w-[70%] h-screen bg-white text-white p-4 
@@ -208,35 +210,50 @@
         </section>
 
 
-        <form class=" rounded-[24px]  flex flex-col gap-8 md:gap-[60px] mb-[120px]" action="">
-            <h2 class="text-[18px] md:text-[48px] font-medium"> 2. Условия </h2>
+        <form class="rounded-[24px] flex flex-col gap-8 md:gap-[60px] md:mb-[120px]" action="">
+            <h2 class="font-medium text-[#4886FF] mb-6 md:text-2xl text-[18px]">2. Условия</h2>
+
+            <!-- Ползунок: Первоначальный взнос -->
             <input type="range" class="thick-blue-slider block w-full" id="downPaymentSlider" min="100000" max="6000000"
-                value="500000" step="100000">
+                value="500000" step="100000" />
+
+            <!-- Поле ввода суммы -->
             <div class="flex justify-between items-center text-xs md:text-sm font-medium mt-2 md:mt-4 mb-4 md:mb-6">
-                <div
-                    class="bg-[#F8F8F8] text-gray-600 px-4 md:px-8 py-2 md:py-4 w-full text-center rounded-[50px] shadow-sm">
-                    <span class="text-[12px] md:text-[18px]  text-[#4886FF]" id="downPaymentValue">500 000
-                        ₽</span>
+                <div class="bg-[#F8F8F8] text-gray-600 px-4 md:px-8 py-2 md:py-4 w-full text-center rounded-[50px] shadow-sm cursor-text"
+                    id="downPaymentContainer">
+                    <span class="text-[12px] md:text-[18px] text-[#4886FF]" id="downPaymentValue" contenteditable="true"
+                        spellcheck="false"
+                        style="outline: none; user-select: none; display: inline-block; width: 100%;">
+                        500 000 ₽
+                    </span>
                 </div>
                 <div
                     class="bg-[#131417] text-gray-600 px-4 md:px-8 py-2 md:py-4 rounded-[50px] shadow-sm opacity-0 pointer-events-none">
                     <span></span>
                 </div>
             </div>
-            <input type="range" class="thick-blue-slider block w-full" id="termSlider" min="1" max="7" value="6"
-                step="1">
+
+            <!-- Ползунок: Срок кредита -->
+            <input type="range" class="thick-blue-slider block w-full" id="termSlider" min="1" max="8" value="6"
+                step="1" />
+
+            <!-- Поле ввода срока -->
             <div class="flex justify-between items-center text-sm font-medium mt-4">
-                <div
-                    class="bg-[#F8F8F8] text-[#4886FF] w-full text-center px-4 md:px-8 py-2 md:py-4 rounded-[50px] shadow-sm">
-                    <span class="text-[14px]" id="termValue">6 лет</span>
+                <div class="bg-[#F8F8F8] text-[#4886FF] w-full text-center px-4 md:px-8 py-2 md:py-4 rounded-[50px] shadow-sm cursor-text"
+                    id="termContainer">
+                    <span class="text-[14px]" id="termValue" contenteditable="true" spellcheck="false"
+                        style="outline: none; user-select: none; display: inline-block; width: 100%;">
+                        6 лет
+                    </span>
                 </div>
                 <div
                     class="bg-[#131417] text-[#19BC8D] px-4 md:px-8 py-2 md:py-4 rounded-[50px] shadow-sm opacity-0 pointer-events-none">
                     <span></span>
                 </div>
             </div>
-
         </form>
+
+
 
 
 
@@ -322,6 +339,21 @@
             border-radius: 50%;
             cursor: pointer;
             border: none;
+        }
+
+
+        @media (max-width: 1780px) {
+            .thick-blue-slider::-webkit-slider-thumb {
+                margin-top: -5px;
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            .thick-blue-slider::-webkit-slider-runnable-track {
+                height: 20px;
+                background: linear-gradient(to right, #4886FF var(--progress, 0%), #F8F8F8 var(--progress, 0%));
+                border-radius: 15px;
+            }
         }
     </style>
 
